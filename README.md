@@ -1,2 +1,2 @@
-# xfg-frame-archetype - DDD 脚手架
+# 团购项目学习
 
