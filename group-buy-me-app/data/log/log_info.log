@@ -1,88 +1,32 @@
-26-03-21.19:37:54.036 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 37444 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:37:54.038 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:37:56.720 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 3.223 seconds (JVM running for 4.498)
-26-03-21.19:37:57.557 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:37:58.176 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:37:58.398 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果：{}
-26-03-21.19:37:58.469 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:37:58.495 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:38:30.708 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 32588 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:38:30.709 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:38:32.863 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.598 seconds (JVM running for 3.336)
-26-03-21.19:38:33.473 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:38:33.931 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:38:34.103 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:{}
-26-03-21.19:38:34.120 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:38:34.133 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:39:36.778 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 5532 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:39:36.779 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:39:38.938 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.617 seconds (JVM running for 3.352)
-26-03-21.19:39:39.475 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:39:39.878 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:39:40.084 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"id":1,"status":1,"target":3}]
-26-03-21.19:39:40.096 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:39:40.101 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:43:40.024 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 11408 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:43:40.026 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:43:42.254 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.704 seconds (JVM running for 3.447)
-26-03-21.19:43:42.791 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:43:43.213 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:43:43.407 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"id":1,"status":1,"target":3}]
-26-03-21.19:43:43.425 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:43:43.434 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:46:21.466 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 34128 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:46:21.467 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:46:23.601 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.593 seconds (JVM running for 3.329)
-26-03-21.19:46:24.151 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:46:24.578 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:46:24.798 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"createTime":1733537980000,"discountId":"25120207","id":1,"tagId":"1","updateTime":1743823263000}]
-26-03-21.19:46:24.811 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:46:24.816 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:48:19.120 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 35372 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:48:19.122 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:48:21.805 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 3.211 seconds (JVM running for 4.83)
-26-03-21.19:48:22.510 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:48:23.028 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:48:23.259 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"id":1,"status":1,"target":3}]
-26-03-21.19:48:23.277 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:48:23.285 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:56:08.874 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 35984 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:56:08.876 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:56:11.020 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.589 seconds (JVM running for 3.312)
-26-03-21.19:56:11.514 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:56:11.907 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:56:12.123 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"activityId":100123,"activityName":"测试活动","createTime":1733537980000,"discountId":"25120207","endTime":1891304380000,"groupType":0,"id":1,"startTime":1733537980000,"status":1,"tagId":"1","tagScope":"1","takeLimitCount":1,"target":3,"updateTime":1743823263000,"validTime":15}]
-26-03-21.19:56:12.138 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:56:12.148 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:56:40.224 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 35380 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:56:40.225 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:56:42.298 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.526 seconds (JVM running for 3.264)
-26-03-21.19:56:42.868 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:56:43.269 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:56:43.463 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"createTime":1733537980000,"discountId":"25120207","id":1,"tagId":"1","updateTime":1743823263000}]
-26-03-21.19:56:43.478 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:56:43.490 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.19:57:36.015 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 35344 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.19:57:36.017 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.19:57:38.186 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.621 seconds (JVM running for 3.393)
-26-03-21.19:57:38.739 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.19:57:39.139 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.19:57:39.334 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"activityId":100123,"activityName":"测试活动","createTime":1733537980000,"discountId":"25120207","endTime":1891304380000,"groupType":0,"id":1,"startTime":1733537980000,"status":1,"tagId":"1","tagScope":"1","takeLimitCount":1,"target":3,"updateTime":1743823263000,"validTime":15}]
-26-03-21.19:57:39.353 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.19:57:39.373 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.20:00:25.325 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 31996 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.20:00:25.327 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.20:00:27.347 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.487 seconds (JVM running for 3.251)
-26-03-21.20:00:27.894 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.20:00:28.324 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.20:00:28.524 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"createTime":1733537980000,"discountId":"25120207","id":1,"tagId":"1","updateTime":1743823263000}]
-26-03-21.20:00:28.537 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.20:00:28.548 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-03-21.20:05:58.098 [main            ] INFO  GroupBuyActivityDaoTest - Starting GroupBuyActivityDaoTest using Java 17 on jjnice with PID 24460 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-03-21.20:05:58.099 [main            ] INFO  GroupBuyActivityDaoTest - The following 1 profile is active: "dev"
-26-03-21.20:06:00.247 [main            ] INFO  GroupBuyActivityDaoTest - Started GroupBuyActivityDaoTest in 2.606 seconds (JVM running for 3.354)
-26-03-21.20:06:00.783 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-03-21.20:06:01.211 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-03-21.20:06:01.396 [main            ] INFO  GroupBuyActivityDaoTest - 测试结果:[{"createTime":1733538015000,"discountDesc":"测试优惠","discountId":"25120207","discountName":"测试优惠","discountType":0,"id":1,"marketExpr":"20","marketPlan":"ZJ","updateTime":1734750812000}]
-26-03-21.20:06:01.414 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-03-21.20:06:01.432 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.11:19:09.668 [main            ] INFO  test                   - Starting test using Java 17 on jjnice with PID 5100 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.11:19:09.672 [main            ] INFO  test                   - The following 1 profile is active: "dev"
+26-03-26.11:19:12.541 [main            ] INFO  test                   - Started test in 3.698 seconds (JVM running for 5.277)
+26-03-26.11:19:13.344 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.11:19:13.962 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.11:19:14.089 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.11:19:14.114 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.11:21:38.690 [main            ] INFO  test                   - Starting test using Java 17 on jjnice with PID 12548 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.11:21:38.690 [main            ] INFO  test                   - The following 1 profile is active: "dev"
+26-03-26.11:21:41.481 [main            ] INFO  test                   - Started test in 3.343 seconds (JVM running for 4.307)
+26-03-26.11:21:42.113 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.11:21:42.644 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.11:21:42.727 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.11:21:42.732 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.11:22:52.406 [main            ] INFO  test                   - Starting test using Java 17 on jjnice with PID 15788 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.11:22:52.408 [main            ] INFO  test                   - The following 1 profile is active: "dev"
+26-03-26.11:22:54.953 [main            ] INFO  test                   - Started test in 3.089 seconds (JVM running for 3.995)
+26-03-26.11:22:55.602 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.11:22:56.138 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.11:22:56.544 [main            ] INFO  test                   - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.11:22:56.545 [main            ] INFO  test                   - 返回结果：null
+26-03-26.11:22:56.556 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.11:22:56.564 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.11:23:39.512 [main            ] INFO  test                   - Starting test using Java 17 on jjnice with PID 25832 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.11:23:39.512 [main            ] INFO  test                   - The following 1 profile is active: "dev"
+26-03-26.11:23:42.244 [main            ] INFO  test                   - Started test in 3.306 seconds (JVM running for 4.342)
+26-03-26.11:23:42.979 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.11:23:43.505 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.11:23:43.859 [main            ] INFO  test                   - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.11:23:43.882 [main            ] INFO  test                   - 返回结果：{"deductionPrice":0.1,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.11:23:43.898 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.11:23:43.906 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.

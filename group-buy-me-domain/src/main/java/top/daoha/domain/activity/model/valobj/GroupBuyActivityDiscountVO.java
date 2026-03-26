@@ -1,4 +1,4 @@
-package top.daoha.infrastructure.dao.po;
+package top.daoha.domain.activity.model.valobj;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,20 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @ClassName : GroupBuyActivity
+ * @ClassName : GroupBuyActivityDiscountVO
  * @Description :
  * @github:
  * @Author : 24209
- * @Date: 2026/3/21  17:12
+ * @Date: 2026/3/25  15:02
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupBuyActivity {
-
-    /** 自增ID */
-    private Long id;
+public class GroupBuyActivityDiscountVO {
     /** 活动ID */
     private Long activityId;
     /** 活动名称 */
@@ -31,7 +28,7 @@ public class GroupBuyActivity {
     /**  商品id */
     private String goodsId;
     /** 折扣ID */
-    private String discountId;
+    private GroupBuyDiscount groupBuyDiscount;
     /** 拼团方式（0自动成团、1达成目标拼团） */
     private Integer groupType;
     /** 拼团次数限制 */
@@ -50,9 +47,23 @@ public class GroupBuyActivity {
     private String tagId;
     /** 人群标签规则范围（多选；1可见限制、2参与限制） */
     private String tagScope;
-    /** 创建时间 */
-    private java.util.Date createTime;
-    /** 更新时间 */
-    private java.util.Date updateTime;
 
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class GroupBuyDiscount{
+        /** * 折扣标题  */
+        private String discountName;
+        /** 折扣描述*/
+        private String discountDesc;
+        /**折扣类型（0:base、1:tag）  */
+        private Integer discountType;
+        /**营销优惠计划（ZJ:直减、MJ:满减、N元购） */
+        private String marketPlan;
+        /**营销优惠表达式  */
+        private String marketExpr;
+        /**人群标签，特定优惠限定 */
+        private String tagId;
+    }
 }

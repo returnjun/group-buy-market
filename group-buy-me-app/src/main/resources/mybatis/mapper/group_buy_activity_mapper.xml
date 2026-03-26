@@ -6,6 +6,9 @@
         <id column="id" property="id"/>
         <id column="activity_id" property="activityId"/>
         <id column="activity_name" property="activityName"/>
+        <id column="source" property="source"/>
+        <id column="channel" property="channel"/>
+        <id column="goods_id" property="goodsId"/>
         <id column="discount_id" property="discountId"/>
         <id column="group_type" property="groupType"/>
         <id column="take_limit_count" property="takeLimitCount"/>
@@ -22,6 +25,15 @@
 
     <select id="queryGroupBuyActivityList" resultMap="dateMap">
         select * from group_buy_market.group_buy_activity
+    </select>
+    <select id="queryValidGroupBuyActivity" parameterType="top.daoha.infrastructure.dao.po.GroupBuyActivity" resultMap="dateMap">
+        select id, activity_id,activity_name,discount_id,group_type,
+               take_limit_count,target,valid_time,status,start_time,
+               end_time,tag_id,tag_scope,create_time
+        from group_buy_market.group_buy_activity
+        where source = #{source} and channel = #{channel}
+        order by id desc
+        limit 1
     </select>
 
 </mapper>
