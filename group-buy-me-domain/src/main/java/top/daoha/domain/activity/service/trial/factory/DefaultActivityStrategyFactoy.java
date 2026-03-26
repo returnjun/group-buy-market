@@ -12,6 +12,8 @@ import top.daoha.domain.activity.model.valobj.SkuVO;
 import top.daoha.domain.activity.service.trial.node.RootNode;
 import top.daoha.types.desgin.framework.tree.StrategyHandler;
 
+import java.math.BigDecimal;
+
 /**
  * @ClassName : DefaultActivityStrategyFactoy
  * @Description :
@@ -40,5 +42,6 @@ public class DefaultActivityStrategyFactoy {
     public static class DynamicContext{
         private GroupBuyActivityDiscountVO groupBuyActivityDiscountVO;
         private SkuVO skuVO;
+        private BigDecimal deductionPrice;
     }
 }

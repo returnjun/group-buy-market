@@ -2,6 +2,7 @@ package top.daoha.infrastructure.adapter.repository;
 
 import org.springframework.stereotype.Repository;
 import top.daoha.domain.activity.adapter.repository.IActivityRepository;
+import top.daoha.domain.activity.model.valobj.DiscountTypeEnum;
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import top.daoha.domain.activity.model.valobj.SkuVO;
 import top.daoha.infrastructure.dao.IGroupBuyActivityDao;
@@ -41,7 +42,7 @@ public class ActivityRepository implements IActivityRepository {
         GroupBuyDiscount groupBuyDiscount = iGroupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId);
 
         GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount1 =new GroupBuyActivityDiscountVO.GroupBuyDiscount(
-                groupBuyDiscount.getDiscountName(),groupBuyDiscount.getDiscountDesc(),groupBuyDiscount.getDiscountType(),
+                groupBuyDiscount.getDiscountName(),groupBuyDiscount.getDiscountDesc(), DiscountTypeEnum.get(groupBuyDiscount.getDiscountType()),
                 groupBuyDiscount.getMarketPlan(),groupBuyDiscount.getMarketExpr(),groupBuyDiscount.getTagId()
         );
 
@@ -63,6 +64,7 @@ public class ActivityRepository implements IActivityRepository {
         groupBuyActivityDiscountVO.setEndTime(res.getEndTime());
         groupBuyActivityDiscountVO.setTagId(res.getTagId());
         groupBuyActivityDiscountVO.setTagScope(res.getTagScope());
+
         return groupBuyActivityDiscountVO;
     }
 

@@ -30,3 +30,299 @@
 26-03-26.11:23:43.882 [main            ] INFO  test                   - 返回结果：{"deductionPrice":0.1,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
 26-03-26.11:23:43.898 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
 26-03-26.11:23:43.906 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.16:23:48.154 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 31812 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.16:23:48.155 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.16:23:50.533 [main            ] INFO  threadtest             - Started threadtest in 2.918 seconds (JVM running for 3.883)
+26-03-26.16:23:51.162 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.16:23:51.690 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.16:23:51.985 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.16:23:51.998 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":0.1,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.16:23:52.011 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.16:23:52.024 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:44:14.981 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 30476 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:44:14.982 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:44:15.140 [main            ] WARN  GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [top.daoha.Application]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'MJ' for bean class [top.daoha.domain.activity.service.discount.impl.ZJCalculateService] conflicts with existing, non-compatible bean definition of same name and class [top.daoha.domain.activity.service.discount.impl.MJCalculateService]
+26-03-26.17:44:15.177 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [top.daoha.Application]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'MJ' for bean class [top.daoha.domain.activity.service.discount.impl.ZJCalculateService] conflicts with existing, non-compatible bean definition of same name and class [top.daoha.domain.activity.service.discount.impl.MJCalculateService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:748)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:136)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:141)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:90)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:221)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'MJ' for bean class [top.daoha.domain.activity.service.discount.impl.ZJCalculateService] conflicts with existing, non-compatible bean definition of same name and class [top.daoha.domain.activity.service.discount.impl.MJCalculateService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:295)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:249)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 37 common frames omitted
+26-03-26.17:44:15.178 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@449a4f23] to prepare test instance [top.daoha.test.domain.activity.threadtest@5652f555]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:221)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [top.daoha.Application]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'MJ' for bean class [top.daoha.domain.activity.service.discount.impl.ZJCalculateService] conflicts with existing, non-compatible bean definition of same name and class [top.daoha.domain.activity.service.discount.impl.MJCalculateService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:748)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:136)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:141)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:90)
+	... 25 common frames omitted
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'MJ' for bean class [top.daoha.domain.activity.service.discount.impl.ZJCalculateService] conflicts with existing, non-compatible bean definition of same name and class [top.daoha.domain.activity.service.discount.impl.MJCalculateService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:295)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:249)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 37 common frames omitted
+26-03-26.17:45:28.749 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 4220 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:45:28.750 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:45:31.099 [main            ] INFO  threadtest             - Started threadtest in 2.796 seconds (JVM running for 3.557)
+26-03-26.17:45:31.720 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:45:32.209 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:45:32.491 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:45:32.503 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":60.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:45:32.515 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:45:32.522 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:48:45.343 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 12496 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:48:45.344 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:48:47.779 [main            ] INFO  threadtest             - Started threadtest in 2.887 seconds (JVM running for 3.664)
+26-03-26.17:48:48.453 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:48:48.965 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:48:49.231 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:48:49.244 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:48:49.266 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:48:49.279 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:49:11.416 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 31684 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:49:11.417 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:49:13.639 [main            ] INFO  threadtest             - Started threadtest in 2.679 seconds (JVM running for 3.405)
+26-03-26.17:49:14.175 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:49:14.607 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:49:14.904 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:49:14.915 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:49:14.928 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:49:14.935 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:49:54.575 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 32284 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:49:54.576 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:49:56.903 [main            ] INFO  threadtest             - Started threadtest in 2.78 seconds (JVM running for 3.539)
+26-03-26.17:49:57.463 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:49:57.870 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:49:58.169 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:49:58.177 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:49:58.188 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:49:58.194 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:50:27.410 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 33160 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:50:27.412 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:50:29.929 [main            ] INFO  threadtest             - Started threadtest in 2.985 seconds (JVM running for 3.77)
+26-03-26.17:50:30.566 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:50:30.987 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:50:31.208 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:50:31.220 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:50:31.239 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:50:31.248 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:52:04.125 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 27148 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:52:04.127 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:52:06.347 [main            ] INFO  threadtest             - Started threadtest in 2.693 seconds (JVM running for 3.486)
+26-03-26.17:52:06.915 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:52:07.359 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:52:07.634 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:52:07.644 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:52:07.655 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:52:07.663 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:54:11.409 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 6152 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:54:11.410 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:54:13.709 [main            ] INFO  threadtest             - Started threadtest in 2.785 seconds (JVM running for 3.531)
+26-03-26.17:54:14.333 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:54:14.783 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:54:15.003 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:54:15.015 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:54:15.034 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:54:15.044 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:54:37.602 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 19028 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:54:37.603 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:54:39.770 [main            ] INFO  threadtest             - Started threadtest in 2.687 seconds (JVM running for 3.462)
+26-03-26.17:54:40.279 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:54:40.689 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:54:40.962 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:54:40.972 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:54:40.986 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:54:40.996 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.17:55:30.693 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 22004 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.17:55:30.694 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.17:55:33.509 [main            ] INFO  threadtest             - Started threadtest in 3.317 seconds (JVM running for 4.875)
+26-03-26.17:55:34.321 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.17:55:34.975 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.17:56:24.178 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.17:56:24.186 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.17:56:24.201 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.17:56:24.209 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:08:14.017 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 3084 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:08:14.019 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:08:16.417 [main            ] INFO  threadtest             - Started threadtest in 2.858 seconds (JVM running for 3.632)
+26-03-26.18:08:16.981 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:08:17.414 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:08:17.496 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:08:17.500 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:13:05.464 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 24672 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:13:05.465 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:13:08.073 [main            ] INFO  threadtest             - Started threadtest in 3.213 seconds (JVM running for 4.123)
+26-03-26.18:13:08.892 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:13:09.540 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:28:00.201 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m20s660ms147µs400ns).
+26-03-26.18:28:00.219 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:28:00.241 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:28:44.512 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 31120 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:28:44.513 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:28:47.265 [main            ] INFO  threadtest             - Started threadtest in 3.277 seconds (JVM running for 4.324)
+26-03-26.18:28:48.061 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:28:48.669 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:29:12.081 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s412ms512µs800ns).
+26-03-26.18:30:44.784 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s701ms992µs900ns).
+26-03-26.18:32:14.561 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:32:14.580 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:33:14.456 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 26784 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:33:14.458 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:33:16.732 [main            ] INFO  threadtest             - Started threadtest in 2.787 seconds (JVM running for 3.537)
+26-03-26.18:33:17.415 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:33:17.835 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:33:18.066 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:33:18.080 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":1.99,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:33:18.100 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:33:18.107 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:33:35.656 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 19564 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:33:35.658 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:33:37.984 [main            ] INFO  threadtest             - Started threadtest in 2.781 seconds (JVM running for 3.529)
+26-03-26.18:33:38.458 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:33:38.864 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:33:39.126 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:33:39.140 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":1.99,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:33:39.161 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:33:39.172 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:34:09.802 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 33372 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:34:09.802 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:34:12.182 [main            ] INFO  threadtest             - Started threadtest in 2.822 seconds (JVM running for 3.557)
+26-03-26.18:34:12.762 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:34:13.236 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:34:13.520 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:34:13.534 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":1.99,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:34:13.555 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:34:13.563 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:34:29.855 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 19340 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:34:29.856 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:34:32.163 [main            ] INFO  threadtest             - Started threadtest in 2.77 seconds (JVM running for 3.635)
+26-03-26.18:34:32.734 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:34:33.140 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:34:33.378 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:34:33.391 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":1.99,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:34:33.407 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:34:33.420 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:34:58.851 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 11044 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:34:58.852 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:35:01.738 [main            ] INFO  threadtest             - Started threadtest in 3.409 seconds (JVM running for 4.283)
+26-03-26.18:35:02.530 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:35:03.169 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:35:35.074 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m1s905ms593µs300ns).
+26-03-26.18:35:35.108 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:35:35.112 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:35:38.440 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 34944 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:35:38.441 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:35:40.667 [main            ] INFO  threadtest             - Started threadtest in 2.686 seconds (JVM running for 3.419)
+26-03-26.18:35:41.273 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:35:41.684 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:35:41.881 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:35:41.893 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":100.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:35:41.911 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:35:41.924 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:36:09.491 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 30320 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:36:09.492 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:36:12.220 [main            ] INFO  threadtest             - Started threadtest in 3.26 seconds (JVM running for 4.273)
+26-03-26.18:36:12.994 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:36:13.643 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:36:18.691 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:36:18.696 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:37:25.403 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 29300 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:37:25.404 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:37:27.636 [main            ] INFO  threadtest             - Started threadtest in 2.727 seconds (JVM running for 3.481)
+26-03-26.18:37:28.199 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:37:28.624 [pool-2-thread-2 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:37:28.872 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:37:28.886 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":90.00,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:37:28.904 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:37:28.916 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-03-26.18:38:07.040 [main            ] INFO  threadtest             - Starting threadtest using Java 17 on jjnice with PID 31668 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-03-26.18:38:07.041 [main            ] INFO  threadtest             - The following 1 profile is active: "dev"
+26-03-26.18:38:09.199 [main            ] INFO  threadtest             - Started threadtest in 2.595 seconds (JVM running for 3.426)
+26-03-26.18:38:09.761 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-03-26.18:38:10.223 [pool-2-thread-1 ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-03-26.18:38:10.455 [main            ] INFO  threadtest             - 请求参数：{"channel":"c01","goodsId":"9890001","source":"s01","userId":"xiaofuge"}
+26-03-26.18:38:10.467 [main            ] INFO  threadtest             - 返回结果：{"deductionPrice":80.000,"endTime":1733537980000,"goodsId":"9890001","goodsName":"《手写MyBatis：渐进式源码实践》","isEnable":false,"isVisible":false,"originalPrice":100.00,"startTime":1733537980000,"targetCount":1}
+26-03-26.18:38:10.479 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-03-26.18:38:10.487 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
