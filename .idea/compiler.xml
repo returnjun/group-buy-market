@@ -18,6 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="group-buy-me" options="-parameters" />
       <module name="group-buy-me-api" options="-parameters" />
       <module name="group-buy-me-app" options="-parameters" />
       <module name="group-buy-me-domain" options="-parameters" />
