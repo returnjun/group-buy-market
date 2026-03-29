@@ -60,13 +60,13 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
 
         SkuVO skuVO = dynamicContext.getSkuVO();
         IDiscountCalculateService iDiscountCalculateService = discountCalculateServiceMap.get(marketPlan);
-        if(null==iDiscountCalculateService){
+        if (null == iDiscountCalculateService) {
             throw new AppException(ResponseCode.E0001.getCode());
         }
         BigDecimal calculate1 = iDiscountCalculateService.calculate(requestParameter.getUserId(), skuVO.getOriginalPrice(), groupBuyDiscount);
         dynamicContext.setDeductionPrice(calculate1);
 
-        return router(requestParameter,dynamicContext);
+        return router(requestParameter, dynamicContext);
     }
 
     @Override

@@ -9,4 +9,11 @@ package top.daoha.domain.tag.service;
  */
 
 public interface ITagService {
+
+    /**
+     * 执行标签任务
+     * @param tagId 标签id
+     * @param batchId 批次id
+     */
+    void execTagBatchJob(String tagId,String batchId);
 }

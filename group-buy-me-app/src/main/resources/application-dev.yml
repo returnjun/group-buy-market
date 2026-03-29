@@ -48,7 +48,7 @@ redis:
     config:
       #host需要换成自己的ip
       host: 127.0.0.1
-      port: 16379
+      port: 6379
       pool-size: 10
       min-idle-size: 5
       idle-timeout: 30000
