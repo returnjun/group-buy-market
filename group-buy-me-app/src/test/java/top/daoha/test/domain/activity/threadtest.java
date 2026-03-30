@@ -31,7 +31,15 @@ public class threadtest {
         MarketProductEntity marketProductEntity = new MarketProductEntity("xiaofuge", "9890001", "s01", "c01");
         TrialBalanceEntity trialBalanceEntity = iIndexGroupBuyMarketService.indexMarketTrial(marketProductEntity);
         log.info("请求参数：{}", JSON.toJSONString(marketProductEntity));
-        log.info("返回结果：{}",JSON.toJSONString(trialBalanceEntity));
+        log.info("返回结果：{}", JSON.toJSONString(trialBalanceEntity));
+    }
+
+    @Test
+    public void test_error() throws Exception {
+        MarketProductEntity marketProductEntity = new MarketProductEntity("xiaofuge", "9890002", "s01", "c01");
+        TrialBalanceEntity trialBalanceEntity = iIndexGroupBuyMarketService.indexMarketTrial(marketProductEntity);
+        log.info("请求参数：{}", JSON.toJSONString(marketProductEntity));
+        log.info("返回结果：{}", JSON.toJSONString(trialBalanceEntity));
     }
 }
 

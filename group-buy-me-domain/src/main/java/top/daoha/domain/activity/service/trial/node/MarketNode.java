@@ -36,11 +36,15 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
     @Resource
     private EndNode endNode;
     @Resource
+    private ErrorNode errorNode;
+    @Resource
+    private TagNode tagNode;
+    @Resource
     private Map<String, IDiscountCalculateService> discountCalculateServiceMap;
 
     @Override
     protected void mutiThread(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) throws ExecutionException, InterruptedException, TimeoutException {
-        QueryGroupBuyActivityDiscountVOThreadTask queryGroupBuyActivityDiscountVOThreadTask = new QueryGroupBuyActivityDiscountVOThreadTask(requestParameter.getSource(), requestParameter.getChannel(), iActivityRepository);
+        QueryGroupBuyActivityDiscountVOThreadTask queryGroupBuyActivityDiscountVOThreadTask = new QueryGroupBuyActivityDiscountVOThreadTask(requestParameter.getSource(), requestParameter.getChannel(), requestParameter.getGoodsId(), iActivityRepository);
         FutureTask<GroupBuyActivityDiscountVO> groupBuyActivityDiscountVOFutureTask = new FutureTask<>(queryGroupBuyActivityDiscountVOThreadTask);
         threadPoolExecutor.execute(groupBuyActivityDiscountVOFutureTask);
 
@@ -55,10 +59,16 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
     @Override
     public TrialBalanceEntity doApply(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) throws Exception {
         GroupBuyActivityDiscountVO groupBuyActivityDiscountVO = dynamicContext.getGroupBuyActivityDiscountVO();
+        if(null == groupBuyActivityDiscountVO){
+            router(requestParameter, dynamicContext);
+        }
         GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount = groupBuyActivityDiscountVO.getGroupBuyDiscount();
         String marketPlan = groupBuyDiscount.getMarketPlan();
 
         SkuVO skuVO = dynamicContext.getSkuVO();
+        if(null == groupBuyDiscount||null == skuVO){
+            router(requestParameter, dynamicContext);
+        }
         IDiscountCalculateService iDiscountCalculateService = discountCalculateServiceMap.get(marketPlan);
         if (null == iDiscountCalculateService) {
             throw new AppException(ResponseCode.E0001.getCode());
@@ -71,6 +81,11 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
 
     @Override
     public StrategyHandler<MarketProductEntity, DefaultActivityStrategyFactoy.DynamicContext, TrialBalanceEntity> get(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) {
-        return endNode;
+        if(null == dynamicContext.getGroupBuyActivityDiscountVO() ||
+                null == dynamicContext.getSkuVO()||
+                null == dynamicContext.getDeductionPrice()){
+            return errorNode;
+        }
+        return tagNode;
     }
 }

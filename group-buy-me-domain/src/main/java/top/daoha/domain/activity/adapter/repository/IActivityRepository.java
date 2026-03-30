@@ -1,6 +1,7 @@
 package top.daoha.domain.activity.adapter.repository;
 
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
+import top.daoha.domain.activity.model.valobj.SCSkuActivityVO;
 import top.daoha.domain.activity.model.valobj.SkuVO;
 
 /**
@@ -12,6 +13,10 @@ import top.daoha.domain.activity.model.valobj.SkuVO;
  */
 
 public interface IActivityRepository {
-    GroupBuyActivityDiscountVO queryGroupBuyActivityDiscount(String source,String channel);
+    GroupBuyActivityDiscountVO queryGroupBuyActivityDiscount(Long activityId);
+
     SkuVO querySkuByGoosId(String goodsId);
+
+
+    SCSkuActivityVO queryByGoodsId(String source, String channel, String goodsId);
 }

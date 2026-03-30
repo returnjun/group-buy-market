@@ -2196,3 +2196,9 @@ Caused by: org.redisson.client.RedisTimeoutException: Command execution timeout 
 26-03-29.16:35:55.852 [main            ] ERROR TagRepository          - 标签任务不存在，标签ID：RQ_KJHKL98UU78H66554GFDV，批次ID：20260329
 26-03-29.16:36:15.150 [main            ] ERROR TagRepository          - 标签任务不存在，标签ID：RQ_KJHKL98UU78H66554GFDV，批次ID：20260329
 26-03-29.16:36:43.292 [main            ] ERROR TagRepository          - 标签任务不存在，标签ID：RQ_KJHKL98UU78H66554GFDV，批次ID：20260329
+26-03-29.19:24:22.256 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m20s927ms906µs400ns).
+26-03-29.19:30:49.519 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m46s271ms170µs100ns).
+26-03-29.19:37:05.485 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46s92ms196µs300ns).
+26-03-29.19:39:11.005 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s960ms167µs100ns).
+26-03-29.19:44:08.439 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m38s516ms614µs200ns).
+26-03-29.19:46:44.886 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m36s446ms854µs500ns).

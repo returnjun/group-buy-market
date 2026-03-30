@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+import top.daoha.types.common.Constants;
+
+import java.util.Objects;
 
 /**
  * @ClassName : GroupBuyActivityDiscountVO
@@ -47,6 +51,32 @@ public class GroupBuyActivityDiscountVO {
     private String tagId;
     /** 人群标签规则范围（多选；1可见限制、2参与限制） */
     private String tagScope;
+
+
+    public boolean isVisible(){
+        if(StringUtils.isBlank(this.tagScope)){
+            return true;
+        }
+        String[] split = this.tagScope.split(Constants.SPLIT);
+        if(split.length>0&& Objects.equals("1",split[0])){
+            return TagScopeEnumVO.Visible.getRefuse();
+        }
+        return TagScopeEnumVO.Visible.getAllow();
+    }
+
+    public boolean isEnable(){
+        if(StringUtils.isBlank(this.tagScope)){
+            return true;
+        }
+        String[] split = this.tagScope.split(Constants.SPLIT);
+        if(split.length==2&& Objects.equals("2",split[1])){
+            return TagScopeEnumVO.Enable.getRefuse();
+        }
+        return TagScopeEnumVO.Enable.getAllow();
+    }
+
+
+
 
     @Data
     @Builder

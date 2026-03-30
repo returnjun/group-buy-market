@@ -2,6 +2,7 @@ package top.daoha.domain.activity.service.trial.thread;
 
 import top.daoha.domain.activity.adapter.repository.IActivityRepository;
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
+import top.daoha.domain.activity.model.valobj.SCSkuActivityVO;
 
 import java.util.concurrent.Callable;
 
@@ -19,16 +20,23 @@ public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<Group
 
     private final String channel;
 
+    private final String goodsId;
+
     private final IActivityRepository repository;
 
-    public QueryGroupBuyActivityDiscountVOThreadTask(String source, String channel, IActivityRepository repository) {
+    public QueryGroupBuyActivityDiscountVOThreadTask(String source, String channel, String goodsId, IActivityRepository repository) {
         this.source = source;
         this.channel = channel;
+        this.goodsId = goodsId;
         this.repository = repository;
     }
 
     @Override
     public GroupBuyActivityDiscountVO call() throws Exception {
-        return repository.queryGroupBuyActivityDiscount(source,channel);
+        SCSkuActivityVO skuActivityVO = repository.queryByGoodsId(source,channel,goodsId);
+
+        if(null==skuActivityVO)return null;
+
+        return repository.queryGroupBuyActivityDiscount(skuActivityVO.getActivityId());
     }
 }
