@@ -35,7 +35,7 @@ public class TagService implements ITagService{
         //3数据写入记录
         List<String> userIdList=new ArrayList<String>(){
             {
-                add("xiaoguge");
+                add("xiaofuge");
                 add("liergou");
             }
         };

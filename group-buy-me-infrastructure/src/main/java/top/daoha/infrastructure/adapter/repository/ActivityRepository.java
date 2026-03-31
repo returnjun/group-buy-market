@@ -1,5 +1,6 @@
 package top.daoha.infrastructure.adapter.repository;
 
+import org.redisson.api.RBitSet;
 import org.springframework.stereotype.Repository;
 import top.daoha.domain.activity.adapter.repository.IActivityRepository;
 import top.daoha.domain.activity.model.valobj.DiscountTypeEnum;
@@ -14,6 +15,7 @@ import top.daoha.infrastructure.dao.po.GroupBuyActivity;
 import top.daoha.infrastructure.dao.po.GroupBuyDiscount;
 import top.daoha.infrastructure.dao.po.ScSkuActivity;
 import top.daoha.infrastructure.dao.po.Sku;
+import top.daoha.infrastructure.redis.IRedisService;
 
 import javax.annotation.Resource;
 
@@ -38,23 +40,26 @@ public class ActivityRepository implements IActivityRepository {
     @Resource
     IScSkuActivityDao iScSkuActivityDao;
 
+    @Resource
+    private IRedisService iRedisService;
+
+
     @Override
     public GroupBuyActivityDiscountVO queryGroupBuyActivityDiscount(Long activityId) {
 
 
         GroupBuyActivity groupBuyActivity = iGroupBuyActivityDao.queryGroupBuyActivityDiscountByActivityId(activityId);
-        if(null==groupBuyActivity)return null;
+        if (null == groupBuyActivity) return null;
 
         String discountId = groupBuyActivity.getDiscountId();
 
         GroupBuyDiscount groupBuyDiscount = iGroupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId);
-        if(null==groupBuyDiscount)return null;
+        if (null == groupBuyDiscount) return null;
 
 
-
-        GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount1 =new GroupBuyActivityDiscountVO.GroupBuyDiscount(
-                groupBuyDiscount.getDiscountName(),groupBuyDiscount.getDiscountDesc(), DiscountTypeEnum.get(groupBuyDiscount.getDiscountType()),
-                groupBuyDiscount.getMarketPlan(),groupBuyDiscount.getMarketExpr(),groupBuyDiscount.getTagId()
+        GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount1 = new GroupBuyActivityDiscountVO.GroupBuyDiscount(
+                groupBuyDiscount.getDiscountName(), groupBuyDiscount.getDiscountDesc(), DiscountTypeEnum.get(groupBuyDiscount.getDiscountType()),
+                groupBuyDiscount.getMarketPlan(), groupBuyDiscount.getMarketExpr(), groupBuyDiscount.getTagId()
         );
 
 
@@ -80,14 +85,13 @@ public class ActivityRepository implements IActivityRepository {
     @Override
     public SkuVO querySkuByGoosId(String goodsId) {
         Sku sku = iSkuDao.queryByGoodsId(goodsId);
-        if(null==sku)return null;
+        if (null == sku) return null;
         SkuVO skuVO = new SkuVO();
         skuVO.setGoodsId(sku.getGoodsId());
         skuVO.setGoodsName(sku.getGoodsName());
         skuVO.setOriginalPrice(sku.getOriginalPrice());
         return skuVO;
     }
-
 
 
     @Override
@@ -98,7 +102,7 @@ public class ActivityRepository implements IActivityRepository {
         scSkuActivity.setGoodsId(goodsId);
 
         scSkuActivity = iScSkuActivityDao.queryByGoodsId(scSkuActivity);
-        if(null==scSkuActivity)return null;
+        if (null == scSkuActivity) return null;
 
         SCSkuActivityVO scSkuActivityVO = new SCSkuActivityVO();
         scSkuActivityVO.setActivityId(scSkuActivity.getActivityId());
@@ -106,5 +110,12 @@ public class ActivityRepository implements IActivityRepository {
         scSkuActivityVO.setSource(scSkuActivity.getSource());
         scSkuActivityVO.setChannel(scSkuActivity.getChannel());
         return scSkuActivityVO;
+    }
+
+    @Override
+    public boolean isTagCrowRange(String tagId, String userId) {
+        RBitSet bitSet = iRedisService.getBitSet(tagId);
+        if (!bitSet.isExists()) return true;
+        return bitSet.get(iRedisService.getIndexFromUserId(userId));
     }
 }

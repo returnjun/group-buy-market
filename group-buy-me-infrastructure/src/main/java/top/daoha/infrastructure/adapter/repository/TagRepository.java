@@ -29,7 +29,7 @@ public class TagRepository implements ITagRepository {
     ICrowdTagsJobDao crowdTagsJobDao;
 
     @Resource
-    ICrowdTagsDao  crowdTagsDao;
+    ICrowdTagsDao crowdTagsDao;
 
     @Resource
     ICrowdTagsDetailDao crowdTagsDetailDao;
@@ -40,8 +40,8 @@ public class TagRepository implements ITagRepository {
         crowdTagsJob.setTagId(tagId);
         crowdTagsJob.setBatchId(batchId);
         CrowdTagsJob crowdTagsJob1 = crowdTagsJobDao.queryCrowdTagsJob(crowdTagsJob);
-        if(crowdTagsJob1==null){
-            log.error("标签任务不存在，标签ID：{}，批次ID：{}",tagId,batchId);
+        if (crowdTagsJob1 == null) {
+            log.error("标签任务不存在，标签ID：{}，批次ID：{}", tagId, batchId);
             return null;
         }
 
@@ -63,12 +63,10 @@ public class TagRepository implements ITagRepository {
         crowdTagsDetail.setTagId(tagId);
         try {
             crowdTagsDetailDao.addCrowdTagsUserId(crowdTagsDetail);
-
-            RBitSet bitSet = redisService.getBitSet(tagId);
-            bitSet.set(redisService.getIndexFromUserId(userId));
-
-        }catch (DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
         }
+        RBitSet bitSet = redisService.getBitSet(tagId);
+        bitSet.set(redisService.getIndexFromUserId(userId));
 
     }
 

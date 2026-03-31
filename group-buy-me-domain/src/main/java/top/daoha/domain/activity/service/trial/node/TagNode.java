@@ -1,6 +1,8 @@
 package top.daoha.domain.activity.service.trial.node;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 import top.daoha.domain.activity.model.entity.MarketProductEntity;
 import top.daoha.domain.activity.model.entity.TrialBalanceEntity;
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
@@ -10,9 +12,12 @@ import top.daoha.types.desgin.framework.tree.StrategyHandler;
 
 import javax.annotation.Resource;
 
+@Slf4j
+@Service
 public class TagNode extends AbstractGroupBuyMarketSupport<MarketProductEntity, DefaultActivityStrategyFactoy.DynamicContext, TrialBalanceEntity> {
     @Resource
     private EndNode endNode;
+
 
     @Override
     protected TrialBalanceEntity doApply(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) throws Exception {
@@ -22,14 +27,16 @@ public class TagNode extends AbstractGroupBuyMarketSupport<MarketProductEntity, 
         boolean visible = groupBuyActivityDiscountVO.isVisible();
 
         //这里，如果当前这个人群标签都没有，直接默认没有限制
-        if(StringUtils.isBlank(tagId)){
+        if (StringUtils.isBlank(tagId)) {
             dynamicContext.setEnabled(true);
             dynamicContext.setVisible(true);
             router(requestParameter, dynamicContext);
         }
 
-        boolean isWithin =
+        boolean isWithin = iActivityRepository.isTagCrowRange(tagId, requestParameter.getUserId());
 
+        dynamicContext.setEnabled(enable || isWithin);
+        dynamicContext.setVisible(visible || isWithin);
 
         return router(requestParameter, dynamicContext);
     }

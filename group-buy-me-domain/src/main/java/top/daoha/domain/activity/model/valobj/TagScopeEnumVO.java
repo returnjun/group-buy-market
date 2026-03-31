@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public enum TagScopeEnumVO {
-    Visible(true,false, "可见限制"),
-    Enable(true,false, "参与限制"),
+    Visible(true,false, "是否可见限制"),
+    Enable(true,false, "是否参与限制"),
     ;
 
     private Boolean allow;
