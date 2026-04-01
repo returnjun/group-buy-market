@@ -14,7 +14,7 @@
 
     <select id="queryByGoodsId" parameterType="top.daoha.infrastructure.dao.po.ScSkuActivity" resultMap="dataMap">
         select * from group_buy_market.sc_sku_activity
-        where goods_id = #{goodsId}
+        where goods_id = #{goodsId} and source = #{source} and channel = #{channel}
     </select>
 
 
