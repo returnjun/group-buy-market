@@ -26,8 +26,6 @@ public class Taggroup {
 
     @Test
     public void test_indexMarketTrial() throws Exception {
-        iTagService.execTagBatchJob("RQ_KJHKL98UU78H66554GFDV","10001");
-
 
         MarketProductEntity marketProductEntity = new MarketProductEntity();
         marketProductEntity.setUserId("xiaofuge");

@@ -12,7 +12,7 @@ public class DCCService {
     @DCCValue("cutRange:100")
     private String cutRange;
 
-    public boolean isDowngradeSwitch(String downgradeSwitch){
+    public boolean isDowngradeSwitch(){
         return "1".equals(downgradeSwitch);
     }
 

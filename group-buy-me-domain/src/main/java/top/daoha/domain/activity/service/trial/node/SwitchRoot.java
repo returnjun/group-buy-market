@@ -7,6 +7,8 @@ import top.daoha.domain.activity.model.entity.TrialBalanceEntity;
 import top.daoha.domain.activity.service.trial.AbstractGroupBuyMarketSupport;
 import top.daoha.domain.activity.service.trial.factory.DefaultActivityStrategyFactoy;
 import top.daoha.types.desgin.framework.tree.StrategyHandler;
+import top.daoha.types.enums.ResponseCode;
+import top.daoha.types.exception.AppException;
 
 import javax.annotation.Resource;
 
@@ -26,6 +28,16 @@ public class SwitchRoot extends AbstractGroupBuyMarketSupport<MarketProductEntit
 
     @Override
     public TrialBalanceEntity doApply(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) throws Exception {
+        String userId = requestParameter.getUserId();
+
+        if(iActivityRepository.downgradeSwitch()){
+            throw new AppException(ResponseCode.E0003.getCode(),ResponseCode.E0003.getInfo());
+        }
+
+        if(!iActivityRepository.cutRange(userId)){
+            throw new AppException(ResponseCode.E0004.getCode(),ResponseCode.E0004.getInfo());
+        }
+
         return router(requestParameter,dynamicContext);
     }
 

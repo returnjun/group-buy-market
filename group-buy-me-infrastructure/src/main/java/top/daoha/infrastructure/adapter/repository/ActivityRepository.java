@@ -15,6 +15,7 @@ import top.daoha.infrastructure.dao.po.GroupBuyActivity;
 import top.daoha.infrastructure.dao.po.GroupBuyDiscount;
 import top.daoha.infrastructure.dao.po.ScSkuActivity;
 import top.daoha.infrastructure.dao.po.Sku;
+import top.daoha.infrastructure.dcc.DCCService;
 import top.daoha.infrastructure.redis.IRedisService;
 
 import javax.annotation.Resource;
@@ -42,6 +43,9 @@ public class ActivityRepository implements IActivityRepository {
 
     @Resource
     private IRedisService iRedisService;
+
+    @Resource
+    private DCCService dccService;
 
 
     @Override
@@ -117,5 +121,15 @@ public class ActivityRepository implements IActivityRepository {
         RBitSet bitSet = iRedisService.getBitSet(tagId);
         if (!bitSet.isExists()) return true;
         return bitSet.get(iRedisService.getIndexFromUserId(userId));
+    }
+
+    @Override
+    public boolean downgradeSwitch() {
+        return dccService.isDowngradeSwitch();
+    }
+
+    @Override
+    public boolean cutRange(String userId) {
+        return dccService.isCutRange(userId);
     }
 }
