@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -30,5 +31,8 @@ public class TrialBalanceEntity {
     private Date endTime;
     private Boolean isVisible;
     private Boolean isEnable;
+
+
+    private GroupBuyActivityDiscountVO groupBuyActivityDiscountVO;
 
 }

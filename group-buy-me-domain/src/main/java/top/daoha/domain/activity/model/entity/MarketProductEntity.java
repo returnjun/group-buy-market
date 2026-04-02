@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MarketProductEntity {
+    private Long activityId;
     private String userId;
     private String goodsId;
     private String source;

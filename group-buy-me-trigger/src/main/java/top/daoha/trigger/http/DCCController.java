@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 @CrossOrigin("*")
 @RequestMapping("/api/v1/gbm/dcc/")
 public class DCCController implements IDCCService {
-
+//http://localhost:8091/api/v1/gbm/dcc/update_config?key=downgradeSwitch&value=1
     @Resource
     private RTopic dccTopic;
 
