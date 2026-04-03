@@ -20,6 +20,7 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//这是一个包含活动，商品，折扣策略，价格的综合的VO，十分重要
 public class GroupBuyActivityDiscountVO {
     /** 活动ID */
     private Long activityId;

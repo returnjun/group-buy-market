@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//这是商品的对象，主要是用于展示信息
 public class SkuVO {
     //商品id
     private String goodsId;

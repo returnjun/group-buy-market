@@ -20,6 +20,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//这个是个关于商品的是算结果类，包含商品走完折扣后的信息
 public class TrialBalanceEntity {
 
     private String goodsId;

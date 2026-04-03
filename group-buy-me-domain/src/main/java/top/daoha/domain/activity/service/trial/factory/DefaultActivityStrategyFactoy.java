@@ -22,6 +22,7 @@ import java.math.BigDecimal;
  * @Date: 2026/3/22  15:48
  */
 @Service
+//贯穿整个活动的始终，包含上下文的关键信息
 public class DefaultActivityStrategyFactoy {
 
     private final RootNode rootNode;

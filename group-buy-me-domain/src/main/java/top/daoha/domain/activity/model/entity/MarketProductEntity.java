@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//这个一个关于营销的实体类，然后基本上是作为很多函数的输入
 public class MarketProductEntity {
     private Long activityId;
     private String userId;

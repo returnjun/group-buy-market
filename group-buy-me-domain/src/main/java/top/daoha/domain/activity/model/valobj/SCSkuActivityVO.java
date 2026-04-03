@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//这是一个关于互动和商品关联的对象
 public class SCSkuActivityVO {
 
     /** 来源 */

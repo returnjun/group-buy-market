@@ -8,6 +8,6 @@ public interface ILogicLink<T,D,R> extends ILogicChainArmory<T,D,R> {
      * @param dynamicContext 动态上下文
      * @return 响应结果
      */
-    R apply(T requestParameter,D dynamicContext);
+    R apply(T requestParameter,D dynamicContext) throws Exception;
 
 }

@@ -11,7 +11,7 @@ import top.daoha.domain.activity.model.valobj.SkuVO;
  * @Author : 24209
  * @Date: 2026/3/25  15:00
  */
-
+//数据库操作的核心接口。实现内容放在infrastructure层
 public interface IActivityRepository {
     GroupBuyActivityDiscountVO queryGroupBuyActivityDiscount(Long activityId);
 
