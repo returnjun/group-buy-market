@@ -6,7 +6,7 @@ import top.daoha.domain.trade.model.entity.PayDiscountEntity;
 import top.daoha.domain.trade.model.entity.UserEntity;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 
-public interface ITradeOrderService {
+public interface ITradeLockOrderService {
 
     MarketPayOrderEntity queryNoPayMarketPayOrderByOutTradeNo(String userId,String outTradeNo);
 

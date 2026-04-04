@@ -1,4 +1,4 @@
-package top.daoha.domain.trade.service;
+package top.daoha.domain.trade.service.lock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -6,13 +6,14 @@ import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
-import top.daoha.domain.trade.service.factory.TradeRuleFilterFactory;
+import top.daoha.domain.trade.service.ITradeLockOrderService;
+import top.daoha.domain.trade.service.lock.factory.TradeRuleFilterFactory;
 import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
 
 import javax.annotation.Resource;
 @Slf4j
 @Service
-public class TradeOrderService implements ITradeOrderService {
+public class TradeLockOrderService implements ITradeLockOrderService {
 
     @Resource
     private  ITradeRepository tradeRepository;

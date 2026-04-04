@@ -3,7 +3,6 @@ package top.daoha.trigger.http;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.redisson.api.RTopic;
 import org.springframework.web.bind.annotation.*;
 import top.daoha.api.IMarketTradeService;
 import top.daoha.api.dto.LockMarketPayOrderRequestDTO;
@@ -18,7 +17,7 @@ import top.daoha.domain.trade.model.entity.PayActivityEntity;
 import top.daoha.domain.trade.model.entity.PayDiscountEntity;
 import top.daoha.domain.trade.model.entity.UserEntity;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
-import top.daoha.domain.trade.service.ITradeOrderService;
+import top.daoha.domain.trade.service.ITradeLockOrderService;
 import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
 
@@ -35,7 +34,7 @@ public class MarketTradeController implements IMarketTradeService {
     private IIndexGroupBuyMarketService indexGroupBuyMarketService;
 
     @Resource
-    private ITradeOrderService tradeOrderService;
+    private ITradeLockOrderService tradeOrderService;
 
     @RequestMapping(value = "lock_market_pay_order",method = RequestMethod.POST)
     @Override

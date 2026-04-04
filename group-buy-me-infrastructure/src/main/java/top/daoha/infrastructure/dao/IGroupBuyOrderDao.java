@@ -2,11 +2,7 @@ package top.daoha.infrastructure.dao;
 
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import top.daoha.infrastructure.dao.po.GroupBuyOrder;
-
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -24,4 +20,9 @@ public interface IGroupBuyOrderDao {
 
     GroupBuyOrder queryGroupBuyProgress(String teamId);
 
+    GroupBuyOrder queryGroupBuyTeamByTeamId(String teamId);
+
+    int updateAddCompleteCount(String teamId);
+
+    int updateOrderStatus2COMPLETE(String teamId);
 }
