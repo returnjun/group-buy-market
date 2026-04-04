@@ -23,14 +23,25 @@ import java.util.Date;
 //这个是个关于商品的是算结果类，包含商品走完折扣后的信息
 public class TrialBalanceEntity {
 
+    /** 商品id */
     private String goodsId;
+    /**商品名称 */
     private String goodsName;
+    /**商品原价 */
     private BigDecimal originalPrice;
+    /**折扣价格 */
     private BigDecimal deductionPrice;
+    /**最终价格 */
+    private BigDecimal payPrice;
+    /**目标人数 */
     private Integer targetCount;
+    /**活动开始时间 */
     private Date startTime;
+    /**活动结束时间 */
     private Date endTime;
+    /**活动是否可见 */
     private Boolean isVisible;
+    /**活动是否可参与 */
     private Boolean isEnable;
 
 

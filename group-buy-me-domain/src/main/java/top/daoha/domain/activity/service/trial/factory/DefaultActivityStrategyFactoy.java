@@ -47,6 +47,8 @@ public class DefaultActivityStrategyFactoy {
         private SkuVO skuVO;
         //折扣最终价格
         private BigDecimal deductionPrice;
+        //支付金额
+        private BigDecimal payPrice;
         //活动是否可见
         private Boolean visible;
         //活动是否可参与

@@ -1,6 +1,7 @@
 package top.daoha.domain.trade.adapter.repository;
 
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
+import top.daoha.domain.trade.model.entity.GroupBuyActivityEntity;
 import top.daoha.domain.trade.model.entity.MarketPayOrderEntity;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 
@@ -11,4 +12,8 @@ public interface ITradeRepository {
     GroupBuyProgressVO queryGroupBuyProgress(String teamId);
 
     MarketPayOrderEntity lockMarketPayOrder(GroupBuyOrderAggregate groupBuyOrderAggregate);
+
+    GroupBuyActivityEntity queryGroupBuyActivityByActivityId(Long activityId);
+
+    Integer queryOrderCountByActivityId(Long activityId, String userId);
 }

@@ -42,6 +42,10 @@
         from group_buy_order_list
         where out_trade_no = #{outTradeNo} and user_id = #{userId}
     </select>
+    <select id="queryOrderCountByActivityId" resultType="java.lang.Integer">
+        select count(id) from group_buy_order_list
+        where activity_id = #{activityId} and user_id = #{userId}
+    </select>
 
 
 </mapper>

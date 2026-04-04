@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TradeRuleFilterBackEntity {
+    private Integer userTakeOrderCount;
+
 }
