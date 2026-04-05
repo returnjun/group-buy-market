@@ -19,7 +19,7 @@ public class TradeLockOrderService implements ITradeLockOrderService {
     private  ITradeRepository tradeRepository;
 
     @Resource(name = "tradeRuleFilter1")
-    BusinessLinkedList<TradeRuleCommandEntity, TradeRuleFilterFactory.DynamicContext,TradeRuleFilterBackEntity> tradeRuleFilter;
+    BusinessLinkedList<TradeLockRuleCommandEntity, TradeRuleFilterFactory.DynamicContext, TradeLockRuleFilterBackEntity> tradeRuleFilter;
 
     //
     @Override
@@ -37,7 +37,7 @@ public class TradeLockOrderService implements ITradeLockOrderService {
     @Override
     public MarketPayOrderEntity lockMarketPayOrder(UserEntity userEntity, PayActivityEntity payActivityEntity, PayDiscountEntity payDiscountEntity) throws Exception {
         //最终返回的是链的最后一个节点的结果
-        TradeRuleFilterBackEntity apply = tradeRuleFilter.apply(TradeRuleCommandEntity.builder()
+        TradeLockRuleFilterBackEntity apply = tradeRuleFilter.apply(TradeLockRuleCommandEntity.builder()
                 .activityId(payActivityEntity.getActivityId())
                 .userId(userEntity.getUserId())
                 .build(),

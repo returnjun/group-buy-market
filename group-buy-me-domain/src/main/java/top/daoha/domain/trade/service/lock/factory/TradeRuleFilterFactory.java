@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.trade.model.entity.GroupBuyActivityEntity;
-import top.daoha.domain.trade.model.entity.TradeRuleCommandEntity;
-import top.daoha.domain.trade.model.entity.TradeRuleFilterBackEntity;
+import top.daoha.domain.trade.model.entity.TradeLockRuleCommandEntity;
+import top.daoha.domain.trade.model.entity.TradeLockRuleFilterBackEntity;
 import top.daoha.domain.trade.service.lock.filter.ActivityUsabilityRuleFilter;
 import top.daoha.domain.trade.service.lock.filter.UserTakeLimitRuleFilter;
 import top.daoha.types.desgin.framework.link.model2.LinkArmory;
@@ -22,8 +22,8 @@ public class TradeRuleFilterFactory {
     private  DynamicContext dynamicContext;
 
     @Bean("tradeRuleFilter1")
-    public BusinessLinkedList<TradeRuleCommandEntity,DynamicContext,TradeRuleFilterBackEntity> tradeRuleFilter(ActivityUsabilityRuleFilter activityUsabilityRuleFilter,UserTakeLimitRuleFilter userTakeLimitRuleFilter){
-        LinkArmory<TradeRuleCommandEntity,DynamicContext,TradeRuleFilterBackEntity> linkArmory = new LinkArmory<>("交易过滤责任链",activityUsabilityRuleFilter,userTakeLimitRuleFilter);
+    public BusinessLinkedList<TradeLockRuleCommandEntity,DynamicContext, TradeLockRuleFilterBackEntity> tradeRuleFilter(ActivityUsabilityRuleFilter activityUsabilityRuleFilter, UserTakeLimitRuleFilter userTakeLimitRuleFilter){
+        LinkArmory<TradeLockRuleCommandEntity,DynamicContext, TradeLockRuleFilterBackEntity> linkArmory = new LinkArmory<>("交易过滤责任链",activityUsabilityRuleFilter,userTakeLimitRuleFilter);
         //返回链对象
         return linkArmory.getLogicLink();
     }
