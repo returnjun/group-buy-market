@@ -6,7 +6,7 @@ import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.entity.GroupBuyActivityEntity;
 import top.daoha.domain.trade.model.entity.TradeLockRuleCommandEntity;
 import top.daoha.domain.trade.model.entity.TradeLockRuleFilterBackEntity;
-import top.daoha.domain.trade.service.lock.factory.TradeRuleFilterFactory;
+import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
 import top.daoha.types.desgin.framework.link.model2.handler.ILogicHandler;
 import top.daoha.types.enums.ActivityStatusEnumVO;
 import top.daoha.types.enums.ResponseCode;
@@ -17,13 +17,13 @@ import java.util.Date;
 
 @Slf4j
 @Service
-public class ActivityUsabilityRuleFilter implements ILogicHandler<TradeLockRuleCommandEntity, TradeRuleFilterFactory.DynamicContext, TradeLockRuleFilterBackEntity> {
+public class ActivityUsabilityRuleFilter implements ILogicHandler<TradeLockRuleCommandEntity, TradeLockRuleFilterFactory.DynamicContext, TradeLockRuleFilterBackEntity> {
 
     @Resource
     private ITradeRepository tradeRepository;
 
     @Override
-    public TradeLockRuleFilterBackEntity apply(TradeLockRuleCommandEntity requestParameter, TradeRuleFilterFactory.DynamicContext dynamicContext) throws Exception {
+    public TradeLockRuleFilterBackEntity apply(TradeLockRuleCommandEntity requestParameter, TradeLockRuleFilterFactory.DynamicContext dynamicContext) throws Exception {
         log.info("交易规则过滤-活动的可用性校验:{} activityId: {}", requestParameter.getUserId(), requestParameter.getActivityId());
 
         //查找

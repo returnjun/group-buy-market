@@ -17,7 +17,7 @@ import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
 
 @Slf4j
 @Service
-public class TradeRuleFilterFactory {
+public class TradeLockRuleFilterFactory {
 
     private  DynamicContext dynamicContext;
 

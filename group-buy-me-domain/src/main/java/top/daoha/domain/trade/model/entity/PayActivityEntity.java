@@ -25,6 +25,8 @@ public class PayActivityEntity {
     private Date startTime;
     /** 活动结束时间 */
     private Date endTime;
+    /** 优惠下单后持续时间 */
+    private Integer validTime;
     /** 目标数量 */
     private Integer targetCount;
 }

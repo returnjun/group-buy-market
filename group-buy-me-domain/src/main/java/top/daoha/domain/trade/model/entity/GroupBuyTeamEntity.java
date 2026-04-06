@@ -8,6 +8,7 @@ import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.types.enums.GroupBuyOrderEnumVO;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Builder
@@ -26,5 +27,9 @@ public class GroupBuyTeamEntity {
     private Integer lockCount;
     /** 状态（0-拼单中、1-完成、2-失败） */
     private GroupBuyOrderEnumVO status;
+    /** 拼团开始时间 - 参与拼团时间 */
+    private Date validStartTime;
+    /** 拼团结束时间 - 拼团有效时长 */
+    private Date validEndTime;
 
 }

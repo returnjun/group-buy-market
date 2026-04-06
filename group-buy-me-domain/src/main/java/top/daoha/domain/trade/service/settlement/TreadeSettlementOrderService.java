@@ -8,6 +8,8 @@ import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.service.ITradeSettlementOrderService;
+import top.daoha.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
+import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
 
 import javax.annotation.Resource;
 
@@ -18,18 +20,33 @@ public class TreadeSettlementOrderService implements ITradeSettlementOrderServic
     @Resource
     private ITradeRepository tradeRepository;
 
+    @Resource(name = "tradeSettlementRuleFilter1")
+    BusinessLinkedList<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity>  tradeSettlementRuleFilterBackEntity;
+
     @Override
-    public TradePaySettlementEntity settlementOrder(TradePaySuccessEntity tradePaySuccessEntity) {
+    public TradePaySettlementEntity settlementOrder(TradePaySuccessEntity tradePaySuccessEntity) throws Exception {
 
         // 1 查询拼团信息
-        MarketPayOrderEntity marketPayOrderEntity = tradeRepository.queryNoPayMarketPayOrderByOutTradeNo(tradePaySuccessEntity.getUserId(), tradePaySuccessEntity.getOutTradeNo());
-        if(null==marketPayOrderEntity){
-            log.error("预购订单不存在");
-            return null;
-        }
-        log.info("查看根据userid和tradeNO查到的订单信息:{}",JSON.toJSONString(marketPayOrderEntity));
-        // 2 查询拼团信息
-        GroupBuyTeamEntity groupBuyTeamEntity = tradeRepository.queryGroupBuyTeamByTeamId(marketPayOrderEntity.getTeamId());
+        TradeSettlementRuleCommandEntity build1 = TradeSettlementRuleCommandEntity.builder()
+                .source(tradePaySuccessEntity.getSource())
+                .channel(tradePaySuccessEntity.getChannel())
+                .outTradeTime(tradePaySuccessEntity.getOutTradeTime())
+                .outTradeNo(tradePaySuccessEntity.getOutTradeNo())
+                .userId(tradePaySuccessEntity.getUserId())
+                .build();
+
+        TradeSettlementRuleFilterBackEntity tradeEntity = tradeSettlementRuleFilterBackEntity.apply(build1,new TradeSettlementRuleFilterFactory.DynamicContext());
+
+        GroupBuyTeamEntity groupBuyTeamEntity = GroupBuyTeamEntity.builder()
+                .validEndTime(tradeEntity.getValidEndTime())
+                .validStartTime(tradeEntity.getValidStartTime())
+                .teamId(tradeEntity.getTeamId())
+                .targetCount(tradeEntity.getTargetCount())
+                .status(tradeEntity.getStatus())
+                .lockCount(tradeEntity.getLockCount())
+                .completeCount(tradeEntity.getCompleteCount())
+                .activityId(tradeEntity.getActivityId())
+                .build();
 
         log.info("查看根据teamId查到的订单信息:{}",JSON.toJSONString(groupBuyTeamEntity));
         GroupBuyTeamSettlementAggregate build = GroupBuyTeamSettlementAggregate.builder()
@@ -45,7 +62,7 @@ public class TreadeSettlementOrderService implements ITradeSettlementOrderServic
                 .source(tradePaySuccessEntity.getSource())
                 .channel(tradePaySuccessEntity.getChannel())
                 .userId(tradePaySuccessEntity.getUserId())
-                .teamId(marketPayOrderEntity.getTeamId())
+                .teamId(tradeEntity.getTeamId())
                 .activityId(groupBuyTeamEntity.getActivityId())
                 .outTradeNo(tradePaySuccessEntity.getOutTradeNo())
                 .build();

@@ -1,6 +1,6 @@
 package top.daoha.types.desgin.framework.link.model1;
 
-public interface ILogicLink<T,D,R> extends ILogicChainArmory<T,D,R> {
+public interface  ILogicLink<T,D,R> extends ILogicChainArmory<T,D,R> {
 
     /**
      * 执行逻辑链

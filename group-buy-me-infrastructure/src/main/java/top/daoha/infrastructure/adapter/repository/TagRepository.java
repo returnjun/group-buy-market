@@ -1,7 +1,6 @@
 package top.daoha.infrastructure.adapter.repository;
 
 
-import com.thoughtworks.xstream.converters.reflection.AbstractReflectionConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBitSet;
 import org.springframework.dao.DuplicateKeyException;

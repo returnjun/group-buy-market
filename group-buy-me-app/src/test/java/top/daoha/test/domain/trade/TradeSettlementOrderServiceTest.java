@@ -12,6 +12,7 @@ import top.daoha.domain.trade.model.entity.TradePaySuccessEntity;
 import top.daoha.domain.trade.service.ITradeSettlementOrderService;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -27,12 +28,13 @@ public class TradeSettlementOrderServiceTest {
     private ITradeSettlementOrderService tradeSettlementOrderService;
 
     @Test
-    public void test_settlementMarketPayOrder() {
+    public void test_settlementMarketPayOrder() throws Exception {
         TradePaySuccessEntity tradePaySuccessEntity = new TradePaySuccessEntity();
-        tradePaySuccessEntity.setSource("s01");
-        tradePaySuccessEntity.setChannel("c01");
-        tradePaySuccessEntity.setUserId("xfg04");
-        tradePaySuccessEntity.setOutTradeNo("567499958729");
+        tradePaySuccessEntity.setSource("s02");
+        tradePaySuccessEntity.setChannel("c02");
+        tradePaySuccessEntity.setUserId("gdk02");
+        tradePaySuccessEntity.setOutTradeNo("631310726957");
+        tradePaySuccessEntity.setOutTradeTime(new Date());
         TradePaySettlementEntity tradePaySettlementEntity = tradeSettlementOrderService.settlementOrder(tradePaySuccessEntity);
         log.info("请求参数:{}", JSON.toJSONString(tradePaySuccessEntity));
         log.info("测试结果:{}", JSON.toJSONString(tradePaySettlementEntity));

@@ -23,6 +23,7 @@ import top.daoha.infrastructure.dao.po.GroupBuyActivity;
 import top.daoha.infrastructure.dao.po.GroupBuyOrder;
 import top.daoha.infrastructure.dao.po.GroupBuyOrderList;
 import top.daoha.infrastructure.dao.po.NotifyTask;
+import top.daoha.infrastructure.dcc.DCCService;
 import top.daoha.types.common.Constants;
 import top.daoha.types.enums.ActivityStatusEnumVO;
 import top.daoha.types.enums.GroupBuyOrderEnumVO;
@@ -30,6 +31,8 @@ import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,6 +51,9 @@ public class TradeRepository implements ITradeRepository {
 
     @Resource
     private INotifyTaskDao  notifyTaskDao;
+
+    @Resource
+    private DCCService dccService;
 
 
     @Override
@@ -110,6 +116,14 @@ public class TradeRepository implements ITradeRepository {
             groupBuyOrder.setTargetCount(payActivityEntity.getTargetCount());
             groupBuyOrder.setCompleteCount(0);
             groupBuyOrder.setLockCount(1);
+
+            Date currentTime = new Date();
+            Calendar calender = Calendar.getInstance();
+            calender.setTime(currentTime);
+            calender.add(Calendar.MINUTE, payActivityEntity.getValidTime());
+
+            groupBuyOrder.setValidStartTime(currentTime);
+            groupBuyOrder.setValidEndTime(calender.getTime());
 
             groupBuyOrderDao.insert(groupBuyOrder);
         } else {
@@ -192,6 +206,8 @@ public class TradeRepository implements ITradeRepository {
                 .completeCount(groupBuyOrder.getCompleteCount())
                 .lockCount(groupBuyOrder.getLockCount())
                 .status(GroupBuyOrderEnumVO.valueOf(groupBuyOrder.getStatus()))
+                .validStartTime(groupBuyOrder.getValidStartTime())
+                .validEndTime(groupBuyOrder.getValidEndTime())
                 .build();
     }
     @Transactional(timeout = 500)
@@ -209,6 +225,7 @@ public class TradeRepository implements ITradeRepository {
                 .outTradeNo(tradePaySuccessEntity.getOutTradeNo())
                 .source(tradePaySuccessEntity.getSource())
                 .channel(tradePaySuccessEntity.getChannel())
+                .outTradeTime(tradePaySuccessEntity.getOutTradeTime())
                 .build();
 
         //这里是将orderList表的订单的状态改变完成
@@ -243,6 +260,11 @@ public class TradeRepository implements ITradeRepository {
             notifyTaskDao.insert(notifyTask);
         }
 
+    }
+
+    @Override
+    public boolean isSCBlackIntercept(String source, String channel) {
+        return dccService.isScBlackList(source,channel);
     }
 
 }

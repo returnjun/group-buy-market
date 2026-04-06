@@ -7,7 +7,7 @@ import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 import top.daoha.domain.trade.service.ITradeLockOrderService;
-import top.daoha.domain.trade.service.lock.factory.TradeRuleFilterFactory;
+import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
 import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
 
 import javax.annotation.Resource;
@@ -19,7 +19,7 @@ public class TradeLockOrderService implements ITradeLockOrderService {
     private  ITradeRepository tradeRepository;
 
     @Resource(name = "tradeRuleFilter1")
-    BusinessLinkedList<TradeLockRuleCommandEntity, TradeRuleFilterFactory.DynamicContext, TradeLockRuleFilterBackEntity> tradeRuleFilter;
+    BusinessLinkedList<TradeLockRuleCommandEntity, TradeLockRuleFilterFactory.DynamicContext, TradeLockRuleFilterBackEntity> tradeRuleFilter;
 
     //
     @Override
@@ -41,11 +41,10 @@ public class TradeLockOrderService implements ITradeLockOrderService {
                 .activityId(payActivityEntity.getActivityId())
                 .userId(userEntity.getUserId())
                 .build(),
-                new TradeRuleFilterFactory.DynamicContext()
+                new TradeLockRuleFilterFactory.DynamicContext()
         );
-
+        log.info("锁单规则链结束");
         Integer userTakeOrderCount = apply.getUserTakeOrderCount();
-
 
         //锁定预购订单，第一个就创建，已存在就+1
         GroupBuyOrderAggregate groupBuyOrderAggregate = new GroupBuyOrderAggregate(userEntity,payActivityEntity,payDiscountEntity,userTakeOrderCount);

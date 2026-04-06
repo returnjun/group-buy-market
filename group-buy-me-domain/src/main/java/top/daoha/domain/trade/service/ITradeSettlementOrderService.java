@@ -5,5 +5,5 @@ import top.daoha.domain.trade.model.entity.TradePaySettlementEntity;
 import top.daoha.domain.trade.model.entity.TradePaySuccessEntity;
 
 public interface ITradeSettlementOrderService {
-    TradePaySettlementEntity settlementOrder(TradePaySuccessEntity tradePaySuccessEntity);
+    TradePaySettlementEntity settlementOrder(TradePaySuccessEntity tradePaySuccessEntity) throws Exception;
 }

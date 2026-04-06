@@ -97,7 +97,7 @@ public class MarketTradeController implements IMarketTradeService {
                     .goodsId(goodsId)
                     .activityId(activityId)
                     .build());
-
+            log.info("优惠试算结束");
             //人群限定
             if(!trialBalanceEntity.getIsVisible()||!trialBalanceEntity.getIsEnable()){
                 return  Response.<LockMarketPayOrderResponseDTO>builder()
@@ -117,6 +117,7 @@ public class MarketTradeController implements IMarketTradeService {
                             .activityId(activityId)
                             .activityName(groupBuyActivityDiscountVO.getActivityName())
                             .targetCount(groupBuyActivityDiscountVO.getTarget())
+                            .validTime(groupBuyActivityDiscountVO.getValidTime())
                             .startTime(groupBuyActivityDiscountVO.getStartTime())
                             .endTime(groupBuyActivityDiscountVO.getEndTime())
                             .build(),

@@ -18,6 +18,7 @@
         <result column="status" property="status"/>
         <result column="out_trade_no" property="outTradeNo"/>
         <result column="biz_id" property="bizId"/>
+        <result column="out_trade_time" property="outTradeTime"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
@@ -36,7 +37,7 @@
     </insert>
     <update id="updateStatus2COMPLETE" parameterType="top.daoha.infrastructure.dao.po.GroupBuyOrderList">
         update group_buy_order_list
-        set status = 1  ,update_time = now()
+        set status = 1 , out_trade_time = #{outTradeTime},update_time = now()
         where activity_id = #{activityId} and user_id = #{userId}
         and source = #{source} and channel = #{channel} and out_trade_no = #{outTradeNo}
     </update>
