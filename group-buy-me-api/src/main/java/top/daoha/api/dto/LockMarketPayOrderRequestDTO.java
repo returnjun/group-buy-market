@@ -27,5 +27,7 @@ public class LockMarketPayOrderRequestDTO {
     private String channel;
     /** 外部交易单号-确保外部调用唯一幂等 */
     private String outTradeNo;
+    /** 回调通知（HTTP 方式回调，地址不可为空） */
+    private String notifyUrl;
 
 }

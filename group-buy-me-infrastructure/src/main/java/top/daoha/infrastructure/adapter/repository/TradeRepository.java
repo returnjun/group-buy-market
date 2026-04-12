@@ -116,6 +116,7 @@ public class TradeRepository implements ITradeRepository {
             groupBuyOrder.setTargetCount(payActivityEntity.getTargetCount());
             groupBuyOrder.setCompleteCount(0);
             groupBuyOrder.setLockCount(1);
+            groupBuyOrder.setNotifyUrl(payDiscountEntity.getNotifyUrl());
 
             Date currentTime = new Date();
             Calendar calender = Calendar.getInstance();
@@ -208,6 +209,7 @@ public class TradeRepository implements ITradeRepository {
                 .status(GroupBuyOrderEnumVO.valueOf(groupBuyOrder.getStatus()))
                 .validStartTime(groupBuyOrder.getValidStartTime())
                 .validEndTime(groupBuyOrder.getValidEndTime())
+                .notifyUrl(groupBuyOrder.getNotifyUrl())
                 .build();
     }
     @Transactional(timeout = 500)

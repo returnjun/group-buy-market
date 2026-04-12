@@ -32,6 +32,8 @@ public class MarketTradeControllerTest {
         lockMarketPayOrderRequestDTO.setSource("s01");
         lockMarketPayOrderRequestDTO.setChannel("c01");
         lockMarketPayOrderRequestDTO.setOutTradeNo(RandomStringUtils.randomNumeric(12));
+        lockMarketPayOrderRequestDTO.setNotifyUrl("http://127.0.0.1:8091/api/tewst/group_buy_notify");
+
         Response<LockMarketPayOrderResponseDTO> response = marketTradeController.lockMarketPayOrder(lockMarketPayOrderRequestDTO);
 
         log.info("测试结果 response:{}",response);
@@ -50,6 +52,8 @@ public class MarketTradeControllerTest {
         lockMarketPayOrderRequestDTO.setSource("s01");
         lockMarketPayOrderRequestDTO.setChannel("c01");
         lockMarketPayOrderRequestDTO.setOutTradeNo(RandomStringUtils.randomNumeric(12));
+        lockMarketPayOrderRequestDTO.setNotifyUrl("http://127.0.0.1:8091/api/tewst/group_buy_notify");
+
         Response<LockMarketPayOrderResponseDTO> response = marketTradeController.lockMarketPayOrder(lockMarketPayOrderRequestDTO);
 
         log.info("测试结果 response:{}",response);

@@ -26,6 +26,8 @@ public class TradeSettlementRuleFilterBackEntity {
     private Integer lockCount;
     /** 状态（0-拼单中、1-完成、2-失败） */
     private GroupBuyOrderEnumVO status;
+    /** 回调通知（HTTP 方式回调，地址不可为空） */
+    private String notifyUrl;
     /** 拼团开始时间 - 参与拼团时间 */
     private Date validStartTime;
     /** 拼团结束时间 - 拼团有效时长 */
