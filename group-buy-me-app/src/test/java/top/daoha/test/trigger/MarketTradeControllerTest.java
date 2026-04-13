@@ -25,7 +25,7 @@ public class MarketTradeControllerTest {
     @Test
     public void test_lockMarketPayOrder(){
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
-        lockMarketPayOrderRequestDTO.setUserId("gdk02");
+        lockMarketPayOrderRequestDTO.setUserId("gdk01");
         lockMarketPayOrderRequestDTO.setTeamId(null);
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setActivityId(100123L);
@@ -45,14 +45,14 @@ public class MarketTradeControllerTest {
     public void test_lockMarketPayOrder2(){
 
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
-        lockMarketPayOrderRequestDTO.setUserId("xfg04");
-        lockMarketPayOrderRequestDTO.setTeamId("21373865");
+        lockMarketPayOrderRequestDTO.setUserId("gdk03");
+        lockMarketPayOrderRequestDTO.setTeamId("24573686");
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setActivityId(100123L);
         lockMarketPayOrderRequestDTO.setSource("s01");
         lockMarketPayOrderRequestDTO.setChannel("c01");
         lockMarketPayOrderRequestDTO.setOutTradeNo(RandomStringUtils.randomNumeric(12));
-        lockMarketPayOrderRequestDTO.setNotifyUrl("http://127.0.0.1:8091/api/tewst/group_buy_notify");
+        lockMarketPayOrderRequestDTO.setNotifyUrl("http://127.0.0.1:8091/api/test/group_buy_notify");
 
         Response<LockMarketPayOrderResponseDTO> response = marketTradeController.lockMarketPayOrder(lockMarketPayOrderRequestDTO);
 

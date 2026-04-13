@@ -5,7 +5,10 @@ import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.GroupBuyActivityEntity;
 import top.daoha.domain.trade.model.entity.GroupBuyTeamEntity;
 import top.daoha.domain.trade.model.entity.MarketPayOrderEntity;
+import top.daoha.domain.trade.model.entity.NotifyTaskEntity;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
+
+import java.util.List;
 
 public interface ITradeRepository {
 
@@ -24,4 +27,14 @@ public interface ITradeRepository {
     void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate);
 
     boolean isSCBlackIntercept(String source, String channel);
+
+    List<NotifyTaskEntity> queryUnExecutedNotifyTaskList();
+
+    List<NotifyTaskEntity> queryUnExecutedNotifyTaskList(String teamId);
+
+    int updateNotifyTaskStatusSuccess(String teamId);
+
+    int updateNotifyTaskStatusRetry(String teamId);
+
+    int updateNotifyTaskStatusError(String teamId);
 }

@@ -31,10 +31,7 @@ import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
 
 import javax.annotation.Resource;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 @Repository
@@ -252,7 +249,7 @@ public class TradeRepository implements ITradeRepository {
             NotifyTask notifyTask = new NotifyTask();
             notifyTask.setActivityId(groupBuyTeamEntity.getActivityId());
             notifyTask.setTeamId(groupBuyTeamEntity.getTeamId());
-            notifyTask.setNotifyUrl("暂无");
+            notifyTask.setNotifyUrl(groupBuyTeamEntity.getNotifyUrl());
             notifyTask.setNotifyCount(0);
             notifyTask.setNotifyStatus(0);
             notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String,Object>(){{
@@ -267,6 +264,52 @@ public class TradeRepository implements ITradeRepository {
     @Override
     public boolean isSCBlackIntercept(String source, String channel) {
         return dccService.isScBlackList(source,channel);
+    }
+
+    @Override
+    public List<NotifyTaskEntity> queryUnExecutedNotifyTaskList() {
+        List<NotifyTask> notifyTasks = notifyTaskDao.queryUnExecutedNotifyTaskList();
+        if(notifyTasks==null || notifyTasks.size()==0){return new ArrayList<>();}
+        List<NotifyTaskEntity> notifyTaskEntities=new ArrayList<>();
+
+        for(NotifyTask notifyTask:notifyTasks){
+            NotifyTaskEntity notifyTaskEntity = NotifyTaskEntity.builder()
+                    .teamId(notifyTask.getTeamId())
+                    .notifyUrlCount(notifyTask.getNotifyCount())
+                    .parameterJson(notifyTask.getParameterJson())
+                    .notifyUrl(notifyTask.getNotifyUrl())
+                    .build();
+            notifyTaskEntities.add(notifyTaskEntity);
+        }
+
+        return notifyTaskEntities;
+    }
+
+    @Override
+    public List<NotifyTaskEntity> queryUnExecutedNotifyTaskList(String teamId) {
+        NotifyTask notifyTask = notifyTaskDao.queryUnExecutedNotifyTaskByTeamId(teamId);
+        if(notifyTask==null){return new ArrayList<>();}
+        return Collections.singletonList(NotifyTaskEntity.builder()
+                .teamId(notifyTask.getTeamId())
+                .notifyUrlCount(notifyTask.getNotifyCount())
+                .parameterJson(notifyTask.getParameterJson())
+                .notifyUrl(notifyTask.getNotifyUrl())
+                .build());
+    }
+
+    @Override
+    public int updateNotifyTaskStatusSuccess(String teamId) {
+        return notifyTaskDao.updateNotifyTaskStatusSuccess(teamId);
+    }
+
+    @Override
+    public int updateNotifyTaskStatusRetry(String teamId) {
+        return notifyTaskDao.updateNotifyTaskStatusRetry(teamId);
+    }
+
+    @Override
+    public int updateNotifyTaskStatusError(String teamId) {
+        return notifyTaskDao.updateNotifyTaskStatusError(teamId);
     }
 
 }
