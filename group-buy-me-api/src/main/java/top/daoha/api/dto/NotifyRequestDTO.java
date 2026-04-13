@@ -1,12 +1,20 @@
 package top.daoha.api.dto;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.List;
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class NotifyRequestDTO {
 
     /** 组队Id */
     private String teamId;
     /** 外部单号 */
-    private List<String> outTradeNos;
+    private List<String> outTradeNoList;
 
 }

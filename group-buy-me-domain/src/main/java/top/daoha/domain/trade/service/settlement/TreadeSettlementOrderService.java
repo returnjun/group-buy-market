@@ -128,11 +128,11 @@ public class TreadeSettlementOrderService implements ITradeSettlementOrderServic
             }
         }
         Map<String,Integer> resultMap = new HashMap<>();
-        resultMap.put("success",successCount);
+        resultMap.put("waitCount", notifyTaskEntityList.size());
+        resultMap.put("successCount",successCount);
         resultMap.put("errorcount",errorcount);
         resultMap.put("retrycount",retryCount);
         return resultMap;
     }
-
 
 }

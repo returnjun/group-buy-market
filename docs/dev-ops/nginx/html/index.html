@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>手写MyBatis - 拼团</title>
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="user-avatar-container" id="userAvatar">
+        <img src="" id="topAvatarImg" alt="用户头像">
+    </div>
+
+    <div class="carousel" id="carousel">
+        <div class="slides" id="slides">
+            <img src="images/sku1.png" class="slide" alt="商品图1">
+            <img src="images/sku2.png" class="slide" alt="商品图2">
+            <img src="images/sku3.png" class="slide" alt="商品图3">
+        </div>
+        <button class="carousel-btn prev" id="btnPrev">&#10094;</button>
+        <button class="carousel-btn next" id="btnNext">&#10095;</button>
+    </div>
+
+    <div class="product-info">
+        <h2 class="product-title">一颗属于你的星星</h2>
+        <div class="discount-banner">
+            <span>大促优惠</span> 直降 ¥60, 76人再抢, 参与马上抢到
+        </div>
+    </div>
+
+    <div class="group-buy-list">
+        <div class="group-item">
+            <div class="user-info">
+                <img class="avatar dynamic-avatar" data-name="小傅哥" alt="小傅哥">
+                <div class="user-details">
+                    <h4>小傅哥</h4>
+                    <p>组队仅剩1人, 拼单即将结束 <span class="time timer-display">00:05:49</span></p>
+                </div>
+            </div>
+            <button class="join-btn buy-btn" data-amount="40">参与拼团</button>
+        </div>
+
+        <div class="group-item">
+            <div class="user-info">
+                <img class="avatar dynamic-avatar" data-name="李二狗" alt="李二狗">
+                <div class="user-details">
+                    <h4>李二狗</h4>
+                    <p>组队仅剩2人, 拼单即将结束 <span class="time timer-display">00:05:49</span></p>
+                </div>
+            </div>
+            <button class="join-btn buy-btn" data-amount="40">参与拼团</button>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <button class="btn-buy-alone buy-btn" data-amount="100">单独购买(¥100)</button>
+        <button class="btn-buy-group buy-btn" data-amount="40">开团购买(¥40)</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="paymentModal">
+    <div class="modal-content payment-modal">
+        <div class="payment-title">请扫码支付</div>
+        <div class="payment-amount" id="payAmountText">支付金额：¥40</div>
+        <div class="qrcode-box">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xMCAxMGgzMHYzMEgxMHptMTAgMTBoMTB2MTBIMjB6TTEwIDYwaDMwdjMwSDEwem0xMCAxMGgxMHYxMEgyMHpNNjAgMTBoMzB2MzBINjB6bTEwIDEwaDEwdjEwaC0xMHpNNjAgNjBoMTB2MTBINjB6TTgwIDYwaDEwdjEwaC0xMHpNNjAgODBoMTB2MTBINjB6TTgwIDgwaDEwdjEwaC0xMHpNNTAgMTB2ODBIMTQweiIgZmlsbD0iIzM1YzhkZSIvPjwvc3ZnPg==" alt="QR Code">
+        </div>
+        <div class="payment-actions">
+            <button class="btn-cancel" id="btnCancelPay">取消支付</button>
+            <button class="btn-confirm" id="btnConfirmPay">支付完成</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+</body>
+</html>

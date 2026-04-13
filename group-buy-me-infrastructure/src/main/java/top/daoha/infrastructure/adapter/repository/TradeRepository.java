@@ -254,7 +254,7 @@ public class TradeRepository implements ITradeRepository {
             notifyTask.setNotifyStatus(0);
             notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String,Object>(){{
                 put("teamId",groupBuyTeamEntity.getTeamId());
-                put("outTradeNolist",outTradeNolist);
+                put("outTradeNoList",outTradeNolist);
             }}));
             notifyTaskDao.insert(notifyTask);
         }
