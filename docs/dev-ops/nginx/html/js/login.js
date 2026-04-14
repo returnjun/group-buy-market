@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 返回按钮逻辑
     document.getElementById('btnBack').addEventListener('click', () => {
         // 对于仅用于跨页面跳转传值的临时变量（如待支付金额），
-        // 推荐使用 sessionStorage，它关闭网页就消失，比 Cookie 更干净。
+        // 推荐净使用 sessionStorage，它关闭网页就消失，比 Cookie 更干。
         sessionStorage.removeItem('pendingPayAmount');
         window.location.href = 'index.html';
     });
