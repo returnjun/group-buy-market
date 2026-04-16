@@ -27,8 +27,8 @@ services:
         max-size: "10m"
         max-file: "3"
     networks:
-      - my-network
+      - release_my-network
 
 networks:
-  my-network:
-    driver: true
+  release_my-network:
+    external: true
