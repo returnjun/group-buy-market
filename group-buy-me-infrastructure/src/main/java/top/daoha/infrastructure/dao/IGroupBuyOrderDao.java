@@ -2,6 +2,7 @@ package top.daoha.infrastructure.dao;
 
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import top.daoha.infrastructure.dao.po.GroupBuyOrder;
 
 import java.util.List;
@@ -29,11 +30,11 @@ public interface IGroupBuyOrderDao {
 
     int updateOrderStatus2COMPLETE(String teamId);
 
-    List<GroupBuyOrder> queryGroupBuyProgressByTeamIds(Set<String> teamIds);
+    List<GroupBuyOrder> queryGroupBuyProgressByTeamIds(@Param("teamIds") Set<String> teamIds);
 
-    Integer queryALLTeamCount(Set<String> teamIds);
+    Integer queryALLTeamCount(@Param("teamIds") Set<String> teamIds);
 
-    Integer queryALLTeamCompleteCount(Set<String> teamIds);
+    Integer queryALLTeamCompleteCount(@Param("teamIds") Set<String> teamIds);
 
-    Integer queryALLUserCount(Set<String> teamIds);
+    Integer queryALLUserCount(@Param("teamIds") Set<String> teamIds);
 }

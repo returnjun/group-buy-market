@@ -147,7 +147,7 @@ LOCK TABLES `group_buy_activity` WRITE;
 
 INSERT INTO `group_buy_activity` (`id`, `activity_id`, `activity_name`, `discount_id`, `group_type`, `take_limit_count`, `target`, `valid_time`, `status`, `start_time`, `end_time`, `tag_id`, `tag_scope`, `create_time`, `update_time`)
 VALUES
-	(1,100123,'测试活动','25120208',0,1,3,600,1,'2024-12-07 10:19:40','2026-12-07 10:19:40','RQ_KJHKL98UU78H66554GFDV','1,2','2024-12-07 10:19:40','2025-02-02 17:07:12');
+	(1,100123,'测试活动','25120208',0,1,3,600,1,'2024-12-07 10:19:40','2026-12-07 10:19:40','RQ_KJHKL98UU78H66554GFDV','','2024-12-07 10:19:40','2025-02-02 17:07:12');
 
 /*!40000 ALTER TABLE `group_buy_activity` ENABLE KEYS */;
 UNLOCK TABLES;

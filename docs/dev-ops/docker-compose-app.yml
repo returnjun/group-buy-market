@@ -4,8 +4,8 @@ version: '3.8'
 # 你需要修改system为你自身系统的仓库名
 services:
   group-buy-me:
-    image: daoha/group-buy-me:1.0-SNAPSHOT
-    container_name: group-buy-me
+    image: daoha/group-buy-me-app:1.0-SNAPSHOT
+    container_name: group-buy-me-app
     restart: on-failure
     ports:
       - "8091:8091"
@@ -26,3 +26,9 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
