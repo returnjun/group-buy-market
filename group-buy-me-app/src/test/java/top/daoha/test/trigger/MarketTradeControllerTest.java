@@ -37,7 +37,6 @@ public class MarketTradeControllerTest {
         Response<LockMarketPayOrderResponseDTO> response = marketTradeController.lockMarketPayOrder(lockMarketPayOrderRequestDTO);
 
         log.info("测试结果 response:{}",response);
-
     }
 
 

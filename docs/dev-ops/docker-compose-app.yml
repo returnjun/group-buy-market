@@ -4,7 +4,7 @@ version: '3.8'
 # 你需要修改system为你自身系统的仓库名
 services:
   group-buy-me:
-    image: system/group-buy-me:1.0-SNAPSHOT
+    image: daoha/group-buy-me:1.0-SNAPSHOT
     container_name: group-buy-me
     restart: on-failure
     ports:
@@ -12,6 +12,13 @@ services:
     environment:
       - TZ=PRC
       - SERVER_PORT=8091
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=1q2w3e4r
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/group_buy_market?serverTimezone=UTC&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - SPRING_HIKARI_POOL_NAME=Retail_HikariCP
+      - REDIS_SDK_CONFIG_HOST=redis
+      - REDIS_SDK_CONFIG_PORT=6379
     volumes:
       - ./log:/data/log
     logging:

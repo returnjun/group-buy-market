@@ -27,6 +27,7 @@ public class GoodsMarketResponseDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Goods{
+        private String goodsName;
         //用户id
         private String goodsId;
         //原始价格

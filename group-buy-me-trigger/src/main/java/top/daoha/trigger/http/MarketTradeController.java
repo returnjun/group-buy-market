@@ -41,8 +41,9 @@ public class MarketTradeController implements IMarketTradeService {
     private TreadeSettlementOrderService treadeSettlementOrderService;
 
 
+    @RequestMapping(value = "settlement_market_pay_order", method = RequestMethod.POST)
     @Override
-    public Response<SettlementMarketPayOrderResponseDTO> settlementMarketPayOrder(SettlementMarketPayOrderRequestDTO requestDTO) {
+    public Response<SettlementMarketPayOrderResponseDTO> settlementMarketPayOrder(@RequestBody SettlementMarketPayOrderRequestDTO requestDTO) {
         try{
             String userId = requestDTO.getUserId();
             String source = requestDTO.getSource();

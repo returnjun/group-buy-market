@@ -60,6 +60,7 @@ public class MarketIndexController implements IMarketIndexService {
             TeamStatisticVO teamStatisticVO =iIndexGroupBuyMarketService.queryTeamStatisticByActivity(activityId);
 
             GoodsMarketResponseDTO.Goods goods = GoodsMarketResponseDTO.Goods.builder()
+                    .goodsName(trialBalanceEntity.getGoodsName())
                     .goodsId(trialBalanceEntity.getGoodsId())
                     .originalPrice(trialBalanceEntity.getOriginalPrice())
                     .deductionPrice(trialBalanceEntity.getDeductionPrice())
