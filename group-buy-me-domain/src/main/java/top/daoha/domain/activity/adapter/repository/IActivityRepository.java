@@ -1,8 +1,12 @@
 package top.daoha.domain.activity.adapter.repository;
 
+import top.daoha.domain.activity.model.entity.UserGroupBuyOrderDetailEntity;
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import top.daoha.domain.activity.model.valobj.SCSkuActivityVO;
 import top.daoha.domain.activity.model.valobj.SkuVO;
+import top.daoha.domain.activity.model.valobj.TeamStatisticVO;
+
+import java.util.List;
 
 /**
  * @ClassName : IActivityReposity
@@ -24,4 +28,10 @@ public interface IActivityRepository {
     boolean downgradeSwitch();
 
     boolean cutRange(String userId);
+
+    List<UserGroupBuyOrderDetailEntity> queryInProgressUserGroupBuyOrderDetailListByOwner(Long activityId, String userId, int ownerCount);
+
+    List<UserGroupBuyOrderDetailEntity> queryInProgressUserGroupBuyOrderDetailListByRandom(Long activityId, String userId, int randomCount);
+
+    TeamStatisticVO queryTeamStatisticByActivity(Long activityId);
 }

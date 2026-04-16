@@ -2,6 +2,7 @@ package top.daoha.infrastructure.dao.po;
 
 
 import lombok.*;
+import top.daoha.infrastructure.dao.po.base.Page;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,11 +13,12 @@ import java.util.Date;
  * @create 2025-01-11 08:42
  */
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupBuyOrderList {
+public class GroupBuyOrderList extends Page {
 
     /** 自增ID */
     private Long id;

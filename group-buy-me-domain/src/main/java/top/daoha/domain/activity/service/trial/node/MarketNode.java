@@ -74,7 +74,7 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
             throw new AppException(ResponseCode.E0001.getCode());
         }
         BigDecimal payPrice = iDiscountCalculateService.calculate(requestParameter.getUserId(), skuVO.getOriginalPrice(), groupBuyDiscount);
-        dynamicContext.setDeductionPrice(skuVO.getOriginalPrice());
+        dynamicContext.setDeductionPrice(skuVO.getOriginalPrice().subtract(payPrice));
         dynamicContext.setPayPrice(payPrice);
 
         return router(requestParameter, dynamicContext);

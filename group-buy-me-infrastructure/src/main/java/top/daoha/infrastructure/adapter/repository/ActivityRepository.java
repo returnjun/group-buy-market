@@ -3,22 +3,16 @@ package top.daoha.infrastructure.adapter.repository;
 import org.redisson.api.RBitSet;
 import org.springframework.stereotype.Repository;
 import top.daoha.domain.activity.adapter.repository.IActivityRepository;
-import top.daoha.domain.activity.model.valobj.DiscountTypeEnum;
-import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
-import top.daoha.domain.activity.model.valobj.SCSkuActivityVO;
-import top.daoha.domain.activity.model.valobj.SkuVO;
-import top.daoha.infrastructure.dao.IGroupBuyActivityDao;
-import top.daoha.infrastructure.dao.IGroupBuyDiscountDao;
-import top.daoha.infrastructure.dao.IScSkuActivityDao;
-import top.daoha.infrastructure.dao.ISkuDao;
-import top.daoha.infrastructure.dao.po.GroupBuyActivity;
-import top.daoha.infrastructure.dao.po.GroupBuyDiscount;
-import top.daoha.infrastructure.dao.po.ScSkuActivity;
-import top.daoha.infrastructure.dao.po.Sku;
+import top.daoha.domain.activity.model.entity.UserGroupBuyOrderDetailEntity;
+import top.daoha.domain.activity.model.valobj.*;
+import top.daoha.infrastructure.dao.*;
+import top.daoha.infrastructure.dao.po.*;
 import top.daoha.infrastructure.dcc.DCCService;
 import top.daoha.infrastructure.redis.IRedisService;
 
 import javax.annotation.Resource;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName : ActivityRepository
@@ -34,6 +28,12 @@ public class ActivityRepository implements IActivityRepository {
 
     @Resource
     IGroupBuyDiscountDao iGroupBuyDiscountDao;
+
+    @Resource
+    IGroupBuyOrderListDao iGroupBuyOrderListDao;
+
+    @Resource
+    IGroupBuyOrderDao  iGroupBuyOrderDao;
 
     @Resource
     ISkuDao iSkuDao;
@@ -131,5 +131,132 @@ public class ActivityRepository implements IActivityRepository {
     @Override
     public boolean cutRange(String userId) {
         return dccService.isCutRange(userId);
+    }
+
+    @Override
+    public List<UserGroupBuyOrderDetailEntity> queryInProgressUserGroupBuyOrderDetailListByOwner(Long activityId, String userId, int ownerCount) {
+
+        GroupBuyOrderList groupBuyOrderListReq = GroupBuyOrderList.builder()
+                .userId(userId)
+                .activityId(activityId)
+                .build();
+        groupBuyOrderListReq.setCount(ownerCount);
+        //查询出拼团订单信息
+        List<GroupBuyOrderList> groupBuyOrderLists = iGroupBuyOrderListDao.queryTeamIdByUserIdActivityId(groupBuyOrderListReq);
+
+        if(groupBuyOrderLists == null || groupBuyOrderLists.isEmpty()) return null;
+
+        Set<String> teamIds = groupBuyOrderLists.stream()
+                .map(GroupBuyOrderList::getTeamId)
+                .filter(teamId ->teamId !=null&&!teamId.isEmpty())
+                .collect(Collectors.toSet());
+
+
+        List<GroupBuyOrder> groupBuyOrders=iGroupBuyOrderDao.queryGroupBuyProgressByTeamIds(teamIds);
+        if(groupBuyOrders == null || groupBuyOrders.isEmpty()) return null;
+
+        Map<String,GroupBuyOrder> groupBuyOrderMap = groupBuyOrders.stream()
+                .collect(Collectors.toMap(GroupBuyOrder::getTeamId,order->order));
+
+
+
+
+        List<UserGroupBuyOrderDetailEntity>  userGroupBuyOrderDetailEntities = new ArrayList<>();
+
+        for(GroupBuyOrderList  groupBuyOrderList:groupBuyOrderLists){
+            String teamId = groupBuyOrderList.getTeamId();
+            GroupBuyOrder groupBuyOrder = groupBuyOrderMap.get(teamId);
+            if(null == groupBuyOrder) continue;
+
+            UserGroupBuyOrderDetailEntity userGroupBuyOrderDetailEntity = UserGroupBuyOrderDetailEntity.builder()
+                    .teamId(groupBuyOrder.getTeamId())
+                    .userId(userId)
+                    .activityId(activityId)
+                    .targetCount(groupBuyOrder.getTargetCount())
+                    .completeCount(groupBuyOrder.getCompleteCount())
+                    .lockCount(groupBuyOrder.getLockCount())
+                    .validStartTime(groupBuyOrder.getValidStartTime())
+                    .validEndTime(groupBuyOrder.getValidEndTime())
+                    .outTradeNo(groupBuyOrderList.getOutTradeNo())
+                    .build();
+            userGroupBuyOrderDetailEntities.add(userGroupBuyOrderDetailEntity);
+        }
+
+        return userGroupBuyOrderDetailEntities;
+    }
+
+    @Override
+    public List<UserGroupBuyOrderDetailEntity> queryInProgressUserGroupBuyOrderDetailListByRandom(Long activityId, String userId, int randomCount) {
+        GroupBuyOrderList groupBuyOrderListReq = GroupBuyOrderList.builder()
+                .userId(userId)
+                .activityId(activityId)
+                .build();
+        groupBuyOrderListReq.setCount(randomCount*2);//查询两倍但是取其中randomCount
+        //查询出拼团订单信息
+        List<GroupBuyOrderList> groupBuyOrderLists = iGroupBuyOrderListDao.queryTeamIdByRandom(groupBuyOrderListReq);
+
+        if(groupBuyOrderLists == null || groupBuyOrderLists.isEmpty()) return null;
+
+        if(groupBuyOrderLists.size()>randomCount){
+            //随机打乱列表
+            Collections.shuffle(groupBuyOrderLists);
+            //获取前randomCount个元素
+            groupBuyOrderLists = groupBuyOrderLists.subList(0, randomCount);
+        }
+        Set<String> teamIds = groupBuyOrderLists.stream()
+                .map(GroupBuyOrderList::getTeamId)
+                .filter(teamId->teamId!=null&&!teamId.isEmpty())
+                .collect(Collectors.toSet());
+
+        List<GroupBuyOrder> groupBuyOrders=iGroupBuyOrderDao.queryGroupBuyProgressByTeamIds(teamIds);
+        if(groupBuyOrders == null || groupBuyOrders.isEmpty()) return null;
+
+        Map<String,GroupBuyOrder> groupBuyOrderMap = groupBuyOrders.stream()
+                .collect(Collectors.toMap(GroupBuyOrder::getTeamId,order->order));
+
+
+
+
+        List<UserGroupBuyOrderDetailEntity>  userGroupBuyOrderDetailEntities = new ArrayList<>();
+
+        for(GroupBuyOrderList  groupBuyOrderList:groupBuyOrderLists){
+            String teamId = groupBuyOrderList.getTeamId();
+            GroupBuyOrder groupBuyOrder = groupBuyOrderMap.get(teamId);
+            if(null == groupBuyOrder) continue;
+
+            UserGroupBuyOrderDetailEntity userGroupBuyOrderDetailEntity = UserGroupBuyOrderDetailEntity.builder()
+                    .teamId(groupBuyOrder.getTeamId())
+                    .userId(groupBuyOrderList.getUserId())
+                    .activityId(activityId)
+                    .targetCount(groupBuyOrder.getTargetCount())
+                    .completeCount(groupBuyOrder.getCompleteCount())
+                    .lockCount(groupBuyOrder.getLockCount())
+                    .validStartTime(groupBuyOrder.getValidStartTime())
+                    .validEndTime(groupBuyOrder.getValidEndTime())
+                    .outTradeNo(groupBuyOrderList.getOutTradeNo())
+                    .build();
+            userGroupBuyOrderDetailEntities.add(userGroupBuyOrderDetailEntity);
+        }
+        return userGroupBuyOrderDetailEntities;
+    }
+
+    @Override
+    public TeamStatisticVO queryTeamStatisticByActivity(Long activityId) {
+        //首先查询出所有的队伍信息
+        List<GroupBuyOrderList> groupBuyOrderLists = iGroupBuyOrderListDao.queryInProgressTeamStatisticByActivity(activityId);
+        Set<String> teamIds = groupBuyOrderLists.stream()
+                .map(GroupBuyOrderList::getTeamId)
+                .filter(teamId->teamId!=null&&!teamId.isEmpty())
+                .collect(Collectors.toSet());
+
+        Integer allteamCount = iGroupBuyOrderDao.queryALLTeamCount(teamIds);
+        Integer allTeamCompleteCount = iGroupBuyOrderDao.queryALLTeamCompleteCount(teamIds);
+        Integer allTeamUserCount = iGroupBuyOrderDao.queryALLUserCount(teamIds);
+
+        return TeamStatisticVO.builder()
+                .allTeamCount(allteamCount)
+                .allTeamCompleteCount(allTeamCompleteCount)
+                .allTeamUserCount(allTeamUserCount)
+                .build();
     }
 }
