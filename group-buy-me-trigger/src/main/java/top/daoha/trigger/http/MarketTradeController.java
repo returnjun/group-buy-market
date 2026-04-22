@@ -62,11 +62,11 @@ public class MarketTradeController implements IMarketTradeService {
 
                 TradePaySettlementEntity tradePaySettlementEntity = treadeSettlementOrderService.settlementOrder(
                         TradePaySuccessEntity.builder()
-                                .source(requestDTO.getSource())
-                                .channel(requestDTO.getChannel())
-                                .userId(requestDTO.getUserId())
-                                .outTradeNo(requestDTO.getOutTradeNo())
-                                .outTradeTime(requestDTO.getOutTradeTime())
+                                .source(source)
+                                .channel(channel)
+                                .userId(userId)
+                                .outTradeNo(outTradeNo)
+                                .outTradeTime(outTradeTime)
                                 .build());
 
                 SettlementMarketPayOrderResponseDTO responseDTO = SettlementMarketPayOrderResponseDTO.builder()

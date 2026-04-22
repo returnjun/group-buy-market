@@ -68,13 +68,14 @@ public class TreadeSettlementOrderService implements ITradeSettlementOrderServic
                 .build();
 
         //结算处理
-        tradeRepository.settlementMarketPayOrder(build);
+        boolean isNotify=tradeRepository.settlementMarketPayOrder(build);
 
 
         //主动组队回调处理，处理失败也会有定时任务补偿，这样让回调任务压力减小
-        Map<String,Integer> notifyResultMap = execSettlementNotifyJob(teamId);
-
-        log.info("回调通知拼团完结 result:{}",JSON.toJSONString(notifyResultMap));
+        if(isNotify) {
+            Map<String, Integer> notifyResultMap = execSettlementNotifyJob(teamId);
+            log.info("回调通知拼团完结 result:{}", JSON.toJSONString(notifyResultMap));
+        }
 
 
         return TradePaySettlementEntity.builder()

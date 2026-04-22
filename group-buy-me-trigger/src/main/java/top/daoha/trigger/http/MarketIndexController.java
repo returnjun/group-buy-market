@@ -52,12 +52,15 @@ public class MarketIndexController implements IMarketIndexService {
             //这里面有优惠后的信息
             GroupBuyActivityDiscountVO groupBuyActivityDiscountVO = trialBalanceEntity.getGroupBuyActivityDiscountVO();
             Long activityId = groupBuyActivityDiscountVO.getActivityId();
+            List<GoodsMarketResponseDTO.Team> teams = new ArrayList<>();
+            TeamStatisticVO teamStatisticVO =  new TeamStatisticVO(0,0,0);
 
             //这个数据展示现有的未拼团成功的团队
             List<UserGroupBuyOrderDetailEntity> userGroupBuyOrderDetailEntity=iIndexGroupBuyMarketService.queryInProgressUserGroupBuyOrderDetailList(activityId,requestDTO.getUserId(),1,2);
 
-
-            TeamStatisticVO teamStatisticVO =iIndexGroupBuyMarketService.queryTeamStatisticByActivity(activityId);
+            if(userGroupBuyOrderDetailEntity!=null && !userGroupBuyOrderDetailEntity.isEmpty()&&userGroupBuyOrderDetailEntity.size()>=1) {
+                teamStatisticVO=iIndexGroupBuyMarketService.queryTeamStatisticByActivity(activityId);
+            }
 
             GoodsMarketResponseDTO.Goods goods = GoodsMarketResponseDTO.Goods.builder()
                     .goodsName(trialBalanceEntity.getGoodsName())
@@ -67,8 +70,8 @@ public class MarketIndexController implements IMarketIndexService {
                     .payPrice(trialBalanceEntity.getPayPrice())
                     .build();
 
-            List<GoodsMarketResponseDTO.Team> teams = new ArrayList<>();
-            if(null != userGroupBuyOrderDetailEntity && !userGroupBuyOrderDetailEntity.isEmpty()) {
+
+            if(null != userGroupBuyOrderDetailEntity && !userGroupBuyOrderDetailEntity.isEmpty()&&userGroupBuyOrderDetailEntity.size()>=1) {
                 for (UserGroupBuyOrderDetailEntity DetailEntity : userGroupBuyOrderDetailEntity) {
                     GoodsMarketResponseDTO.Team build = GoodsMarketResponseDTO.Team.builder()
                             .userId(DetailEntity.getUserId())

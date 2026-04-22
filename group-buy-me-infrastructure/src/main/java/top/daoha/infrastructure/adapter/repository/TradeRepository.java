@@ -216,7 +216,7 @@ public class TradeRepository implements ITradeRepository {
     }
     @Transactional(timeout = 500)
     @Override
-    public void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
+    public boolean settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
         UserEntity userEntity = groupBuyTeamSettlementAggregate.getUserEntity();
         GroupBuyTeamEntity groupBuyTeamEntity = groupBuyTeamSettlementAggregate.getGroupBuyTeamEntity();
         TradePaySuccessEntity tradePaySuccessEntity = groupBuyTeamSettlementAggregate.getTradePaySuccessEntity();
@@ -262,8 +262,10 @@ public class TradeRepository implements ITradeRepository {
                 put("outTradeNoList",outTradeNolist);
             }}));
             notifyTaskDao.insert(notifyTask);
-        }
 
+            return true;
+        }
+        return false;
     }
 
     @Override
