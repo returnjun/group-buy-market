@@ -15,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodsMarketResponseDTO {
+    //活动id
+    private Long activityId;
     // 商品信息
     private Goods goods;
     // 组队信息（1个个人的置顶、2个随机的「获取10个，随机取2个」）

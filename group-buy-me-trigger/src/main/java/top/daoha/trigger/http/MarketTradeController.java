@@ -135,6 +135,8 @@ public class MarketTradeController implements IMarketTradeService {
                 lockMarketPayOrderResponseDTO.setOrderId(marketPayOrderEntity.getOrderId());
                 lockMarketPayOrderResponseDTO.setDeductionPrice(marketPayOrderEntity.getDeductionPrice());
                 lockMarketPayOrderResponseDTO.setStatus(marketPayOrderEntity.getStatus().getCode());
+                lockMarketPayOrderResponseDTO.setOriginalPrice(marketPayOrderEntity.getOriginalPrice());
+                lockMarketPayOrderResponseDTO.setPayPrice(marketPayOrderEntity.getPayPrice());
                 log.info("交易锁单记录已经存在:{} 详细信息如下:{}", userId, JSON.toJSONString(marketPayOrderEntity));
 
                 return Response.<LockMarketPayOrderResponseDTO>builder()
@@ -205,8 +207,10 @@ public class MarketTradeController implements IMarketTradeService {
                     .info(ResponseCode.SUCCESS.getInfo())
                     .data(LockMarketPayOrderResponseDTO.builder()
                             .orderId(marketPayOrderEntity.getOrderId())
-                            .deductionPrice(trialBalanceEntity.getDeductionPrice())
+                            .deductionPrice(marketPayOrderEntity.getDeductionPrice())
                             .status(marketPayOrderEntity.getStatus().getCode())
+                            .originalPrice(marketPayOrderEntity.getOriginalPrice())
+                            .payPrice(marketPayOrderEntity.getPayPrice())
                             .build())
                     .build();
 

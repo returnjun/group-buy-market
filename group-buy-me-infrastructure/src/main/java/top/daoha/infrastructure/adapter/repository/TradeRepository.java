@@ -68,7 +68,9 @@ public class TradeRepository implements ITradeRepository {
         MarketPayOrderEntity marketPayOrderEntity = new MarketPayOrderEntity();
         marketPayOrderEntity.setOrderId(res.getOrderId());
         marketPayOrderEntity.setTeamId(res.getTeamId());
+        marketPayOrderEntity.setOriginalPrice(res.getOriginalPrice());
         marketPayOrderEntity.setDeductionPrice(res.getDeductionPrice());
+        marketPayOrderEntity.setPayPrice(res.getPayPrice());
         marketPayOrderEntity.setStatus(TradeOrderStatusEnum.valueof(res.getStatus()));
 
         return marketPayOrderEntity;
@@ -146,6 +148,7 @@ public class TradeRepository implements ITradeRepository {
         groupBuyOrderList.setChannel(payDiscountEntity.getChannel());
         groupBuyOrderList.setOriginalPrice(payDiscountEntity.getOriginalPrice());
         groupBuyOrderList.setDeductionPrice(payDiscountEntity.getDeductionPrice());
+        groupBuyOrderList.setPayPrice(payDiscountEntity.getPayPrice());
         groupBuyOrderList.setStatus(TradeOrderStatusEnum.CREATE.getCode());
         groupBuyOrderList.setOutTradeNo(payDiscountEntity.getOutTradeNo());
         groupBuyOrderList.setBizId(payActivityEntity.getActivityId()+ Constants.UNDERLINE+userEntity.getUserId()+ Constants.UNDERLINE+(orderCount+1));
@@ -160,7 +163,9 @@ public class TradeRepository implements ITradeRepository {
         MarketPayOrderEntity marketPayOrderEntity = new MarketPayOrderEntity();
         marketPayOrderEntity.setOrderId(orderId);
         marketPayOrderEntity.setTeamId(teamId);
+        marketPayOrderEntity.setOriginalPrice(payDiscountEntity.getOriginalPrice());
         marketPayOrderEntity.setDeductionPrice(payDiscountEntity.getDeductionPrice());
+        marketPayOrderEntity.setPayPrice(payDiscountEntity.getPayPrice());
         marketPayOrderEntity.setStatus(TradeOrderStatusEnum.CREATE);
         return marketPayOrderEntity;
     }
