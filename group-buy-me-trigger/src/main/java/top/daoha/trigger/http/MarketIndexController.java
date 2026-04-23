@@ -109,7 +109,7 @@ public class MarketIndexController implements IMarketIndexService {
             return response;
 
         }catch (Exception e){
-            log.info("查询拼团营销配置失败：{} goodsId:{} ", requestDTO.getGoodsId(), requestDTO.getGoodsId());
+            log.info("查询拼团营销配置失败：{} reson:{} ", requestDTO.getGoodsId(), e.getMessage());
             return Response.<GoodsMarketResponseDTO>builder()
                     .code(ResponseCode.UN_ERROR.getCode())
                     .info(ResponseCode.UN_ERROR.getInfo())
