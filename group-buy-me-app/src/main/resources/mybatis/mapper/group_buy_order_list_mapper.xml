@@ -84,12 +84,23 @@
     </select>
     <select id="queryInProgressTeamStatisticByActivity" parameterType="java.lang.Long"
             resultMap="dataMap">
-        SELECT DISTINCT ON (team_id)
-        user_id, team_id, order_id, activity_id, start_time,
-        end_time, goods_id, source, channel, original_price,
-        deduction_price, pay_price, status, out_trade_no
+        SELECT
+        ANY_VALUE(user_id) as user_id,
+        team_id,
+        ANY_VALUE(order_id) as order_id,
+        ANY_VALUE(activity_id) as activity_id,
+        ANY_VALUE(start_time) as start_time,
+        ANY_VALUE(end_time) as end_time,
+        ANY_VALUE(goods_id) as goods_id,
+        ANY_VALUE(source) as source,
+        ANY_VALUE(channel) as channel,
+        ANY_VALUE(original_price) as original_price,
+        ANY_VALUE(deduction_price) as deduction_price,
+        ANY_VALUE(pay_price) as pay_price,
+        ANY_VALUE(status) as status,
+        ANY_VALUE(out_trade_no) as out_trade_no
         FROM group_buy_order_list
         WHERE activity_id = #{activityId} AND status IN (0,1)
-        ORDER BY start_time DESC;
+        GROUP BY team_id
     </select>
 </mapper>
