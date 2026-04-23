@@ -96,7 +96,7 @@
     </dependencies>
 
     <build>
-        <finalName>group-buy-me-app</finalName>
+        <finalName>group-buy-me</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
