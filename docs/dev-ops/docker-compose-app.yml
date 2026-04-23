@@ -10,9 +10,11 @@ services:
     restart: on-failure
     ports:
       - "8091:8091"
+      - "5005:5005"
     environment:
       - TZ=PRC
       - SERVER_PORT=8091
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=123456
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/group_buy_market?characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
