@@ -2,4 +2,4 @@ spring:
   config:
     name: group-buy-me-app
   profiles:
-    active: dev
+    active: prod
