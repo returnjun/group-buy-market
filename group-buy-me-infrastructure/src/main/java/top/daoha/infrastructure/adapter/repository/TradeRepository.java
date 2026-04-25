@@ -5,6 +5,7 @@ import com.alibaba.fastjson2.JSON;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,8 @@ import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
+import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
+import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
 import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnum;
 import top.daoha.infrastructure.dao.IGroupBuyActivityDao;
 import top.daoha.infrastructure.dao.IGroupBuyOrderDao;
@@ -51,6 +54,10 @@ public class TradeRepository implements ITradeRepository {
 
     @Resource
     private DCCService dccService;
+
+    @Value("${spring.rabbitmq.config.producer.topic_team_success.routing_key}")
+    private String topic_team_success;
+
 
 
     @Override
@@ -94,6 +101,7 @@ public class TradeRepository implements ITradeRepository {
     public MarketPayOrderEntity lockMarketPayOrder(GroupBuyOrderAggregate groupBuyOrderAggregate) {
         PayActivityEntity payActivityEntity = groupBuyOrderAggregate.getPayActivityEntity();
         PayDiscountEntity payDiscountEntity = groupBuyOrderAggregate.getPayDiscountEntity();
+        NotifyConfigVO notifyConfigVO = payDiscountEntity.getNotifyConfigVO();
         UserEntity userEntity = groupBuyOrderAggregate.getUserEntity();
         String userId = userEntity.getUserId();
         Integer orderCount = groupBuyOrderAggregate.getOrderCount();
@@ -115,7 +123,9 @@ public class TradeRepository implements ITradeRepository {
             groupBuyOrder.setTargetCount(payActivityEntity.getTargetCount());
             groupBuyOrder.setCompleteCount(0);
             groupBuyOrder.setLockCount(1);
-            groupBuyOrder.setNotifyUrl(payDiscountEntity.getNotifyUrl());
+            groupBuyOrder.setNotifyType(notifyConfigVO.getNotifyType().getCode());
+            groupBuyOrder.setNotifyMQ(notifyConfigVO.getNotifyMQ());
+            groupBuyOrder.setNotifyUrl(notifyConfigVO.getNotifyUrl());
 
             Date currentTime = new Date();
             Calendar calender = Calendar.getInstance();
@@ -211,14 +221,19 @@ public class TradeRepository implements ITradeRepository {
                 .status(GroupBuyOrderEnumVO.valueOf(groupBuyOrder.getStatus()))
                 .validStartTime(groupBuyOrder.getValidStartTime())
                 .validEndTime(groupBuyOrder.getValidEndTime())
-                .notifyUrl(groupBuyOrder.getNotifyUrl())
+                .notifyConfigVO(NotifyConfigVO.builder()
+                        .notifyType(NotifyTypeEnumVO.valueOf(groupBuyOrder.getNotifyType()))
+                        .notifyUrl(groupBuyOrder.getNotifyUrl())
+                        .notifyMQ(topic_team_success)
+                        .build())
                 .build();
     }
     @Transactional(timeout = 500)
     @Override
-    public boolean settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
+    public NotifyTaskEntity settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
         UserEntity userEntity = groupBuyTeamSettlementAggregate.getUserEntity();
         GroupBuyTeamEntity groupBuyTeamEntity = groupBuyTeamSettlementAggregate.getGroupBuyTeamEntity();
+        NotifyConfigVO notifyConfigVO = groupBuyTeamEntity.getNotifyConfigVO();
         TradePaySuccessEntity tradePaySuccessEntity = groupBuyTeamSettlementAggregate.getTradePaySuccessEntity();
 
 
@@ -254,18 +269,28 @@ public class TradeRepository implements ITradeRepository {
             NotifyTask notifyTask = new NotifyTask();
             notifyTask.setActivityId(groupBuyTeamEntity.getActivityId());
             notifyTask.setTeamId(groupBuyTeamEntity.getTeamId());
-            notifyTask.setNotifyUrl(groupBuyTeamEntity.getNotifyUrl());
+            notifyTask.setNotifyType(notifyConfigVO.getNotifyType().getCode());
+            notifyTask.setNotifyMQ(NotifyTypeEnumVO.MQ.equals(notifyConfigVO.getNotifyType())?notifyConfigVO.getNotifyMQ():null);
+            notifyTask.setNotifyUrl(NotifyTypeEnumVO.HTTP.equals(notifyConfigVO.getNotifyType())?notifyConfigVO.getNotifyUrl():null);
             notifyTask.setNotifyCount(0);
             notifyTask.setNotifyStatus(0);
+
             notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String,Object>(){{
                 put("teamId",groupBuyTeamEntity.getTeamId());
                 put("outTradeNoList",outTradeNolist);
             }}));
             notifyTaskDao.insert(notifyTask);
 
-            return true;
+            return NotifyTaskEntity.builder()
+                    .teamId(notifyTask.getTeamId())
+                    .notifyType(notifyTask.getNotifyType())
+                    .notifyUrl(notifyTask.getNotifyUrl())
+                    .notifyMQ(notifyTask.getNotifyMQ())
+                    .notifyUrlCount(notifyTask.getNotifyCount())
+                    .parameterJson(notifyTask.getParameterJson())
+                    .build();
         }
-        return false;
+        return null;
     }
 
     @Override

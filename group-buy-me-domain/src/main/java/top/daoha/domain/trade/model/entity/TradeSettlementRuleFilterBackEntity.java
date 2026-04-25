@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
+import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
 import top.daoha.types.enums.GroupBuyOrderEnumVO;
 
 import java.util.Date;
@@ -27,9 +29,10 @@ public class TradeSettlementRuleFilterBackEntity {
     /** 状态（0-拼单中、1-完成、2-失败） */
     private GroupBuyOrderEnumVO status;
     /** 回调通知（HTTP 方式回调，地址不可为空） */
-    private String notifyUrl;
+    private NotifyConfigVO notifyConfigVO;
     /** 拼团开始时间 - 参与拼团时间 */
     private Date validStartTime;
     /** 拼团结束时间 - 拼团有效时长 */
     private Date validEndTime;
+
 }

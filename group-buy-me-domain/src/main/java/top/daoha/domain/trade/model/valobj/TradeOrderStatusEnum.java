@@ -1,6 +1,7 @@
 package top.daoha.domain.trade.model.valobj;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

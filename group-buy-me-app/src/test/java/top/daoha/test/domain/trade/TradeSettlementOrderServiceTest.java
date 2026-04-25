@@ -13,6 +13,7 @@ import top.daoha.domain.trade.service.ITradeSettlementOrderService;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -32,12 +33,14 @@ public class TradeSettlementOrderServiceTest {
         TradePaySuccessEntity tradePaySuccessEntity = new TradePaySuccessEntity();
         tradePaySuccessEntity.setSource("s01");
         tradePaySuccessEntity.setChannel("c01");
-        tradePaySuccessEntity.setUserId("gdk01");
-        tradePaySuccessEntity.setOutTradeNo("756926937027");
+        tradePaySuccessEntity.setUserId("gdk02");
+        tradePaySuccessEntity.setOutTradeNo("856769991025");
         tradePaySuccessEntity.setOutTradeTime(new Date());
         TradePaySettlementEntity tradePaySettlementEntity = tradeSettlementOrderService.settlementOrder(tradePaySuccessEntity);
         log.info("请求参数:{}", JSON.toJSONString(tradePaySuccessEntity));
         log.info("测试结果:{}", JSON.toJSONString(tradePaySettlementEntity));
+
+        new CountDownLatch(1).await();
     }
 
 }

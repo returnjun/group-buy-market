@@ -51,6 +51,8 @@ public class GroupBuyOrder {
     private String notifyType;
     /** 回调通知（HTTP 方式回调，地址不可为空） */
     private String notifyUrl;
+    /** 回调MQ */
+    private String notifyMQ;
     /** 创建时间 */
     private Date createTime;
     /** 更新时间 */

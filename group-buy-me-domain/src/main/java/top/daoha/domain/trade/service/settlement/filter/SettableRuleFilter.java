@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.entity.*;
-import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
 import top.daoha.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
 import top.daoha.types.desgin.framework.link.model2.handler.ILogicHandler;
 import top.daoha.types.enums.ResponseCode;
@@ -15,7 +14,7 @@ import java.util.Date;
 
 @Slf4j
 @Service
-public class SettlableRuleFilter implements ILogicHandler<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity> {
+public class SettableRuleFilter implements ILogicHandler<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity> {
     @Resource
     private ITradeRepository tradeRepository;
 

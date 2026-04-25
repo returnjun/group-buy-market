@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
 
 import java.math.BigDecimal;
 
@@ -31,5 +32,5 @@ public class PayDiscountEntity {
     /** 外部交易单号-确保外部调用唯一幂等 */
     private String outTradeNo;
     /** 回调通知（HTTP 方式回调，地址不可为空） */
-    private String notifyUrl;
+    private NotifyConfigVO notifyConfigVO;
 }

@@ -16,8 +16,10 @@ import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import top.daoha.domain.activity.service.IIndexGroupBuyMarketService;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
+import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
+import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
 import top.daoha.domain.trade.service.ITradeLockOrderService;
-import top.daoha.domain.trade.service.settlement.TreadeSettlementOrderService;
+import top.daoha.domain.trade.service.settlement.TradeSettlementOrderService;
 import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
 
@@ -38,7 +40,7 @@ public class MarketTradeController implements IMarketTradeService {
     private ITradeLockOrderService tradeOrderService;
 
     @Resource
-    private TreadeSettlementOrderService treadeSettlementOrderService;
+    private TradeSettlementOrderService tradeSettlementOrderService;
 
 
     @RequestMapping(value = "settlement_market_pay_order", method = RequestMethod.POST)
@@ -60,7 +62,7 @@ public class MarketTradeController implements IMarketTradeService {
                         .build();
             }
 
-                TradePaySettlementEntity tradePaySettlementEntity = treadeSettlementOrderService.settlementOrder(
+                TradePaySettlementEntity tradePaySettlementEntity = tradeSettlementOrderService.settlementOrder(
                         TradePaySuccessEntity.builder()
                                 .source(source)
                                 .channel(channel)
@@ -112,13 +114,14 @@ public class MarketTradeController implements IMarketTradeService {
             String channel = requestDTO.getChannel();
             String outTradeNo = requestDTO.getOutTradeNo();
             String teamId = requestDTO.getTeamId();
-            String notifyUrl = requestDTO.getNotifyUrl();
+            LockMarketPayOrderRequestDTO.NotifyConfigVO notifyConfigVO = requestDTO.getNotifyConfigVO();
+            String notifyUrl = requestDTO.getNotifyConfigVO().getNotifyUrl();
 
             log.info("营销交易锁单:{} LockMarketPayOrderRequestDTO:{}", userId, JSON.toJSONString(requestDTO));
 
             if (StringUtils.isBlank(userId) || StringUtils.isBlank(goodsId) ||
                     activityId == null || StringUtils.isBlank(source) ||
-                    StringUtils.isBlank(channel)||StringUtils.isBlank(notifyUrl)) {
+                    StringUtils.isBlank(channel)||(null == notifyConfigVO)) {
 
                 return Response.<LockMarketPayOrderResponseDTO>builder()
                         .code(ResponseCode.ILLEGAL_PARAMETER.getCode())
@@ -198,7 +201,11 @@ public class MarketTradeController implements IMarketTradeService {
                             .deductionPrice(trialBalanceEntity.getDeductionPrice())
                             .payPrice(trialBalanceEntity.getPayPrice())
                             .outTradeNo(outTradeNo)
-                            .notifyUrl(notifyUrl)
+                            .notifyConfigVO(NotifyConfigVO.builder()
+                                    .notifyType(NotifyTypeEnumVO.valueOf(notifyConfigVO.getNotifyType()))
+                                    .notifyUrl(notifyConfigVO.getNotifyUrl())
+                                    .notifyMQ(notifyConfigVO.getNotifyMsg())
+                                    .build())
                             .build());
             log.info("交易锁单记录(新):{} marketPayOrderEntity:{}", userId, JSON.toJSONString(marketPayOrderEntity));
 

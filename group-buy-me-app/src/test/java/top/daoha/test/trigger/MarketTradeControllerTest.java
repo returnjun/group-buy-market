@@ -21,6 +21,24 @@ public class MarketTradeControllerTest {
     @Resource
     private MarketTradeController marketTradeController;
 
+    @Test
+    public void test_lockMarketPayOrder_mq(){
+        LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
+        lockMarketPayOrderRequestDTO.setUserId("gdk02");
+        lockMarketPayOrderRequestDTO.setTeamId(null);
+        lockMarketPayOrderRequestDTO.setGoodsId("9890001");
+        lockMarketPayOrderRequestDTO.setActivityId(100123L);
+        lockMarketPayOrderRequestDTO.setSource("s01");
+        lockMarketPayOrderRequestDTO.setNotifyMQ();
+        lockMarketPayOrderRequestDTO.setChannel("c01");
+        lockMarketPayOrderRequestDTO.setOutTradeNo(RandomStringUtils.randomNumeric(12));
+
+        Response<LockMarketPayOrderResponseDTO> response = marketTradeController.lockMarketPayOrder(lockMarketPayOrderRequestDTO);
+
+        log.info("测试结果 response:{}",response);
+    }
+
+
 
     @Test
     public void test_lockMarketPayOrder(){
