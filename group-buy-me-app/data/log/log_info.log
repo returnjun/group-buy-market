@@ -1,442 +1,87 @@
-26-04-25.11:24:43.104 [main            ] INFO  ApiTest                - Starting ApiTest using Java 17 on jjnice with PID 35460 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.11:24:43.105 [main            ] INFO  ApiTest                - The following 1 profile is active: "dev"
-26-04-25.11:24:44.291 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.11:24:44.294 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.11:24:44.346 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
-26-04-25.11:24:44.771 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e76c63c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.11:24:45.133 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.11:24:45.486 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.11:24:45.908 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.11:24:45.930 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.11:24:45.977 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.11:24:48.733 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.11:24:48.821 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.11:24:48.878 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#391b01c5:0/SimpleConnection@b307030 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 53200]
-26-04-25.11:24:48.967 [main            ] INFO  ApiTest                - Started ApiTest in 6.572 seconds (JVM running for 7.838)
-26-04-25.11:24:49.436 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TeamSuccessTopicListener - 接收消息:订单结算：ORD-20231235
-26-04-25.11:24:49.438 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TeamSuccessTopicListener - 接收消息:订单结算：ORD-20231237
-26-04-25.11:24:49.440 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TeamSuccessTopicListener - 接收消息:订单结算：ORD-20231238
-26-04-25.11:25:00.006 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:25:00.032 [scheduling-1    ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.11:25:00.169 [scheduling-1    ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.11:25:00.324 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:25:45.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:25:45.002 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:26:00.012 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:26:00.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:26:45.010 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:26:45.011 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:27:00.005 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:27:00.007 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:27:45.005 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:27:45.006 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:28:00.010 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:28:00.011 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:28:45.001 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:28:45.001 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:29:00.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:29:00.006 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:29:45.011 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:29:45.012 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:30:00.010 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:30:00.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:30:45.014 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:30:45.015 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:31:00.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:31:00.004 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:31:45.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:31:45.003 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:32:00.011 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:32:00.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:32:45.014 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:32:45.016 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:33:00.010 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:33:00.012 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:33:45.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:33:45.004 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:34:00.003 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:34:00.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:34:45.012 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:34:45.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:35:00.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:35:00.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:35:45.009 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:35:45.010 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:36:00.007 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:36:00.009 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:36:45.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:36:45.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:37:00.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:37:00.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:37:45.012 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:37:45.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:38:00.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:38:00.006 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:38:45.009 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:38:45.011 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:39:00.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:39:00.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:39:45.015 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:39:45.016 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:40:00.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:40:00.004 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:40:45.011 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:40:45.012 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:41:00.014 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:41:00.015 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:41:45.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:41:45.003 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:42:00.003 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:42:00.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:42:45.012 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:42:45.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:43:00.005 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:43:00.006 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:43:45.006 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:43:45.008 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:44:00.012 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:44:00.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:44:45.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:44:45.003 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:45:00.014 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:45:00.015 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:45:45.011 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:45:45.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:46:00.002 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:46:00.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:46:45.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:46:45.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:47:00.012 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:47:00.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:47:45.009 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:47:45.010 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:48:00.001 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:48:00.002 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:48:45.008 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:48:45.009 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:49:00.003 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:49:00.004 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:49:45.011 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:49:45.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:50:00.006 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:50:00.008 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:50:45.001 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:50:45.003 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:51:00.004 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:51:00.006 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:51:45.008 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:51:45.009 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:51:58.666 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.11:51:59.598 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.11:51:59.600 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.11:51:59.611 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.11:51:59.619 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.11:52:16.593 [main            ] INFO  ApiTest                - Starting ApiTest using Java 17 on jjnice with PID 32840 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.11:52:16.595 [main            ] INFO  ApiTest                - The following 1 profile is active: "dev"
-26-04-25.11:52:17.728 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.11:52:17.731 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.11:52:17.788 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 Redis repository interfaces.
-26-04-25.11:52:18.225 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$48410759] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.11:52:18.725 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.11:52:19.109 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.11:52:19.469 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.11:52:19.484 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.11:52:19.527 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.11:52:22.852 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.11:52:22.991 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.11:52:23.057 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#798b36fd:0/SimpleConnection@504b4a97 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 54605]
-26-04-25.11:52:23.142 [main            ] INFO  ApiTest                - Started ApiTest in 7.03 seconds (JVM running for 7.998)
-26-04-25.11:52:23.733 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TeamSuccessTopicListener - 接收消息:订单结算：ORD-20231235
-26-04-25.11:52:45.014 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:52:45.041 [scheduling-1    ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.11:52:45.166 [scheduling-1    ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.11:52:45.337 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:53:00.013 [scheduling-1    ] INFO  TreadeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.11:53:00.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.11:53:36.240 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.11:53:36.495 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.11:53:36.497 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.11:53:36.512 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.11:53:36.521 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.19:46:05.101 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 36844 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.19:46:05.102 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-04-25.19:46:06.695 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.19:46:06.701 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.19:46:06.781 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 0 Redis repository interfaces.
-26-04-25.19:46:07.367 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$a7e1348b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:46:07.813 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:46:08.233 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.19:46:08.643 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:46:08.663 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:46:08.719 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:46:10.476 [main            ] WARN  GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'marketTradeController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tradeSettlementOrderService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
-26-04-25.19:46:10.539 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-26-04-25.19:46:10.568 [main            ] ERROR LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-A component required a bean of type 'org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor' in your configuration.
-
-26-04-25.19:46:10.575 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@4fa1c212] to prepare test instance [top.daoha.test.trigger.MarketTradeControllerTest@62c46e53]
-java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
-	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
-	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
-	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'marketTradeController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tradeSettlementOrderService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:136)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:141)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:90)
-	... 27 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tradeSettlementOrderService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeanByName(AbstractAutowireCapableBeanFactory.java:479)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:550)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:520)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:673)
-	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
-	... 43 common frames omitted
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1801)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1357)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:544)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:520)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:673)
-	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
-	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
-	... 57 common frames omitted
-26-04-25.19:49:25.894 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 17084 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.19:49:25.894 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-04-25.19:49:27.374 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.19:49:27.383 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.19:49:27.470 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
-26-04-25.19:49:28.060 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$306cc25a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:49:28.634 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:49:29.179 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.19:49:29.714 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:49:29.735 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:49:29.785 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:49:34.345 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.19:49:34.511 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.19:49:34.629 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#6fdaef04:0/SimpleConnection@b307030 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 39470]
-26-04-25.19:49:34.777 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 9.472 seconds (JVM running for 10.499)
-26-04-25.19:49:35.653 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk02 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"411805169112","source":"s01","userId":"gdk02"}
-26-04-25.19:49:35.684 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.19:49:35.841 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.19:49:35.927 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-04-25.19:49:35.934 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk02 activityId: 100123
-26-04-25.19:49:35.939 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk02 activityId: 100123
-26-04-25.19:49:35.946 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-04-25.19:49:36.060 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0001, info=未知失败, data=null)
-26-04-25.19:49:36.076 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.19:49:36.765 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.19:49:36.767 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.19:49:36.775 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.19:49:36.795 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.19:49:59.394 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 36476 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.19:49:59.396 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-04-25.19:50:00.870 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.19:50:00.881 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.19:50:00.978 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
-26-04-25.19:50:01.648 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$306cc25a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:50:02.184 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:50:02.806 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.19:50:03.234 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:50:03.248 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:50:03.290 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:50:07.544 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.19:50:07.702 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.19:50:07.771 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@2caa9666 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 15233]
-26-04-25.19:50:07.877 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 9.074 seconds (JVM running for 10.144)
-26-04-25.19:50:08.739 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk02 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"124468201942","source":"s01","userId":"gdk02"}
-26-04-25.19:50:08.768 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.19:50:08.958 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.19:50:09.016 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-04-25.19:50:09.019 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk02 activityId: 100123
-26-04-25.19:50:09.023 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk02 activityId: 100123
-26-04-25.19:50:09.026 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-04-25.19:50:09.111 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0001, info=未知失败, data=null)
-26-04-25.19:50:09.126 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.19:50:09.862 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.19:50:09.864 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.19:50:09.875 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.19:50:09.881 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.19:51:53.415 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 1256 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.19:51:53.416 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-04-25.19:51:55.150 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.19:51:55.157 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.19:51:55.242 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 0 Redis repository interfaces.
-26-04-25.19:51:55.951 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e3baf9cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:51:56.440 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:51:57.034 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.19:51:57.484 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:51:57.502 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:51:57.545 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:52:03.904 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.19:52:04.200 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.19:52:04.298 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#175957b6:0/SimpleConnection@689eab53 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 23988]
-26-04-25.19:52:04.431 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 11.701 seconds (JVM running for 12.986)
-26-04-25.19:52:05.392 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk02 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"076919660334","source":"s01","userId":"gdk02"}
-26-04-25.19:52:05.434 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.19:52:05.636 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.19:52:05.726 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-04-25.19:53:03.732 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s990ms612µs900ns).
-26-04-25.19:53:03.732 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.19:53:04.813 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.19:53:27.279 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk02 activityId: 100123
-26-04-25.19:53:27.292 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk02 activityId: 100123
-26-04-25.19:53:27.305 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-04-25.19:56:22.989 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m19s256ms810µs900ns).
-26-04-25.19:56:22.989 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.19:56:22.992 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.19:56:23.002 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0001, info=未知失败, data=null)
-26-04-25.19:56:23.015 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.19:56:23.015 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.19:56:23.017 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.19:56:23.023 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.19:56:23.032 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.19:56:27.406 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 40080 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.19:56:27.408 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-04-25.19:56:28.957 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.19:56:28.969 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.19:56:29.059 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
-26-04-25.19:56:29.723 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$306cc25a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:56:30.310 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:56:30.860 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.19:56:31.398 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:56:31.417 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:56:31.464 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:56:36.386 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.19:56:36.569 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.19:56:36.678 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@2caa9666 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 47795]
-26-04-25.19:56:36.831 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 9.994 seconds (JVM running for 10.998)
-26-04-25.19:56:37.716 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk02 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"856769991025","source":"s01","userId":"gdk02"}
-26-04-25.19:56:37.737 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.19:56:37.899 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.19:56:37.957 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-04-25.19:56:37.963 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk02 activityId: 100123
-26-04-25.19:56:37.967 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk02 activityId: 100123
-26-04-25.19:56:37.971 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-04-25.19:56:38.020 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk02 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"674313621180","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"51844998"}
-26-04-25.19:56:38.025 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=674313621180, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0))
-26-04-25.19:56:38.054 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.19:56:38.821 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.19:56:38.823 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.19:56:38.831 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.19:56:38.838 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.19:59:10.933 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 7676 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.19:59:10.935 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-04-25.19:59:12.832 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.19:59:12.835 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.19:59:12.897 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 0 Redis repository interfaces.
-26-04-25.19:59:13.527 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$306cc25a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:59:13.962 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:59:14.646 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.19:59:15.089 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:59:15.105 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.19:59:15.152 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.19:59:20.013 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.19:59:20.215 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.19:59:20.360 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2d8087da:0/SimpleConnection@4964d801 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 27503]
-26-04-25.19:59:20.513 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 10.157 seconds (JVM running for 11.182)
-26-04-25.19:59:20.534 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.19:59:21.233 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:856769991025
-26-04-25.19:59:21.279 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.19:59:21.435 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.19:59:21.490 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.19:59:21.494 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.19:59:21.510 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.19:59:21.524 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-25.20:00:21.178 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 5656 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-25.20:00:21.180 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-04-25.20:00:22.743 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-25.20:00:22.753 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-25.20:00:22.842 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 0 Redis repository interfaces.
-26-04-25.20:00:23.526 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$306cc25a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.20:00:23.904 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.20:00:24.364 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-25.20:00:24.758 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.20:00:24.773 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-25.20:00:24.816 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-25.20:00:29.226 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-25.20:00:29.441 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-25.20:00:29.521 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@2caa9666 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 11073]
-26-04-25.20:00:29.647 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 9.05 seconds (JVM running for 10.062)
-26-04-25.20:00:30.572 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:856769991025
-26-04-25.20:00:30.614 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-25.20:00:30.798 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-25.20:00:31.006 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":0,"lockCount":1,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":1,"teamId":"51844998","validEndTime":"2026-04-25 20:11:38","validStartTime":"2026-04-25 19:56:38"}
-26-04-25.20:00:31.039 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 拼团交易-主动通过teamId:51844998 notifyTaskEntity:NotifyTaskEntity(teamId=51844998, notifyType=MQ, notifyMQ=topic.team_success, notifyUrl=null, notifyUrlCount=0, parameterJson={"teamId":"51844998","outTradeNoList":["856769991025"]})
-26-04-25.20:00:31.041 [main            ] INFO  TradeSettlementOrderServiceTest - 请求参数:{"channel":"c01","outTradeNo":"856769991025","outTradeTime":"2026-04-25 20:00:30.572","source":"s01","userId":"gdk02"}
-26-04-25.20:00:31.044 [main            ] INFO  TradeSettlementOrderServiceTest - 测试结果:{"activityId":100123,"channel":"c01","outTradeNo":"856769991025","source":"s01","teamId":"51844998","userId":"gdk02"}
-26-04-25.20:00:31.094 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TeamSuccessTopicListener - 接收消息:{"teamId":"51844998","outTradeNoList":["856769991025"]}
-26-04-25.20:00:31.110 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 回调通知拼团完结 result:{"retrycount":0,"successCount":1,"errorcount":0,"waitCount":1}
-26-04-25.20:00:45.016 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.20:00:45.024 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.20:01:00.001 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-25.20:01:00.002 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-25.20:01:35.515 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-25.20:01:35.584 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-25.20:01:35.586 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-25.20:01:35.596 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-25.20:01:35.602 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-27.11:22:02.682 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 14364 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-27.11:22:02.683 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
+26-04-27.11:22:04.119 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-27.11:22:04.124 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-27.11:22:04.226 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 0 Redis repository interfaces.
+26-04-27.11:22:04.741 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$a7e1348b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:22:05.238 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:22:05.688 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-27.11:22:06.203 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-27.11:22:06.227 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-27.11:22:06.286 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:22:10.451 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-27.11:22:10.568 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-27.11:22:10.625 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4a5d5b38:0/SimpleConnection@504b4a97 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 40215]
+26-04-27.11:22:10.771 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 8.65 seconds (JVM running for 9.987)
+26-04-27.11:22:11.264 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:856769991025
+26-04-27.11:22:11.283 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-27.11:22:11.435 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-27.11:22:11.481 [main            ] ERROR OutTradeNoRuleFilter   - 预购订单不存在或者用户已经退单，不需要做支付订单结算:856769991025 outTradeNo
+26-04-27.11:22:11.501 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-27.11:22:11.774 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-27.11:22:11.776 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-27.11:22:11.785 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-27.11:22:11.791 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-27.11:25:01.284 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 28576 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-27.11:25:01.285 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-27.11:25:02.377 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-27.11:25:02.381 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-27.11:25:02.435 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
+26-04-27.11:25:02.851 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e76c63c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:25:03.189 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:25:03.534 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-27.11:25:03.894 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-27.11:25:03.910 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-27.11:25:03.952 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:25:07.043 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-27.11:25:07.148 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-27.11:25:07.222 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@4964d801 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 22634]
+26-04-27.11:25:07.324 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 6.51 seconds (JVM running for 7.369)
+26-04-27.11:25:07.904 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"573500661117","source":"s01","userId":"gdk01"}
+26-04-27.11:25:07.924 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-27.11:25:08.045 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-27.11:25:08.114 [main            ] INFO  MarketTradeController  - 优惠试算结束
+26-04-27.11:25:08.117 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk01 activityId: 100123
+26-04-27.11:25:08.120 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk01 activityId: 100123
+26-04-27.11:25:08.123 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
+26-04-27.11:25:08.146 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk01 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"790190647872","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"57607723"}
+26-04-27.11:25:08.148 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=790190647872, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0))
+26-04-27.11:25:08.165 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-27.11:25:08.311 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-27.11:25:08.313 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-27.11:25:08.322 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-27.11:25:08.328 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-27.11:25:46.901 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 6440 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-27.11:25:46.902 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
+26-04-27.11:25:47.930 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-27.11:25:47.936 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-27.11:25:47.990 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
+26-04-27.11:25:48.379 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e76c63c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:25:48.693 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:25:49.028 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-27.11:25:49.345 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-27.11:25:49.359 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-27.11:25:49.397 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-27.11:25:52.521 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-27.11:25:52.662 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-27.11:25:52.724 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@4964d801 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 26162]
+26-04-27.11:25:52.814 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 6.368 seconds (JVM running for 7.197)
+26-04-27.11:25:53.286 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk01 outTradeNo:573500661117
+26-04-27.11:25:53.309 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-27.11:25:53.439 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-27.11:25:53.595 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":0,"lockCount":1,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":1,"teamId":"57607723","validEndTime":"2026-04-27 11:40:08","validStartTime":"2026-04-27 11:25:08"}
+26-04-27.11:25:53.648 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 拼团交易-主动通过teamId:57607723 notifyTaskEntity:NotifyTaskEntity(teamId=57607723, notifyType=MQ, notifyMQ=topic.team_success, notifyUrl=null, notifyUrlCount=0, parameterJson={"teamId":"57607723","outTradeNoList":["573500661117"]})
+26-04-27.11:25:53.651 [main            ] INFO  TradeSettlementOrderServiceTest - 请求参数:{"channel":"c01","outTradeNo":"573500661117","outTradeTime":"2026-04-27 11:25:53.285","source":"s01","userId":"gdk01"}
+26-04-27.11:25:53.653 [main            ] INFO  TradeSettlementOrderServiceTest - 测试结果:{"activityId":100123,"channel":"c01","outTradeNo":"573500661117","source":"s01","teamId":"57607723","userId":"gdk01"}
+26-04-27.11:25:53.692 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 回调通知拼团完结 result:{"retrycount":0,"successCount":1,"errorcount":0,"waitCount":1}
+26-04-27.11:26:00.007 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-27.11:26:00.015 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-27.11:26:45.004 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-27.11:26:45.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-27.11:27:00.012 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-27.11:27:00.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-27.11:27:42.205 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-27.11:27:42.949 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-27.11:27:42.950 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-27.11:27:42.961 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-27.11:27:42.966 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
