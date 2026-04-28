@@ -36,7 +36,8 @@ public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<Group
         SCSkuActivityVO skuActivityVO = repository.queryByGoodsId(source,channel,goodsId);
 
         if(null==skuActivityVO)return null;
+        GroupBuyActivityDiscountVO groupBuyActivityDiscountVO = repository.queryGroupBuyActivityDiscount(skuActivityVO.getActivityId());
 
-        return repository.queryGroupBuyActivityDiscount(skuActivityVO.getActivityId());
+        return groupBuyActivityDiscountVO;
     }
 }
