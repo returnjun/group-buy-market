@@ -1,87 +1,944 @@
-26-04-27.11:22:02.682 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 14364 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-27.11:22:02.683 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-04-27.11:22:04.119 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-27.11:22:04.124 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-27.11:22:04.226 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 0 Redis repository interfaces.
-26-04-27.11:22:04.741 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$a7e1348b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:22:05.238 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:22:05.688 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-27.11:22:06.203 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-27.11:22:06.227 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-27.11:22:06.286 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:22:10.451 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-27.11:22:10.568 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-27.11:22:10.625 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4a5d5b38:0/SimpleConnection@504b4a97 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 40215]
-26-04-27.11:22:10.771 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 8.65 seconds (JVM running for 9.987)
-26-04-27.11:22:11.264 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:856769991025
-26-04-27.11:22:11.283 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-27.11:22:11.435 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-27.11:22:11.481 [main            ] ERROR OutTradeNoRuleFilter   - 预购订单不存在或者用户已经退单，不需要做支付订单结算:856769991025 outTradeNo
-26-04-27.11:22:11.501 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-27.11:22:11.774 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-27.11:22:11.776 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-27.11:22:11.785 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-27.11:22:11.791 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-27.11:25:01.284 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 28576 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-27.11:25:01.285 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-04-27.11:25:02.377 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-27.11:25:02.381 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-27.11:25:02.435 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
-26-04-27.11:25:02.851 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e76c63c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:25:03.189 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:25:03.534 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-27.11:25:03.894 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-27.11:25:03.910 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-27.11:25:03.952 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:25:07.043 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-27.11:25:07.148 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-27.11:25:07.222 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@4964d801 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 22634]
-26-04-27.11:25:07.324 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 6.51 seconds (JVM running for 7.369)
-26-04-27.11:25:07.904 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"573500661117","source":"s01","userId":"gdk01"}
-26-04-27.11:25:07.924 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-27.11:25:08.045 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-27.11:25:08.114 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-04-27.11:25:08.117 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk01 activityId: 100123
-26-04-27.11:25:08.120 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk01 activityId: 100123
-26-04-27.11:25:08.123 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-04-27.11:25:08.146 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk01 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"790190647872","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"57607723"}
-26-04-27.11:25:08.148 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=790190647872, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0))
-26-04-27.11:25:08.165 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-27.11:25:08.311 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-27.11:25:08.313 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-27.11:25:08.322 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-27.11:25:08.328 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-04-27.11:25:46.901 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 6440 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-04-27.11:25:46.902 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-04-27.11:25:47.930 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-04-27.11:25:47.936 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-04-27.11:25:47.990 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
-26-04-27.11:25:48.379 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e76c63c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:25:48.693 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:25:49.028 [main            ] INFO  Version                - Redisson 3.26.0
-26-04-27.11:25:49.345 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-27.11:25:49.359 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-04-27.11:25:49.397 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-04-27.11:25:52.521 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-26-04-27.11:25:52.662 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-04-27.11:25:52.724 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4f7ef948:0/SimpleConnection@4964d801 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 26162]
-26-04-27.11:25:52.814 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 6.368 seconds (JVM running for 7.197)
-26-04-27.11:25:53.286 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk01 outTradeNo:573500661117
-26-04-27.11:25:53.309 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-04-27.11:25:53.439 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-04-27.11:25:53.595 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":0,"lockCount":1,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":1,"teamId":"57607723","validEndTime":"2026-04-27 11:40:08","validStartTime":"2026-04-27 11:25:08"}
-26-04-27.11:25:53.648 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 拼团交易-主动通过teamId:57607723 notifyTaskEntity:NotifyTaskEntity(teamId=57607723, notifyType=MQ, notifyMQ=topic.team_success, notifyUrl=null, notifyUrlCount=0, parameterJson={"teamId":"57607723","outTradeNoList":["573500661117"]})
-26-04-27.11:25:53.651 [main            ] INFO  TradeSettlementOrderServiceTest - 请求参数:{"channel":"c01","outTradeNo":"573500661117","outTradeTime":"2026-04-27 11:25:53.285","source":"s01","userId":"gdk01"}
-26-04-27.11:25:53.653 [main            ] INFO  TradeSettlementOrderServiceTest - 测试结果:{"activityId":100123,"channel":"c01","outTradeNo":"573500661117","source":"s01","teamId":"57607723","userId":"gdk01"}
-26-04-27.11:25:53.692 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 回调通知拼团完结 result:{"retrycount":0,"successCount":1,"errorcount":0,"waitCount":1}
-26-04-27.11:26:00.007 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-27.11:26:00.015 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-27.11:26:45.004 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-27.11:26:45.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-27.11:27:00.012 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
-26-04-27.11:27:00.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-04-27.11:27:42.205 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-04-27.11:27:42.949 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-04-27.11:27:42.950 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-04-27.11:27:42.961 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-04-27.11:27:42.966 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:06:28.800 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 35200 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:06:28.801 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:06:30.142 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:06:30.146 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:06:30.214 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
+26-04-28.21:06:30.669 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4275a1c5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:06:31.106 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:06:31.496 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:06:31.864 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:06:31.884 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:06:31.930 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:06:35.518 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:06:35.644 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:06:35.734 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#6fdaef04:0/SimpleConnection@7878459f [delegate=amqp://admin@127.0.0.1:5672/, localPort= 59054]
+26-04-28.21:06:35.848 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.564 seconds (JVM running for 8.71)
+26-04-28.21:06:36.469 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"141846524622","source":"s01","userId":"gdk01"}
+26-04-28.21:06:36.496 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:06:36.639 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:06:36.690 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:06:36.693 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"141846524622","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:06:36.694 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:06:36.711 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:06:36.845 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:06:36.847 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:06:36.856 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:06:36.864 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:09:58.342 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 32320 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:09:58.343 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:09:59.495 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:09:59.498 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:09:59.557 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 0 Redis repository interfaces.
+26-04-28.21:09:59.980 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4275a1c5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:10:00.359 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:10:00.756 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:10:01.119 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:10:01.141 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:10:01.183 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:10:04.513 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:10:04.630 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:10:04.692 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3cacc87:0/SimpleConnection@263f6e96 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 22746]
+26-04-28.21:10:04.792 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 6.954 seconds (JVM running for 7.9)
+26-04-28.21:10:05.563 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"371833090219","source":"s01","userId":"gdk01"}
+26-04-28.21:10:05.583 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:10:05.703 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:10:05.740 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"371833090219","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:34)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:10:05.741 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=E0003, info=拼团活动降级拦截, data=null)
+26-04-28.21:10:05.757 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:10:05.786 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:10:05.789 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:10:05.799 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:10:05.805 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:11:38.487 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 6712 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:11:38.489 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:11:39.805 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:11:39.808 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:11:39.890 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 0 Redis repository interfaces.
+26-04-28.21:11:40.478 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:11:40.937 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:11:41.373 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:11:41.748 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:11:41.769 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:11:41.812 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:11:46.527 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:11:46.699 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:11:46.777 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#6b5e1fc5:0/SimpleConnection@118c1faa [delegate=amqp://admin@127.0.0.1:5672/, localPort= 6997]
+26-04-28.21:11:46.863 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.892 seconds (JVM running for 10.402)
+26-04-28.21:11:47.848 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"381805128672","source":"s01","userId":"gdk01"}
+26-04-28.21:11:47.873 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:11:48.017 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:12:07.548 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s530ms557µs600ns).
+26-04-28.21:12:07.554 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:12:07.563 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"381805128672","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:12:07.565 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:12:07.586 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:12:07.591 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:12:07.603 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:12:08.560 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:12:08.574 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:12:08.583 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:12:08.590 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:12:56.338 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 36940 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:12:56.340 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:12:57.640 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:12:57.646 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:12:57.720 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 0 Redis repository interfaces.
+26-04-28.21:12:58.254 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:12:58.641 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:12:59.033 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:12:59.431 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:12:59.450 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:12:59.497 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:13:03.897 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:13:04.072 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:13:04.159 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5906ebfb:0/SimpleConnection@3f1e18b1 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 56397]
+26-04-28.21:13:04.275 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.51 seconds (JVM running for 9.654)
+26-04-28.21:13:05.276 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"522333014385","source":"s01","userId":"gdk01"}
+26-04-28.21:13:05.314 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:13:05.516 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:13:15.579 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:13:15.583 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"522333014385","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:13:15.584 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:13:15.603 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:13:16.577 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:13:16.579 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:13:16.588 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:13:16.595 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:13:42.127 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 31504 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:13:42.127 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:13:43.279 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:13:43.283 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:13:43.353 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 0 Redis repository interfaces.
+26-04-28.21:13:43.962 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$e5e4388b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:13:44.299 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:13:44.673 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:13:45.066 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:13:45.084 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:13:45.128 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:13:49.498 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:13:49.665 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:13:49.749 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#eb695e8:0/SimpleConnection@6de4071b [delegate=amqp://admin@127.0.0.1:5672/, localPort= 58521]
+26-04-28.21:13:49.852 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.291 seconds (JVM running for 9.341)
+26-04-28.21:13:50.560 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"774268884151","source":"s01","userId":"gdk01"}
+26-04-28.21:13:50.588 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:13:50.714 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:13:59.650 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:13:59.654 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"774268884151","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:13:59.657 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:13:59.676 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:14:00.035 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:14:00.043 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:14:00.645 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:14:00.647 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:14:00.656 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:14:00.662 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:14:36.018 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 33680 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:14:36.020 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:14:37.133 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:14:37.138 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:14:37.214 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 0 Redis repository interfaces.
+26-04-28.21:14:37.755 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:14:38.099 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:14:38.494 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:14:38.923 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:14:38.951 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:14:39.008 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:14:43.490 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:14:43.658 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:14:43.759 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#eb695e8:0/SimpleConnection@3fe3ebb3 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 21041]
+26-04-28.21:14:43.894 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.441 seconds (JVM running for 9.435)
+26-04-28.21:14:44.726 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"495558597433","source":"s01","userId":"gdk01"}
+26-04-28.21:14:44.760 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:14:45.028 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:14:45.091 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:14:58.223 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:14:58.238 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:14:58.243 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"495558597433","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:14:58.245 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:14:58.264 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:14:59.232 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:14:59.233 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:14:59.243 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:14:59.249 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:19:43.434 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 35944 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:19:43.435 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:19:44.554 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:19:44.557 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:19:44.630 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 0 Redis repository interfaces.
+26-04-28.21:19:44.998 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4c4f4f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:19:45.299 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:19:45.644 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:19:46.009 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:19:46.029 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:19:46.070 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:19:49.189 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:19:49.325 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:19:49.403 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4040ccae:0/SimpleConnection@39acf187 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 21418]
+26-04-28.21:19:49.517 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 6.543 seconds (JVM running for 7.403)
+26-04-28.21:19:50.149 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"676949459959","source":"s01","userId":"gdk01"}
+26-04-28.21:19:50.170 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:19:50.303 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:19:50.343 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:19:50.347 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"676949459959","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:19:50.348 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:19:50.364 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:19:50.503 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:19:50.505 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:19:50.514 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:19:50.522 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:21:43.737 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 6228 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:21:43.739 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:21:44.936 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:21:44.940 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:21:44.999 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 Redis repository interfaces.
+26-04-28.21:21:45.448 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:21:45.797 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:21:46.285 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:21:46.711 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:21:46.734 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:21:46.782 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:21:51.615 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:21:51.813 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:21:51.895 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5906ebfb:0/SimpleConnection@3f1e18b1 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 38266]
+26-04-28.21:21:51.997 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.784 seconds (JVM running for 9.852)
+26-04-28.21:21:52.946 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"637020326024","source":"s01","userId":"gdk01"}
+26-04-28.21:21:52.966 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:21:53.103 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:21:53.155 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:21:53.158 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"637020326024","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:21:53.160 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:21:53.181 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:21:53.999 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:21:54.001 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:21:54.010 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:21:54.018 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:22:15.210 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 34076 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:22:15.211 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:22:16.497 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:22:16.502 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:22:16.566 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+26-04-28.21:22:17.053 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:22:17.464 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:22:17.935 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:22:18.350 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:22:18.369 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:22:18.412 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:22:23.159 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:22:23.338 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:22:23.416 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1b841e7d:0/SimpleConnection@3f1e18b1 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 40924]
+26-04-28.21:22:23.503 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.873 seconds (JVM running for 9.873)
+26-04-28.21:22:24.372 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"394357453946","source":"s01","userId":"gdk01"}
+26-04-28.21:22:24.404 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:22:24.562 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:22:48.453 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:22:50.545 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:22:50.547 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"394357453946","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:22:50.551 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:22:54.231 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:22:54.247 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:22:55.240 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:22:55.241 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:22:55.250 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:22:55.257 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:23:41.934 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 33760 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:23:41.935 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:23:43.216 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:23:43.222 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:23:43.301 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 0 Redis repository interfaces.
+26-04-28.21:23:43.836 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:23:44.167 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:23:44.537 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:23:44.944 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:23:44.961 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:23:45.002 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:23:50.003 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:23:50.157 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:23:50.229 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5906ebfb:0/SimpleConnection@6de4071b [delegate=amqp://admin@127.0.0.1:5672/, localPort= 56535]
+26-04-28.21:23:50.343 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.943 seconds (JVM running for 9.976)
+26-04-28.21:24:03.095 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:24:03.137 [scheduling-1    ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:24:03.415 [scheduling-1    ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:24:05.898 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:24:05.962 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"709198160911","source":"s01","userId":"gdk01"}
+26-04-28.21:24:47.098 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:24:49.506 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:24:49.570 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:24:56.717 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"709198160911","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:39)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:24)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:24:56.725 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:24:56.741 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:24:57.724 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:24:57.726 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:24:57.734 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:24:57.741 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:31:30.028 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 12020 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:31:30.030 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:31:31.161 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:31:31.166 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:31:31.240 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 0 Redis repository interfaces.
+26-04-28.21:31:31.753 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:31:32.088 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:31:32.452 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:31:32.831 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:31:32.849 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:31:32.894 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:31:37.451 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:31:37.629 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:31:37.713 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1b841e7d:0/SimpleConnection@3f1e18b1 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 23669]
+26-04-28.21:31:37.824 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.312 seconds (JVM running for 9.268)
+26-04-28.21:31:38.596 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"869153458835","source":"s01","userId":"gdk01"}
+26-04-28.21:31:38.624 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:31:38.784 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:31:38.828 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk01 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"}
+26-04-28.21:31:38.839 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:31:38.844 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"869153458835","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:41)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:25)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:31:38.846 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:31:38.868 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:31:39.819 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:31:39.821 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:31:39.830 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:31:39.837 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-04-28.21:35:47.386 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 36092 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-04-28.21:35:47.388 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
+26-04-28.21:35:48.565 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-04-28.21:35:48.568 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-04-28.21:35:48.632 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+26-04-28.21:35:49.134 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$afd741bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:35:49.491 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:35:49.909 [main            ] INFO  Version                - Redisson 3.26.0
+26-04-28.21:35:50.347 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:35:50.367 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-04-28.21:35:50.412 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-04-28.21:35:55.141 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+26-04-28.21:35:55.336 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-04-28.21:35:55.426 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#45273d40:0/SimpleConnection@3fe3ebb3 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 32664]
+26-04-28.21:35:55.531 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 8.676 seconds (JVM running for 9.839)
+26-04-28.21:35:56.476 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"211146410705","source":"s01","userId":"gdk01"}
+26-04-28.21:35:56.513 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-04-28.21:35:56.742 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-04-28.21:35:56.794 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk01 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"}
+26-04-28.21:36:04.279 [main            ] INFO  ErrorNode              - 拼团商品查询试算服务-ErrorNode:gdk01,requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"},dynamicContext:{}
+26-04-28.21:36:04.283 [main            ] ERROR MarketTradeController  - 营销交易锁单业务异常:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"211146410705","source":"s01","userId":"gdk01"}
+top.daoha.types.exception.AppException: null
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:24)
+	at top.daoha.domain.activity.service.trial.node.ErrorNode.doApply(ErrorNode.java:15)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:63)
+	at top.daoha.domain.activity.service.trial.node.MarketNode.doApply(MarketNode.java:30)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:41)
+	at top.daoha.domain.activity.service.trial.node.SwitchRoot.doApply(SwitchRoot.java:22)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.router(AbstractMultiThreadStrategyRouter.java:22)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:41)
+	at top.daoha.domain.activity.service.trial.node.RootNode.doApply(RootNode.java:25)
+	at top.daoha.types.desgin.framework.tree.AbstractMultiThreadStrategyRouter.apply(AbstractMultiThreadStrategyRouter.java:28)
+	at top.daoha.domain.activity.service.IIndexGroupBuyMarketServiceImpl.indexMarketTrial(IIndexGroupBuyMarketServiceImpl.java:38)
+	at top.daoha.trigger.http.MarketTradeController.lockMarketPayOrder(MarketTradeController.java:164)
+	at top.daoha.test.trigger.MarketTradeControllerTest.test_lockMarketPayOrder(MarketTradeControllerTest.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+26-04-28.21:36:04.284 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=不存在的拼团配置, info=E0002, data=null)
+26-04-28.21:36:04.304 [scheduling-1    ] INFO  TradeSettlementOrderService - 拼团交易-定时任务执行结算通知任务
+26-04-28.21:36:04.305 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-04-28.21:36:04.312 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-04-28.21:36:05.290 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-04-28.21:36:05.292 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-04-28.21:36:05.302 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-04-28.21:36:05.308 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.

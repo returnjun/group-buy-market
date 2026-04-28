@@ -40,6 +40,7 @@ public class TradeLockOrderService implements ITradeLockOrderService {
         TradeLockRuleFilterBackEntity apply = tradeRuleFilter.apply(TradeLockRuleCommandEntity.builder()
                 .activityId(payActivityEntity.getActivityId())
                 .userId(userEntity.getUserId())
+                .teamId(payActivityEntity.getTeamId())
                 .build(),
                 new TradeLockRuleFilterFactory.DynamicContext()
         );
@@ -47,8 +48,16 @@ public class TradeLockOrderService implements ITradeLockOrderService {
         Integer userTakeOrderCount = apply.getUserTakeOrderCount();
 
         //锁定预购订单，第一个就创建，已存在就+1
-        GroupBuyOrderAggregate groupBuyOrderAggregate = new GroupBuyOrderAggregate(userEntity,payActivityEntity,payDiscountEntity,userTakeOrderCount);
+        GroupBuyOrderAggregate groupBuyOrderAggregate =
+                new GroupBuyOrderAggregate(userEntity,payActivityEntity,payDiscountEntity,userTakeOrderCount);
 
-        return tradeRepository.lockMarketPayOrder(groupBuyOrderAggregate);
+        try{
+            //锁定聚合订单
+            return tradeRepository.lockMarketPayOrder(groupBuyOrderAggregate);
+        }catch (Exception e){
+            tradeRepository.recoveryTeamStock(apply.getRecoveryTeamStockKey(),payActivityEntity.getValidTime());
+            log.error("锁定预购订单失败",e);
+            throw e;
+        }
     }
 }

@@ -2,6 +2,7 @@ package top.daoha.infrastructure.adapter.repository;
 
 
 import com.alibaba.fastjson2.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ import top.daoha.infrastructure.dao.po.GroupBuyOrder;
 import top.daoha.infrastructure.dao.po.GroupBuyOrderList;
 import top.daoha.infrastructure.dao.po.NotifyTask;
 import top.daoha.infrastructure.dcc.DCCService;
+import top.daoha.infrastructure.redis.IRedisService;
 import top.daoha.types.common.Constants;
 import top.daoha.types.enums.ActivityStatusEnumVO;
 import top.daoha.types.enums.GroupBuyOrderEnumVO;
@@ -35,8 +37,9 @@ import top.daoha.types.exception.AppException;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
-
+@Slf4j
 @Repository
 public class TradeRepository implements ITradeRepository {
 
@@ -50,7 +53,7 @@ public class TradeRepository implements ITradeRepository {
     private IGroupBuyActivityDao groupBuyActivityDao;
 
     @Resource
-    private INotifyTaskDao  notifyTaskDao;
+    private INotifyTaskDao notifyTaskDao;
 
     @Resource
     private DCCService dccService;
@@ -58,6 +61,8 @@ public class TradeRepository implements ITradeRepository {
     @Value("${spring.rabbitmq.config.producer.topic_team_success.routing_key}")
     private String topic_team_success;
 
+    @Resource
+    private IRedisService redisService;
 
 
     @Override
@@ -161,11 +166,11 @@ public class TradeRepository implements ITradeRepository {
         groupBuyOrderList.setPayPrice(payDiscountEntity.getPayPrice());
         groupBuyOrderList.setStatus(TradeOrderStatusEnum.CREATE.getCode());
         groupBuyOrderList.setOutTradeNo(payDiscountEntity.getOutTradeNo());
-        groupBuyOrderList.setBizId(payActivityEntity.getActivityId()+ Constants.UNDERLINE+userEntity.getUserId()+ Constants.UNDERLINE+(orderCount+1));
+        groupBuyOrderList.setBizId(payActivityEntity.getActivityId() + Constants.UNDERLINE + userEntity.getUserId() + Constants.UNDERLINE + (orderCount + 1));
 
-        try{
+        try {
             groupBuyOrderListDao.insert(groupBuyOrderList);
-        }catch (DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
             throw new AppException(ResponseCode.INDEX_EXCEPTION);
         }
 
@@ -210,7 +215,7 @@ public class TradeRepository implements ITradeRepository {
 
     @Override
     public GroupBuyTeamEntity queryGroupBuyTeamByTeamId(String teamId) {
-        GroupBuyOrder groupBuyOrder=groupBuyOrderDao.queryGroupBuyTeamByTeamId(teamId);
+        GroupBuyOrder groupBuyOrder = groupBuyOrderDao.queryGroupBuyTeamByTeamId(teamId);
 
         return GroupBuyTeamEntity.builder()
                 .teamId(teamId)
@@ -228,6 +233,7 @@ public class TradeRepository implements ITradeRepository {
                         .build())
                 .build();
     }
+
     @Transactional(timeout = 500)
     @Override
     public NotifyTaskEntity settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
@@ -248,36 +254,36 @@ public class TradeRepository implements ITradeRepository {
                 .build();
 
         //这里是将orderList表的订单的状态改变完成
-        int rowsCount=groupBuyOrderListDao.updateStatus2COMPLETE(groupBuyOrderListReq);
-        if(1!=rowsCount){
+        int rowsCount = groupBuyOrderListDao.updateStatus2COMPLETE(groupBuyOrderListReq);
+        if (1 != rowsCount) {
             throw new AppException(ResponseCode.UPDATE_ZERO);
         }
         //这个是将group_buy_order表中的就是拼团表中的完成数量+1
-        int updaCount=groupBuyOrderDao.updateAddCompleteCount(groupBuyTeamEntity.getTeamId());
-        if(1!=updaCount){
+        int updaCount = groupBuyOrderDao.updateAddCompleteCount(groupBuyTeamEntity.getTeamId());
+        if (1 != updaCount) {
             throw new AppException(ResponseCode.UPDATE_ZERO);
         }
         //如果拼团表中的完成数量满了那么整个状态就完成了
-        if(groupBuyTeamEntity.getTargetCount()-groupBuyTeamEntity.getCompleteCount()==1){
+        if (groupBuyTeamEntity.getTargetCount() - groupBuyTeamEntity.getCompleteCount() == 1) {
             updaCount = groupBuyOrderDao.updateOrderStatus2COMPLETE(groupBuyTeamEntity.getTeamId());
-            if(1!=updaCount){
+            if (1 != updaCount) {
                 throw new AppException(ResponseCode.UPDATE_ZERO);
             }
             //这个拼团中所有的用户都支付完成了
-            List<String> outTradeNolist= groupBuyOrderListDao.queryGroupBuyCompleterOrderOutTradeNoListByTeamId(groupBuyTeamEntity.getTeamId());
+            List<String> outTradeNolist = groupBuyOrderListDao.queryGroupBuyCompleterOrderOutTradeNoListByTeamId(groupBuyTeamEntity.getTeamId());
             //现在将所有完成的信息写进回调表中
             NotifyTask notifyTask = new NotifyTask();
             notifyTask.setActivityId(groupBuyTeamEntity.getActivityId());
             notifyTask.setTeamId(groupBuyTeamEntity.getTeamId());
             notifyTask.setNotifyType(notifyConfigVO.getNotifyType().getCode());
-            notifyTask.setNotifyMQ(NotifyTypeEnumVO.MQ.equals(notifyConfigVO.getNotifyType())?notifyConfigVO.getNotifyMQ():null);
-            notifyTask.setNotifyUrl(NotifyTypeEnumVO.HTTP.equals(notifyConfigVO.getNotifyType())?notifyConfigVO.getNotifyUrl():null);
+            notifyTask.setNotifyMQ(NotifyTypeEnumVO.MQ.equals(notifyConfigVO.getNotifyType()) ? notifyConfigVO.getNotifyMQ() : null);
+            notifyTask.setNotifyUrl(NotifyTypeEnumVO.HTTP.equals(notifyConfigVO.getNotifyType()) ? notifyConfigVO.getNotifyUrl() : null);
             notifyTask.setNotifyCount(0);
             notifyTask.setNotifyStatus(0);
 
-            notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String,Object>(){{
-                put("teamId",groupBuyTeamEntity.getTeamId());
-                put("outTradeNoList",outTradeNolist);
+            notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String, Object>() {{
+                put("teamId", groupBuyTeamEntity.getTeamId());
+                put("outTradeNoList", outTradeNolist);
             }}));
             notifyTaskDao.insert(notifyTask);
 
@@ -295,16 +301,18 @@ public class TradeRepository implements ITradeRepository {
 
     @Override
     public boolean isSCBlackIntercept(String source, String channel) {
-        return dccService.isScBlackList(source,channel);
+        return dccService.isScBlackList(source, channel);
     }
 
     @Override
     public List<NotifyTaskEntity> queryUnExecutedNotifyTaskList() {
         List<NotifyTask> notifyTasks = notifyTaskDao.queryUnExecutedNotifyTaskList();
-        if(notifyTasks==null || notifyTasks.size()==0){return new ArrayList<>();}
-        List<NotifyTaskEntity> notifyTaskEntities=new ArrayList<>();
+        if (notifyTasks == null || notifyTasks.size() == 0) {
+            return new ArrayList<>();
+        }
+        List<NotifyTaskEntity> notifyTaskEntities = new ArrayList<>();
 
-        for(NotifyTask notifyTask:notifyTasks){
+        for (NotifyTask notifyTask : notifyTasks) {
             NotifyTaskEntity notifyTaskEntity = NotifyTaskEntity.builder()
                     .teamId(notifyTask.getTeamId())
                     .notifyUrlCount(notifyTask.getNotifyCount())
@@ -320,7 +328,9 @@ public class TradeRepository implements ITradeRepository {
     @Override
     public List<NotifyTaskEntity> queryUnExecutedNotifyTaskList(String teamId) {
         NotifyTask notifyTask = notifyTaskDao.queryUnExecutedNotifyTaskByTeamId(teamId);
-        if(notifyTask==null){return new ArrayList<>();}
+        if (notifyTask == null) {
+            return new ArrayList<>();
+        }
         return Collections.singletonList(NotifyTaskEntity.builder()
                 .teamId(notifyTask.getTeamId())
                 .notifyUrlCount(notifyTask.getNotifyCount())
@@ -342,6 +352,37 @@ public class TradeRepository implements ITradeRepository {
     @Override
     public int updateNotifyTaskStatusError(String teamId) {
         return notifyTaskDao.updateNotifyTaskStatusError(teamId);
+    }
+
+    @Override
+    public boolean occupyTeamStock(String teamStockKey, String recoveryTeamStockKey, Integer target, Integer validTime) {
+        Long recoveryCount = redisService.getAtomicLong(recoveryTeamStockKey);
+        recoveryCount = recoveryCount == null ? 0 : recoveryCount;
+
+        //索引是从0开始的所以这块+1
+        long occupy = redisService.incr(teamStockKey)+1;
+        if(occupy > target+recoveryCount){
+            redisService.setAtomicLong(teamStockKey, target);
+            return false;
+        }
+
+        String lockKey = teamStockKey+Constants.UNDERLINE+occupy;
+        //这里是分布式锁的关键，虽然incr是原子的，但是还是有可能出现同一个值的情况，所以这里是一个兜底的分布式锁操作
+        Boolean lock = redisService.setNx(lockKey,validTime+60, TimeUnit.MINUTES);
+
+        if(!lock){
+            log.info("组队库存加锁失败{}", lockKey);
+        }
+
+        return lock;
+    }
+
+    @Override
+    public void recoveryTeamStock(String recoveryTeamStockKey, Integer validTime) {
+        if(StringUtils.isBlank(recoveryTeamStockKey)){
+            return;
+        }
+        redisService.incr(recoveryTeamStockKey);
     }
 
 }
