@@ -19,6 +19,9 @@ public class DCCService {
     @DCCValue("scBlackList:s02c02")
     private String scBlackList;
 
+    @DCCValue("cacheOpenSwitch:0")
+    private String cacheOpenSwitch;
+
     public boolean isDowngradeSwitch() {
         return "1".equals(downgradeSwitch);
     }
@@ -40,5 +43,10 @@ public class DCCService {
     public boolean isScBlackList(String source, String channel) {
         List<String> list = Arrays.asList(scBlackList.split(Constants.SPLIT));
         return list.contains(source + channel);
+    }
+
+    //0表示开启了缓存，1表示关闭了缓存
+    public  boolean isCacheOpenSwitch() {
+        return "0".equals(cacheOpenSwitch);
     }
 }

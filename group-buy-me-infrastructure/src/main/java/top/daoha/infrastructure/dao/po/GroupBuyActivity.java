@@ -49,4 +49,7 @@ public class GroupBuyActivity {
     /** 更新时间 */
     private java.util.Date updateTime;
 
+    public static String cacheRedisKey(Long activityId){
+        return "group_buy_me_top.daoha.infrastructure.dao.po.GroupBuyActivity_"+activityId;
+    }
 }
