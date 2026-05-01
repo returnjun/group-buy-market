@@ -1,5 +1,7 @@
 package top.daoha.domain.trade.service.lock.factory;
 
+import cn.bugstack.wrench.design.framework.link.model2.LinkArmory;
+import cn.bugstack.wrench.design.framework.link.model2.chain.BusinessLinkedList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,8 +15,7 @@ import top.daoha.domain.trade.model.entity.TradeLockRuleFilterBackEntity;
 import top.daoha.domain.trade.service.lock.filter.ActivityUsabilityRuleFilter;
 import top.daoha.domain.trade.service.lock.filter.TeamStockOccupyRuleFilter;
 import top.daoha.domain.trade.service.lock.filter.UserTakeLimitRuleFilter;
-import top.daoha.types.desgin.framework.link.model2.LinkArmory;
-import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
+
 
 @Slf4j
 @Service

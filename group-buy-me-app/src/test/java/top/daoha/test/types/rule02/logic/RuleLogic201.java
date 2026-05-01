@@ -1,11 +1,11 @@
 package top.daoha.test.types.rule02.logic;
 
 
+import cn.bugstack.wrench.design.framework.link.model2.handler.ILogicHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.daoha.test.types.rule02.factory.Rule02TradeRuleFactory;
-import top.daoha.types.desgin.framework.link.model1.AbstractLogicLink;
-import top.daoha.types.desgin.framework.link.model2.handler.ILogicHandler;
+
 
 @Slf4j
 @Service

@@ -1,6 +1,7 @@
 package top.daoha.domain.trade.service.settlement;
 
 
+import cn.bugstack.wrench.design.framework.link.model2.chain.BusinessLinkedList;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -11,7 +12,7 @@ import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.service.ITradeSettlementOrderService;
 import top.daoha.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
-import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
+
 import top.daoha.types.enums.NotifyTaskHTTPEnumVO;
 import top.daoha.types.exception.AppException;
 
@@ -37,7 +38,7 @@ public class TradeSettlementOrderService implements ITradeSettlementOrderService
     
 
     @Resource(name = "tradeSettlementRuleFilter1")
-    BusinessLinkedList<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity>  tradeSettlementRuleFilterBackEntity;
+    BusinessLinkedList<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity> tradeSettlementRuleFilterBackEntity;
 
     @Override
     public TradePaySettlementEntity settlementOrder(TradePaySuccessEntity tradePaySuccessEntity) throws Exception {

@@ -1,5 +1,6 @@
 package top.daoha.domain.trade.service.lock;
 
+import cn.bugstack.wrench.design.framework.link.model2.chain.BusinessLinkedList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.trade.adapter.repository.ITradeRepository;
@@ -8,7 +9,7 @@ import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 import top.daoha.domain.trade.service.ITradeLockOrderService;
 import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
-import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
+
 
 import javax.annotation.Resource;
 @Slf4j

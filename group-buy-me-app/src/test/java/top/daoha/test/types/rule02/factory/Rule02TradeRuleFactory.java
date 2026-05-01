@@ -1,6 +1,8 @@
 package top.daoha.test.types.rule02.factory;
 
 
+import cn.bugstack.wrench.design.framework.link.model2.LinkArmory;
+import cn.bugstack.wrench.design.framework.link.model2.chain.BusinessLinkedList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +12,6 @@ import org.springframework.stereotype.Service;
 import top.daoha.test.types.rule02.logic.RuleLogic201;
 import top.daoha.test.types.rule02.logic.RuleLogic202;
 import top.daoha.test.types.rule02.logic.XxxResponse;
-import top.daoha.types.desgin.framework.link.model2.LinkArmory;
-import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
 
 @Service
 public class Rule02TradeRuleFactory {

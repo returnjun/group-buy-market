@@ -1,6 +1,7 @@
 package top.daoha.test.types.rule01.factory;
 
 
+import cn.bugstack.wrench.design.framework.link.model1.ILogicLink;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import top.daoha.test.types.rule01.logic.RuleLogic101;
 import top.daoha.test.types.rule01.logic.RuleLogic102;
 import top.daoha.test.types.rule02.factory.Rule02TradeRuleFactory;
-import top.daoha.types.desgin.framework.link.model1.ILogicLink;
+
 
 import javax.annotation.Resource;
 

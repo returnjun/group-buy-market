@@ -1,5 +1,7 @@
 package top.daoha.domain.trade.service.settlement.factory;
 
+import cn.bugstack.wrench.design.framework.link.model2.LinkArmory;
+import cn.bugstack.wrench.design.framework.link.model2.chain.BusinessLinkedList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,8 +14,6 @@ import top.daoha.domain.trade.service.settlement.filter.EndRuleFilter;
 import top.daoha.domain.trade.service.settlement.filter.OutTradeNoRuleFilter;
 import top.daoha.domain.trade.service.settlement.filter.SCRuleFilter;
 import top.daoha.domain.trade.service.settlement.filter.SettableRuleFilter;
-import top.daoha.types.desgin.framework.link.model2.LinkArmory;
-import top.daoha.types.desgin.framework.link.model2.chain.BusinessLinkedList;
 
 @Slf4j
 @Service
@@ -23,14 +23,14 @@ public class TradeSettlementRuleFilterFactory {
 
 
     @Bean("tradeSettlementRuleFilter1")
-    public BusinessLinkedList<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity>
+    public BusinessLinkedList<TradeSettlementRuleCommandEntity, DynamicContext, TradeSettlementRuleFilterBackEntity>
     tradeSettlementRuleFilter(
             SCRuleFilter scRuleFilter,
             OutTradeNoRuleFilter outTradeNoRuleFilter,
             SettableRuleFilter settableRuleFilter,
             EndRuleFilter endRuleFilter
             ){
-        LinkArmory<TradeSettlementRuleCommandEntity, TradeSettlementRuleFilterFactory.DynamicContext, TradeSettlementRuleFilterBackEntity> linkArmory =
+        LinkArmory<TradeSettlementRuleCommandEntity, DynamicContext, TradeSettlementRuleFilterBackEntity> linkArmory =
                 new LinkArmory<>("交易结算规则过滤链",scRuleFilter,outTradeNoRuleFilter, settableRuleFilter,endRuleFilter);
         //返回链对象
         return linkArmory.getLogicLink();

@@ -1,7 +1,8 @@
 package top.daoha.infrastructure.dcc;
 
+import cn.bugstack.wrench.dynamic.config.center.types.annotations.DCCValue;
 import org.springframework.stereotype.Service;
-import top.daoha.types.annotations.DCCValue;
+
 import top.daoha.types.common.Constants;
 
 import java.util.Arrays;

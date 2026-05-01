@@ -1,5 +1,6 @@
 package top.daoha.domain.trade.service.settlement.filter;
 
+import cn.bugstack.wrench.design.framework.link.model2.handler.ILogicHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.trade.adapter.repository.ITradeRepository;
@@ -7,7 +8,7 @@ import top.daoha.domain.trade.model.entity.GroupBuyTeamEntity;
 import top.daoha.domain.trade.model.entity.TradeSettlementRuleCommandEntity;
 import top.daoha.domain.trade.model.entity.TradeSettlementRuleFilterBackEntity;
 import top.daoha.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
-import top.daoha.types.desgin.framework.link.model2.handler.ILogicHandler;
+
 
 import javax.annotation.Resource;
 

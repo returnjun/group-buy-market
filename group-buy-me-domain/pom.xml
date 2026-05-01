@@ -38,6 +38,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
+        <!-- xfg wrench dcc 动态配置中心 -->
+        <dependency>
+            <groupId>cn.bugstack.wrench</groupId>
+            <artifactId>xfg-wrench-starter-design-framework</artifactId>
+        </dependency>
         <!-- 系统模块 -->
         <dependency>
             <groupId>top.daoha</groupId>

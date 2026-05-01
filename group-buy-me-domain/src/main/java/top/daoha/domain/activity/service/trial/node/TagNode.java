@@ -1,5 +1,6 @@
 package top.daoha.domain.activity.service.trial.node;
 
+import cn.bugstack.wrench.design.framework.tree.StrategyHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import top.daoha.domain.activity.model.entity.TrialBalanceEntity;
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import top.daoha.domain.activity.service.trial.AbstractGroupBuyMarketSupport;
 import top.daoha.domain.activity.service.trial.factory.DefaultActivityStrategyFactoy;
-import top.daoha.types.desgin.framework.tree.StrategyHandler;
+
 
 import javax.annotation.Resource;
 

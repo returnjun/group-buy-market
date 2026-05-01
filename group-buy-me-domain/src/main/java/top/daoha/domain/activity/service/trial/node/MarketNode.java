@@ -1,5 +1,6 @@
 package top.daoha.domain.activity.service.trial.node;
 
+import cn.bugstack.wrench.design.framework.tree.StrategyHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.activity.model.entity.MarketProductEntity;
@@ -11,7 +12,7 @@ import top.daoha.domain.activity.service.trial.AbstractGroupBuyMarketSupport;
 import top.daoha.domain.activity.service.trial.factory.DefaultActivityStrategyFactoy;
 import top.daoha.domain.activity.service.trial.thread.QueryGroupBuyActivityDiscountVOThreadTask;
 import top.daoha.domain.activity.service.trial.thread.QuerySkuVOFromDBThreadTask;
-import top.daoha.types.desgin.framework.tree.StrategyHandler;
+
 import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
 
@@ -43,7 +44,7 @@ public class MarketNode extends AbstractGroupBuyMarketSupport<MarketProductEntit
     private Map<String, IDiscountCalculateService> discountCalculateServiceMap;
 
     @Override
-    protected void mutiThread(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) throws ExecutionException, InterruptedException, TimeoutException {
+    protected void multiThread(MarketProductEntity requestParameter, DefaultActivityStrategyFactoy.DynamicContext dynamicContext) throws ExecutionException, InterruptedException, TimeoutException {
         QueryGroupBuyActivityDiscountVOThreadTask queryGroupBuyActivityDiscountVOThreadTask = new QueryGroupBuyActivityDiscountVOThreadTask(requestParameter.getSource(), requestParameter.getChannel(), requestParameter.getGoodsId(), iActivityRepository);
         FutureTask<GroupBuyActivityDiscountVO> groupBuyActivityDiscountVOFutureTask = new FutureTask<>(queryGroupBuyActivityDiscountVOThreadTask);
         threadPoolExecutor.execute(groupBuyActivityDiscountVOFutureTask);

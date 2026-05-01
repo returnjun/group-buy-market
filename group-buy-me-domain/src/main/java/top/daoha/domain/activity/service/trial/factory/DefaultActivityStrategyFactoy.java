@@ -1,5 +1,6 @@
 package top.daoha.domain.activity.service.trial.factory;
 
+import cn.bugstack.wrench.design.framework.tree.StrategyHandler;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +11,7 @@ import top.daoha.domain.activity.model.entity.TrialBalanceEntity;
 import top.daoha.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import top.daoha.domain.activity.model.valobj.SkuVO;
 import top.daoha.domain.activity.service.trial.node.RootNode;
-import top.daoha.types.desgin.framework.tree.StrategyHandler;
+
 
 import java.math.BigDecimal;
 

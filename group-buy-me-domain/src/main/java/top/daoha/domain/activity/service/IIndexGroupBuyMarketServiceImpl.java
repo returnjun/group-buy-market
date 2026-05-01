@@ -1,5 +1,6 @@
 package top.daoha.domain.activity.service;
 
+import cn.bugstack.wrench.design.framework.tree.StrategyHandler;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.activity.adapter.repository.IActivityRepository;
 import top.daoha.domain.activity.model.entity.MarketProductEntity;
@@ -7,7 +8,7 @@ import top.daoha.domain.activity.model.entity.TrialBalanceEntity;
 import top.daoha.domain.activity.model.entity.UserGroupBuyOrderDetailEntity;
 import top.daoha.domain.activity.model.valobj.TeamStatisticVO;
 import top.daoha.domain.activity.service.trial.factory.DefaultActivityStrategyFactoy;
-import top.daoha.types.desgin.framework.tree.StrategyHandler;
+
 
 import javax.annotation.Resource;
 import java.util.ArrayList;

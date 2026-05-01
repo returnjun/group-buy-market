@@ -7,7 +7,7 @@ import top.daoha.domain.trade.model.entity.GroupBuyActivityEntity;
 import top.daoha.domain.trade.model.entity.TradeLockRuleCommandEntity;
 import top.daoha.domain.trade.model.entity.TradeLockRuleFilterBackEntity;
 import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
-import top.daoha.types.desgin.framework.link.model2.handler.ILogicHandler;
+import cn.bugstack.wrench.design.framework.link.model2.handler.ILogicHandler;
 import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
 

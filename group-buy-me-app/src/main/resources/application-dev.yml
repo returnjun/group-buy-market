@@ -65,6 +65,15 @@ logging:
     root: info
   config: classpath:logback-spring.xml
 
+xfg:
+  wrench:
+    config:
+      system: group_buy_me
+      register:
+        # redis host
+        host: 127.0.0.1
+        # redis port
+        port: 6379
 
 # Redis
 redis:
