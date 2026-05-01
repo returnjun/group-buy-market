@@ -34,6 +34,19 @@
             <groupId>org.redisson</groupId>
             <artifactId>redisson-spring-boot-starter</artifactId>
         </dependency>
+        <!-- xfg wrench dcc 限流组件 -->
+        <dependency>
+            <groupId>cn.bugstack.wrench</groupId>
+            <artifactId>xfg-wrench-starter-rate-limiter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <!-- xfg wrench dcc 动态配置中心 -->
+        <dependency>
+            <groupId>cn.bugstack.wrench</groupId>
+            <artifactId>xfg-wrench-starter-dynamic-config-center</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
         <!-- 系统模块 -->
         <dependency>

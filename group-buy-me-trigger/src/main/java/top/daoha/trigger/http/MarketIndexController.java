@@ -1,5 +1,6 @@
 package top.daoha.trigger.http;
 
+import cn.bugstack.wrench.rate.limiter.types.annotations.RateLimiterAccessInterceptor;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class MarketIndexController implements IMarketIndexService {
     @Resource
     private IIndexGroupBuyMarketService iIndexGroupBuyMarketService;
 
+    @RateLimiterAccessInterceptor(key = "userId",fallbackMethod = "queryGroupBuyMarketConfigFallBack",permitsPerSecond=1.0d,blacklistCount=1)
     @RequestMapping(value = "query_group_buy_market_config",method = RequestMethod.POST)
     @Override
     public Response<GoodsMarketResponseDTO> queryGroupBuyMarketConfig(@RequestBody GoodsMarketRequestDTO requestDTO) {
@@ -116,5 +118,13 @@ public class MarketIndexController implements IMarketIndexService {
                     .build();
         }
 
+    }
+
+    public Response<GoodsMarketResponseDTO> queryGroupBuyMarketConfigFallBack(@RequestBody GoodsMarketRequestDTO goodsMarketRequestDTO){
+        log.info("查询拼团营销配置失败：{} goodsId:{} ", goodsMarketRequestDTO.getGoodsId(), goodsMarketRequestDTO.getGoodsId());
+        return Response.<GoodsMarketResponseDTO>builder()
+                .code(ResponseCode.RATE_LIMITER.getCode())
+                .info(ResponseCode.RATE_LIMITER.getInfo())
+                .build();
     }
 }
