@@ -5,11 +5,9 @@ import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
@@ -18,7 +16,7 @@ import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
 import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
-import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnum;
+import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
 import top.daoha.infrastructure.dao.IGroupBuyActivityDao;
 import top.daoha.infrastructure.dao.IGroupBuyOrderDao;
 import top.daoha.infrastructure.dao.IGroupBuyOrderListDao;
@@ -83,7 +81,7 @@ public class TradeRepository implements ITradeRepository {
         marketPayOrderEntity.setOriginalPrice(res.getOriginalPrice());
         marketPayOrderEntity.setDeductionPrice(res.getDeductionPrice());
         marketPayOrderEntity.setPayPrice(res.getPayPrice());
-        marketPayOrderEntity.setStatus(TradeOrderStatusEnum.valueof(res.getStatus()));
+        marketPayOrderEntity.setStatus(TradeOrderStatusEnumVO.valueof(res.getStatus()));
 
         return marketPayOrderEntity;
     }
@@ -164,7 +162,7 @@ public class TradeRepository implements ITradeRepository {
         groupBuyOrderList.setOriginalPrice(payDiscountEntity.getOriginalPrice());
         groupBuyOrderList.setDeductionPrice(payDiscountEntity.getDeductionPrice());
         groupBuyOrderList.setPayPrice(payDiscountEntity.getPayPrice());
-        groupBuyOrderList.setStatus(TradeOrderStatusEnum.CREATE.getCode());
+        groupBuyOrderList.setStatus(TradeOrderStatusEnumVO.CREATE.getCode());
         groupBuyOrderList.setOutTradeNo(payDiscountEntity.getOutTradeNo());
         groupBuyOrderList.setBizId(payActivityEntity.getActivityId() + Constants.UNDERLINE + userEntity.getUserId() + Constants.UNDERLINE + (orderCount + 1));
 
@@ -181,7 +179,7 @@ public class TradeRepository implements ITradeRepository {
         marketPayOrderEntity.setOriginalPrice(payDiscountEntity.getOriginalPrice());
         marketPayOrderEntity.setDeductionPrice(payDiscountEntity.getDeductionPrice());
         marketPayOrderEntity.setPayPrice(payDiscountEntity.getPayPrice());
-        marketPayOrderEntity.setStatus(TradeOrderStatusEnum.CREATE);
+        marketPayOrderEntity.setStatus(TradeOrderStatusEnumVO.CREATE);
         return marketPayOrderEntity;
     }
 

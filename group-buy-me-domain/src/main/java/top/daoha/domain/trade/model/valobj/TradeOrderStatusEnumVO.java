@@ -1,14 +1,13 @@
 package top.daoha.domain.trade.model.valobj;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public enum TradeOrderStatusEnum {
+public enum TradeOrderStatusEnumVO {
 
     CREATE(0,"初始创建"),
     COMPLETED(1,"消费完成"),
@@ -20,7 +19,7 @@ public enum TradeOrderStatusEnum {
     private String info;
 
 
-    public static TradeOrderStatusEnum valueof(Integer code) {
+    public static TradeOrderStatusEnumVO valueof(Integer code) {
         switch(code){
             case 0: return CREATE;
             case 1: return COMPLETED;

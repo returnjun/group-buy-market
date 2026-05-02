@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnum;
+import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
 
 import java.math.BigDecimal;
 
@@ -25,5 +25,5 @@ public class MarketPayOrderEntity {
     /** 支付金额 */
     private BigDecimal payPrice;
     /** 交易订单状态枚举 */
-    private TradeOrderStatusEnum status;
+    private TradeOrderStatusEnumVO status;
 }

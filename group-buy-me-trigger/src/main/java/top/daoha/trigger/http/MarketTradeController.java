@@ -18,6 +18,7 @@ import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
 import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
+import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
 import top.daoha.domain.trade.service.ITradeLockOrderService;
 import top.daoha.domain.trade.service.settlement.TradeSettlementOrderService;
 import top.daoha.types.enums.ResponseCode;
@@ -133,7 +134,7 @@ public class MarketTradeController implements IMarketTradeService {
             MarketPayOrderEntity marketPayOrderEntity = tradeOrderService.queryNoPayMarketPayOrderByOutTradeNo(userId, outTradeNo);
 
             //如果存在那么锁定预购订单
-            if (null != marketPayOrderEntity) {
+            if (null != marketPayOrderEntity&& TradeOrderStatusEnumVO.CREATE.equals(marketPayOrderEntity.getStatus())) {
                 LockMarketPayOrderResponseDTO lockMarketPayOrderResponseDTO = new LockMarketPayOrderResponseDTO();
                 lockMarketPayOrderResponseDTO.setOrderId(marketPayOrderEntity.getOrderId());
                 lockMarketPayOrderResponseDTO.setDeductionPrice(marketPayOrderEntity.getDeductionPrice());

@@ -7,6 +7,7 @@ import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.entity.MarketPayOrderEntity;
 import top.daoha.domain.trade.model.entity.TradeSettlementRuleCommandEntity;
 import top.daoha.domain.trade.model.entity.TradeSettlementRuleFilterBackEntity;
+import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
 import top.daoha.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
 
 import top.daoha.types.enums.ResponseCode;
@@ -25,7 +26,7 @@ public class OutTradeNoRuleFilter implements ILogicHandler<TradeSettlementRuleCo
 
         // 1 查询拼团信息
         MarketPayOrderEntity marketPayOrderEntity = tradeRepository.queryNoPayMarketPayOrderByOutTradeNo(requestParameter.getUserId(), requestParameter.getOutTradeNo());
-        if(null==marketPayOrderEntity){
+        if(null==marketPayOrderEntity|| TradeOrderStatusEnumVO.CLOSE.equals(marketPayOrderEntity.getStatus())){
             log.error("预购订单不存在或者用户已经退单，不需要做支付订单结算:{} outTradeNo",requestParameter.getOutTradeNo(),requestParameter.getUserId());
             throw new AppException(ResponseCode.E0104);
         }
