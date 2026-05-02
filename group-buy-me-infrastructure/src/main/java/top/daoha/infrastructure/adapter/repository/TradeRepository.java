@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
+import top.daoha.domain.trade.model.aggregate.GroupBuyRefundAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
@@ -381,6 +382,35 @@ public class TradeRepository implements ITradeRepository {
             return;
         }
         redisService.incr(recoveryTeamStockKey);
+    }
+
+    @Override
+    @Transactional(timeout = 5000)
+    public void unpaid2Refund(GroupBuyRefundAggregate groupBuyRefundAggregate) {
+        TradeRefundOrderEntity tradeRefundOrderEntity = groupBuyRefundAggregate.getTradeRefundOrderEntity();
+        GroupBuyProgressVO groupBuyProgressVO = groupBuyRefundAggregate.getGroupBuyProgressVO();
+
+        GroupBuyOrderList groupBuyOrderList = GroupBuyOrderList.builder()
+                .teamId(tradeRefundOrderEntity.getTeamId())
+                .userId(tradeRefundOrderEntity.getUserId())
+                .outTradeNo(tradeRefundOrderEntity.getOutTradeNo())
+                .build();
+
+        int updateCount = groupBuyOrderListDao.unpaid2Refund(groupBuyOrderList);
+        if(1!=updateCount){
+            throw new AppException(ResponseCode.UPDATE_ZERO);
+        }
+
+        GroupBuyOrder groupBuyOrder = GroupBuyOrder.builder()
+                .teamId(tradeRefundOrderEntity.getTeamId())
+                .lockCount(groupBuyProgressVO.getLockCount())
+                .build();
+        updateCount = groupBuyOrderDao.unpaid2Refund(groupBuyOrder);
+        if(1!=updateCount){
+            throw new AppException(ResponseCode.UPDATE_ZERO);
+        }
+
+        //后面还要发送mq消息，将我们之前的回复量进行加一
     }
 
 }

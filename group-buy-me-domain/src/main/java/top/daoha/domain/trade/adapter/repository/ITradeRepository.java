@@ -1,6 +1,7 @@
 package top.daoha.domain.trade.adapter.repository;
 
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
+import top.daoha.domain.trade.model.aggregate.GroupBuyRefundAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.GroupBuyActivityEntity;
 import top.daoha.domain.trade.model.entity.GroupBuyTeamEntity;
@@ -42,4 +43,5 @@ public interface ITradeRepository {
 
     void recoveryTeamStock(String recoveryTeamStockKey, Integer validTime);
 
+    void unpaid2Refund(GroupBuyRefundAggregate groupBuyRefundAggregate);
 }

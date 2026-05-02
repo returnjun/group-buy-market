@@ -18,6 +18,6 @@ public class Paid2RefundStrategy implements IRefundOrderStrategy {
     @Override
     public void refundOrder(TradeRefundOrderEntity tradeRefundOrderEntity) {
         log.info("退单，已支付，未成团。订单信息:{}",tradeRefundOrderEntity);
-        tradeRepository.paid2RefundStrategy(tradeRefundOrderEntity);
+        tradeRepository.paid2Refund(tradeRefundOrderEntity);
     }
 }
