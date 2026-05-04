@@ -8,6 +8,7 @@ import org.redisson.api.RedissonClient;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import top.daoha.domain.trade.service.ITradeSettlementOrderService;
+import top.daoha.domain.trade.service.ITradeTaskService;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -18,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class GroupBuyNotifyJob {
     @Resource
-    private ITradeSettlementOrderService tradeSettlementOrderService;
+    private ITradeTaskService tradeTaskService;
 
     @Resource
     private RedissonClient redissonClient;
@@ -32,7 +33,7 @@ public class GroupBuyNotifyJob {
             boolean isLocked = lock.tryLock(3,0, TimeUnit.SECONDS);
             if(!isLocked) return;
 
-            Map<String, Integer> stringIntegerMap = tradeSettlementOrderService.execSettlementNotifyJob();
+            Map<String, Integer> stringIntegerMap = tradeTaskService.execNotifyJob();
             log.info("定时任务，回调通知拼团完结任务 result:{}", JSON.toJSONString(stringIntegerMap));
         }catch (Exception e){
             log.info("定时任务，回调通知拼团完结任务失败");

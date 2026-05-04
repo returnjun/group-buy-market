@@ -45,8 +45,14 @@
     <update id="unpaid2Refund" parameterType="top.daoha.infrastructure.dao.po.GroupBuyOrderList">
         update group_buy_order_list
         set status = 2, update_time= now()
-        where user_id = #{userId}  and order_id = #{orderId}
-        and out_trade_no = #{outTradeNo} and status = 0
+        where user_id = #{userId}  and team_id = #{teamId}
+        and order_id = #{orderId} and status = 0
+    </update>
+    <update id="paid2Refund" parameterType="top.daoha.infrastructure.dao.po.GroupBuyOrderList">
+        update group_buy_order_list
+        set status = 2, update_time= now()
+        where user_id = #{userId}  and team_id = #{teamId}
+        and order_id = #{orderId} and status = 1
     </update>
 
     <select id="queryGroupBuyOrderRecordByOutTradeNo"

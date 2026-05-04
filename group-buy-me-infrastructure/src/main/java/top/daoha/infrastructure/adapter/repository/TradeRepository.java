@@ -14,10 +14,7 @@ import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyRefundAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import top.daoha.domain.trade.model.entity.*;
-import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
-import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
-import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
-import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
+import top.daoha.domain.trade.model.valobj.*;
 import top.daoha.infrastructure.dao.IGroupBuyActivityDao;
 import top.daoha.infrastructure.dao.IGroupBuyOrderDao;
 import top.daoha.infrastructure.dao.IGroupBuyOrderListDao;
@@ -59,6 +56,9 @@ public class TradeRepository implements ITradeRepository {
 
     @Value("${spring.rabbitmq.config.producer.topic_team_success.routing_key}")
     private String topic_team_success;
+
+    @Value("${spring.rabbitmq.config.producer.topic_team_refund.routing_key}")
+    private String topic_team_refund;
 
     @Resource
     private IRedisService redisService;
@@ -393,11 +393,12 @@ public class TradeRepository implements ITradeRepository {
         GroupBuyOrderList groupBuyOrderList = GroupBuyOrderList.builder()
                 .teamId(tradeRefundOrderEntity.getTeamId())
                 .userId(tradeRefundOrderEntity.getUserId())
-                .outTradeNo(tradeRefundOrderEntity.getOutTradeNo())
+                .orderId(tradeRefundOrderEntity.getOrderId())
                 .build();
 
         int updateCount = groupBuyOrderListDao.unpaid2Refund(groupBuyOrderList);
         if(1!=updateCount){
+            log.info("groupBuyOrderList表更新失败");
             throw new AppException(ResponseCode.UPDATE_ZERO);
         }
 
@@ -407,10 +408,72 @@ public class TradeRepository implements ITradeRepository {
                 .build();
         updateCount = groupBuyOrderDao.unpaid2Refund(groupBuyOrder);
         if(1!=updateCount){
+            log.info("groupBuyOrder表更新失败");
             throw new AppException(ResponseCode.UPDATE_ZERO);
         }
 
-        //后面还要发送mq消息，将我们之前的回复量进行加一
+
+    }
+
+    @Override
+    @Transactional(timeout = 5000)
+    public NotifyTaskEntity paid2Refund(GroupBuyRefundAggregate groupBuyRefundAggregate) {
+        TradeRefundOrderEntity tradeRefundOrderEntity = groupBuyRefundAggregate.getTradeRefundOrderEntity();
+        GroupBuyProgressVO groupBuyProgressVO = groupBuyRefundAggregate.getGroupBuyProgressVO();
+
+        GroupBuyOrderList groupBuyOrderList = GroupBuyOrderList.builder()
+                .teamId(tradeRefundOrderEntity.getTeamId())
+                .userId(tradeRefundOrderEntity.getUserId())
+                .activityId(tradeRefundOrderEntity.getActivityId())
+                .orderId(tradeRefundOrderEntity.getOrderId())
+                .build();
+
+        int updateCount = groupBuyOrderListDao.paid2Refund(groupBuyOrderList);
+        if(1!=updateCount){
+            log.info("groupBuyOrderList表更新失败");
+            throw new AppException(ResponseCode.UPDATE_ZERO);
+        }
+
+        GroupBuyOrder groupBuyOrder = GroupBuyOrder.builder()
+                .teamId(tradeRefundOrderEntity.getTeamId())
+                .lockCount(groupBuyProgressVO.getLockCount())
+                .completeCount(groupBuyProgressVO.getCompleteCount())
+                .build();
+        updateCount = groupBuyOrderDao.paid2Refund(groupBuyOrder);
+        if(1!=updateCount){
+            log.info("groupBuyOrder表更新失败");
+            throw new AppException(ResponseCode.UPDATE_ZERO);
+        }
+
+        //本地消息任务表
+        NotifyTask notifyTask = new NotifyTask();
+        notifyTask.setTeamId(tradeRefundOrderEntity.getTeamId());
+        notifyTask.setActivityId(tradeRefundOrderEntity.getActivityId());
+        notifyTask.setNotifyType(NotifyTypeEnumVO.MQ.getCode());
+        notifyTask.setNotifyMQ(topic_team_refund);
+        notifyTask.setNotifyCount(0);
+        notifyTask.setNotifyStatus(0);
+
+        notifyTask.setParameterJson(JSON.toJSONString(
+                new HashMap<String,Object>(){{
+                    put("type", RefundTypeEnumVO.PAID_UNFORMED.getCode());
+                    put("userId", tradeRefundOrderEntity.getUserId());
+                    put("teamId", tradeRefundOrderEntity.getTeamId());
+                    put("orderId", tradeRefundOrderEntity.getOrderId());
+                    put("activityId", tradeRefundOrderEntity.getActivityId());
+                }}
+        ));
+
+        notifyTaskDao.insert(notifyTask);
+
+        return NotifyTaskEntity.builder()
+                        .teamId(notifyTask.getTeamId())
+                        .notifyMQ(notifyTask.getNotifyMQ())
+                        .notifyType(notifyTask.getNotifyType())
+                        .notifyUrlCount(notifyTask.getNotifyCount())
+                        .parameterJson(notifyTask.getParameterJson())
+                        .build();
+
     }
 
 }

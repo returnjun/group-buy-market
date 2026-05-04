@@ -22,8 +22,17 @@ public class GroupBuyRefundAggregate {
         GroupBuyRefundAggregate groupBuyRefundAggregate = new GroupBuyRefundAggregate();
         groupBuyRefundAggregate.setTradeRefundOrderEntity(tradeRefundOrderEntity);
         groupBuyRefundAggregate.setGroupBuyProgressVO(GroupBuyProgressVO.builder()
-                                                                        .targetCount(lockCount)
-                                                                        .build());
+                        .lockCount(lockCount).build());
+        return groupBuyRefundAggregate;
+    }
+    public static GroupBuyRefundAggregate buildUnpaid2RefundAggregate(TradeRefundOrderEntity tradeRefundOrderEntity,Integer lockCount,Integer completeCount){
+
+        GroupBuyRefundAggregate groupBuyRefundAggregate = new GroupBuyRefundAggregate();
+        groupBuyRefundAggregate.setTradeRefundOrderEntity(tradeRefundOrderEntity);
+        groupBuyRefundAggregate.setGroupBuyProgressVO(GroupBuyProgressVO.builder()
+                .lockCount(lockCount)
+                .completeCount(completeCount)
+                .build());
         return groupBuyRefundAggregate;
     }
 }

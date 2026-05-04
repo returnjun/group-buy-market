@@ -13,6 +13,7 @@ import top.daoha.domain.trade.model.entity.*;
 import top.daoha.domain.trade.service.ITradeSettlementOrderService;
 import top.daoha.domain.trade.service.settlement.factory.TradeSettlementRuleFilterFactory;
 
+import top.daoha.domain.trade.service.task.TradeTaskService;
 import top.daoha.types.enums.NotifyTaskHTTPEnumVO;
 import top.daoha.types.exception.AppException;
 
@@ -35,6 +36,9 @@ public class TradeSettlementOrderService implements ITradeSettlementOrderService
 
     @Resource
     private ThreadPoolExecutor threadPoolTaskExecutor;
+
+    @Resource
+    private TradeTaskService tradeTaskService;
     
 
     @Resource(name = "tradeSettlementRuleFilter1")
@@ -85,7 +89,7 @@ public class TradeSettlementOrderService implements ITradeSettlementOrderService
             threadPoolTaskExecutor.execute(()->{
                     Map<String, Integer> notifyResultMap = null;
                     try {
-                        notifyResultMap = execSettlementNotifyJob(notifyTaskEntity);
+                        notifyResultMap = tradeTaskService.execNotifyJob(notifyTaskEntity);
                     } catch (Exception e) {
                         throw new AppException(e.getMessage());
                     }
@@ -105,59 +109,6 @@ public class TradeSettlementOrderService implements ITradeSettlementOrderService
                 .build();
     }
 
-    @Override
-    public Map<String, Integer> execSettlementNotifyJob() throws Exception {
-        log.info("拼团交易-定时任务执行结算通知任务");
-        List<NotifyTaskEntity> notifyTaskEntityList = tradeRepository.queryUnExecutedNotifyTaskList();
 
-        return execSettlementNotifyJob(notifyTaskEntityList);
-    }
-
-    @Override
-    public Map<String, Integer> execSettlementNotifyJob(String teamId) throws Exception {
-        log.info("拼团交易-主动通过teamId执行结算通知任务");
-        List<NotifyTaskEntity> notifyTaskEntityList = tradeRepository.queryUnExecutedNotifyTaskList(teamId);
-
-        return execSettlementNotifyJob(notifyTaskEntityList);
-    }
-
-    @Override
-    public Map<String, Integer> execSettlementNotifyJob(NotifyTaskEntity notifyTaskEntity) throws Exception {
-        log.info("拼团交易-主动通过teamId:{} notifyTaskEntity:{}",notifyTaskEntity.getTeamId(),notifyTaskEntity.toString());
-        return execSettlementNotifyJob(Collections.singletonList(notifyTaskEntity));
-    }
-
-    private Map<String, Integer> execSettlementNotifyJob(List<NotifyTaskEntity> notifyTaskEntityList) throws Exception {
-        int successCount = 0,errorcount= 0,retryCount=0;
-        for (NotifyTaskEntity notifyTaskEntity : notifyTaskEntityList) {
-
-            String response = tradePort.groupBuyNotify(notifyTaskEntity);
-
-            if(NotifyTaskHTTPEnumVO.SUCCESS.getCode().equals(response)){
-                int update = tradeRepository.updateNotifyTaskStatusSuccess(notifyTaskEntity.getTeamId());
-                if(1==update){
-                    successCount+=1;
-                }
-            }else if(NotifyTaskHTTPEnumVO.ERROR.getCode().equals(response)){
-                if(notifyTaskEntity.getNotifyUrlCount()< 5){
-                    int update = tradeRepository.updateNotifyTaskStatusRetry(notifyTaskEntity.getTeamId());
-                    if(1==update){
-                        retryCount=1;
-                    }
-                }else {
-                    int update = tradeRepository.updateNotifyTaskStatusError(notifyTaskEntity.getTeamId());
-                    if(1==update){
-                        errorcount+=1;
-                    }
-                }
-            }
-        }
-        Map<String,Integer> resultMap = new HashMap<>();
-        resultMap.put("waitCount", notifyTaskEntityList.size());
-        resultMap.put("successCount",successCount);
-        resultMap.put("errorcount",errorcount);
-        resultMap.put("retrycount",retryCount);
-        return resultMap;
-    }
 
 }

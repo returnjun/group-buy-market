@@ -7,9 +7,12 @@ import top.daoha.domain.trade.model.entity.TradePaySuccessEntity;
 
 import java.util.Map;
 
-public interface ITradeSettlementOrderService {
+public interface ITradeTaskService {
 
-    TradePaySettlementEntity settlementOrder(TradePaySuccessEntity tradePaySuccessEntity) throws Exception;
+    Map<String,Integer> execNotifyJob() throws Exception;
 
+    Map<String,Integer> execNotifyJob(String teamId) throws Exception;
+
+    Map<String,Integer> execNotifyJob(NotifyTaskEntity notifyTaskEntity) throws Exception;
 
 }

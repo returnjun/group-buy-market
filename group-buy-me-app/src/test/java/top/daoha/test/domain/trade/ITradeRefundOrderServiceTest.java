@@ -16,6 +16,7 @@ import top.daoha.domain.trade.service.ITradeLockOrderService;
 import top.daoha.domain.trade.service.ITradeRefundOrderService;
 
 import javax.annotation.Resource;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -34,11 +35,11 @@ public class ITradeRefundOrderServiceTest {
     public void test_refundOrder() throws Exception {
         // 入参信息
         Long activityId = 100123L;
-        String userId = "xiaofuge";
+        String userId = "gdk01";
         String goodsId = "9890001";
         String source = "s01";
         String channel = "c01";
-        String outTradeNo = "909000098111";
+        String outTradeNo = "457477950779";
 
         TradeRefundCommandEntity refundOrder = TradeRefundCommandEntity.builder()
                 .userId(userId)
@@ -50,6 +51,8 @@ public class ITradeRefundOrderServiceTest {
         TradeRefundBehaviorEntity tradeRefundBehaviorEntity = tradeRefundOrderService.refundOrder(refundOrder);
 
         log.info("退单测试结果(New):{}",JSON.toJSONString(tradeRefundBehaviorEntity));
+
+        new CountDownLatch(1).await();
     }
 
 }

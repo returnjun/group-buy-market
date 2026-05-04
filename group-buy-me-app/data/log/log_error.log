@@ -1,4 +1,1 @@
-26-04-29.11:20:23.938 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m14s510ms773µs400ns).
-26-04-29.11:27:07.749 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m37s538ms800µs800ns).
-26-04-29.11:30:25.640 [pool-2-thread-1 ] WARN  AbstractRepository     - 缓存降级 group_buy_me_top.daoha.infrastructure.dao.po.GroupBuyActivity_100123
-26-04-29.11:30:25.642 [pool-2-thread-1 ] WARN  AbstractRepository     - 缓存降级 group_buy_me_top.daoha.infrastructure.dao.po.GroupBuyDiscount_25120207
+26-05-04.17:27:11.488 [pool-2-thread-1 ] ERROR Paid2RefundStrategy    - 拼团交易-退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}

@@ -51,12 +51,13 @@ public class TradeRefundOrderService implements ITradeRefundOrderService {
 
         //3.根据拼团的状态来进行不同的策略
         RefundTypeEnumVO refundTypeEnumVO = RefundTypeEnumVO.getRefundStrategy(groupBuyOrderEnumVO, tradeOrderStatusEnumVO);
-        IRefundOrderStrategy refundOrderStrategy = refundOrderStrategyMap.get(refundTypeEnumVO.getCode());
+        IRefundOrderStrategy refundOrderStrategy = refundOrderStrategyMap.get(refundTypeEnumVO.getStrategy());
 
         TradeRefundOrderEntity tradeRefundOrderEntity = TradeRefundOrderEntity.builder()
                 .userId(tradeRefundCommandEntity.getUserId())
-                .outTradeNo(tradeRefundCommandEntity.getOutTradeNo())
+                .orderId(orderId)
                 .teamId(teamId)
+                .activityId(groupBuyTeamEntity.getActivityId())
                 .build();
         refundOrderStrategy.refundOrder(tradeRefundOrderEntity);
 

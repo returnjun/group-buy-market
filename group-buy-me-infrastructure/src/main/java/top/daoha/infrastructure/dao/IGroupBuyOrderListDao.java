@@ -32,4 +32,6 @@ public interface IGroupBuyOrderListDao {
     List<GroupBuyOrderList> queryInProgressTeamStatisticByActivity(Long activityId);
 
     int unpaid2Refund(GroupBuyOrderList groupBuyOrderList);
+
+    int paid2Refund(GroupBuyOrderList groupBuyOrderList);
 }
