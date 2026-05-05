@@ -40,6 +40,18 @@ public enum RefundTypeEnumVO {
     private String strategy;
     private String info;
 
+    public static RefundTypeEnumVO getRefundTypeEnumVOByCode(String type) {
+        switch (type) {
+            case "unpaid_unlock":
+                return UNPAID_UNLOCK;
+            case "paid_unfromed":
+                return PAID_UNFORMED;
+            case "paid_formed":
+                return PAID_FORMED;
+        }
+        throw new RuntimeException("退单类型枚举值不存在: " + type);
+    }
+
     public abstract boolean matches(GroupBuyOrderEnumVO groupBuyOrderEnumVO, TradeOrderStatusEnumVO tradeOrderStatusEnumVO);
 
     /**

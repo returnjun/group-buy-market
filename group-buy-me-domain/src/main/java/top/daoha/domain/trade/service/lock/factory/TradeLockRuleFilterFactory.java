@@ -23,6 +23,8 @@ public class TradeLockRuleFilterFactory {
 
     private  DynamicContext dynamicContext;
 
+    private static String teamStockKey= "group_buy_market_team_stock_key_";
+
     @Bean("tradeRuleFilter1")
     public BusinessLinkedList<TradeLockRuleCommandEntity,DynamicContext, TradeLockRuleFilterBackEntity> tradeRuleFilter(
             ActivityUsabilityRuleFilter activityUsabilityRuleFilter,
@@ -43,20 +45,25 @@ public class TradeLockRuleFilterFactory {
     @NoArgsConstructor
     public static class DynamicContext{
 
-        private String teamStockKey= "group_buy_market_team_stock_key_";
-
         private GroupBuyActivityEntity groupBuyActivityEntity;
 
         private Integer userTakeOrderCount;
 
         public String generateTeamStockKey(String teamId){
-            return teamStockKey+groupBuyActivityEntity.getActivityId()+"_"+teamId;
+            return TradeLockRuleFilterFactory.generateTeamStockKey(groupBuyActivityEntity.getActivityId(),teamId);
         }
 
         public String generateRecoveryTeamStockKey(String teamId){
-            return teamStockKey+groupBuyActivityEntity.getActivityId()+"_"+teamId+"_recovery";
+            return TradeLockRuleFilterFactory.generateRecoveryTeamStockKey(groupBuyActivityEntity.getActivityId(),teamId);
         }
+    }
 
+    public static String generateTeamStockKey(Long activityId, String teamId){
+        return teamStockKey+activityId+"_"+teamId;
+    }
+
+    public static String generateRecoveryTeamStockKey(Long activityId, String teamId){
+        return teamStockKey+activityId+"_"+teamId+"_recovery";
     }
 
 }

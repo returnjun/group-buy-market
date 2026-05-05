@@ -63,10 +63,10 @@ public class TradeTaskService implements ITradeTaskService {
                     successCount+=1;
                 }
             }else if(NotifyTaskHTTPEnumVO.ERROR.getCode().equals(response)){
-                if(notifyTaskEntity.getNotifyUrlCount()< 5){
+                if(notifyTaskEntity.getNotifyCount()< 5){
                     int update = tradeRepository.updateNotifyTaskStatusRetry(notifyTaskEntity.getTeamId());
                     if(1==update){
-                        retryCount=1;
+                        retryCount+=1;
                     }
                 }else {
                     int update = tradeRepository.updateNotifyTaskStatusError(notifyTaskEntity.getTeamId());

@@ -54,12 +54,12 @@ public class ActivityRepository extends AbstractRepository implements IActivityR
 
         String groupBuyActivityCacheRedisKey = GroupBuyActivity.cacheRedisKey(activityId);
         GroupBuyActivity groupBuyActivity = getFromCacheOrDb(groupBuyActivityCacheRedisKey,
-                ()->iGroupBuyActivityDao.queryGroupBuyActivityDiscountByActivityId(activityId));
+                ()->iGroupBuyActivityDao.queryGroupBuyActivityDiscountByActivityId(activityId),24*60*60*1000);
 
         String discountId = groupBuyActivity.getDiscountId();
         String GroupBuyDiscountCacheRedisKey = GroupBuyDiscount.cacheRedisKey(discountId);
         GroupBuyDiscount groupBuyDiscount = getFromCacheOrDb(GroupBuyDiscountCacheRedisKey,
-                ()->iGroupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId));
+                ()->iGroupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId),24*60*60*1000);
 
         GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount1 = new GroupBuyActivityDiscountVO.GroupBuyDiscount(
                 groupBuyDiscount.getDiscountName(), groupBuyDiscount.getDiscountDesc(), DiscountTypeEnum.get(groupBuyDiscount.getDiscountType()),

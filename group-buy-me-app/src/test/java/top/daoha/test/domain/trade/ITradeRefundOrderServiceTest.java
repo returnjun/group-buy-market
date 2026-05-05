@@ -35,11 +35,11 @@ public class ITradeRefundOrderServiceTest {
     public void test_refundOrder() throws Exception {
         // 入参信息
         Long activityId = 100123L;
-        String userId = "gdk02";
+        String userId = "gdk03";
         String goodsId = "9890001";
         String source = "s01";
         String channel = "c01";
-        String outTradeNo = "121912683648";
+        String outTradeNo = "433203969811";
 
         TradeRefundCommandEntity refundOrder = TradeRefundCommandEntity.builder()
                 .userId(userId)

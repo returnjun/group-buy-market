@@ -426,7 +426,7 @@ public class TradeRepository implements ITradeRepository {
         notifyTask.setUuid(tradeRefundOrderEntity.getTeamId() + Constants.UNDERLINE + TaskNotifyCategoryEnumVO.TRADE_UNPAID2REFUND.getCode() + Constants.UNDERLINE + tradeRefundOrderEntity.getOrderId());
 
         notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String, Object>() {{
-            put("type", RefundTypeEnumVO.PAID_FORMED.getCode());
+            put("type", RefundTypeEnumVO.UNPAID_UNLOCK.getCode());
             put("userId", tradeRefundOrderEntity.getUserId());
             put("teamId", tradeRefundOrderEntity.getTeamId());
             put("orderId", tradeRefundOrderEntity.getOrderId());
@@ -560,7 +560,7 @@ public class TradeRepository implements ITradeRepository {
 
         notifyTask.setParameterJson(JSON.toJSONString(
                 new HashMap<String,Object>(){{
-                    put("type", RefundTypeEnumVO.PAID_UNFORMED.getCode());
+                    put("type", RefundTypeEnumVO.PAID_FORMED.getCode());
                     put("userId", tradeRefundOrderEntity.getUserId());
                     put("teamId", tradeRefundOrderEntity.getTeamId());
                     put("orderId", tradeRefundOrderEntity.getOrderId());
@@ -578,6 +578,35 @@ public class TradeRepository implements ITradeRepository {
                 .parameterJson(notifyTask.getParameterJson())
                 .uuid(notifyTask.getUuid())
                 .build();
+    }
+
+    @Override
+    public void refund2AddRecovery(String recoveryTeamStockKey, String orderId) {
+        //判断回复量库存K是否为空
+        if(StringUtils.isBlank(recoveryTeamStockKey)||StringUtils.isBlank(orderId)){
+            return;
+        }
+
+        //确保了这个操作无论在多少台实例中都只能执行一次
+        //使用orderId作为锁的key，避免同意订单恢复库存
+        String lockKey = "refund_lock_"+orderId;
+
+        //参数获取分布式锁，反之重复操作。30天过期
+        Boolean lockAcquired = redisService.setNx(lockKey,60L,TimeUnit.MINUTES);
+
+        if(!lockAcquired){
+            log.warn("订单{}恢复库存操作已在进行中，重复操作进行跳过",orderId);
+            return;
+        }
+
+        try{
+            //在锁的保护下继续库存恢复
+            redisService.incr(recoveryTeamStockKey);
+            log.info("订单{}库存恢复成功，回复库存key{}",orderId,recoveryTeamStockKey);
+        }catch (Exception e){
+            log.error("订单{}库存恢复成功，回复库存key{} 错误信息:{}",orderId,recoveryTeamStockKey,e);
+        }
+
     }
 
 }

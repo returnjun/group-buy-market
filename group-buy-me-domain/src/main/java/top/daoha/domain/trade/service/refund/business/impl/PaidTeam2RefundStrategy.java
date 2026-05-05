@@ -9,7 +9,9 @@ import top.daoha.domain.trade.model.entity.GroupBuyTeamEntity;
 import top.daoha.domain.trade.model.entity.NotifyTaskEntity;
 import top.daoha.domain.trade.model.entity.TradeRefundOrderEntity;
 import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
+import top.daoha.domain.trade.model.valobj.TeamRefundSuccess;
 import top.daoha.domain.trade.service.ITradeTaskService;
+import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
 import top.daoha.domain.trade.service.refund.business.IRefundOrderStrategy;
 import top.daoha.types.enums.GroupBuyOrderEnumVO;
 import top.daoha.types.exception.AppException;
@@ -64,5 +66,10 @@ public class PaidTeam2RefundStrategy implements IRefundOrderStrategy {
                 }
             });
         }
+    }
+
+    @Override
+    public void reverseStock(TeamRefundSuccess teamRefundSuccess) {
+        log.info("退单恢复锁单量--已支付已成团的情况，不用改变锁单的回恢复量:{} :{}",teamRefundSuccess.getUserId(),teamRefundSuccess);
     }
 }

@@ -7,7 +7,9 @@ import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.aggregate.GroupBuyRefundAggregate;
 import top.daoha.domain.trade.model.entity.NotifyTaskEntity;
 import top.daoha.domain.trade.model.entity.TradeRefundOrderEntity;
+import top.daoha.domain.trade.model.valobj.TeamRefundSuccess;
 import top.daoha.domain.trade.service.ITradeTaskService;
+import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
 import top.daoha.domain.trade.service.refund.business.IRefundOrderStrategy;
 import top.daoha.types.exception.AppException;
 
@@ -51,5 +53,14 @@ public class Paid2RefundStrategy implements IRefundOrderStrategy {
 
             });
         }
+    }
+
+    @Override
+    public void reverseStock(TeamRefundSuccess teamRefundSuccess) {
+        log.info("退单恢复锁单量--未支付未成团的情况，但是有锁单记录:{} :{}",teamRefundSuccess.getUserId(),teamRefundSuccess);
+        //1 恢复库存key
+        String recoveryTeamStockKey = TradeLockRuleFilterFactory.generateRecoveryTeamStockKey(teamRefundSuccess.getActivityId(), teamRefundSuccess.getTeamId());
+        //2 退单恢复：未支付未成团，但是又锁单记录，恢复锁单库存
+        tradeRepository.refund2AddRecovery(recoveryTeamStockKey,teamRefundSuccess.getOrderId());
     }
 }
