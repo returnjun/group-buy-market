@@ -20,12 +20,13 @@ public class NotifyTaskEntity {
     /** 回调接口 */
     private String notifyUrl;
     /** 回调次数 */
-    private Integer notifyUrlCount;
+    private Integer notifyCount;
     /** 参数对象 */
     private String parameterJson;
-
+    /** 唯一标识 */
+    private String uuid;
     public String lockKey() {
-        return "notify_job_lock_key_" + this.teamId;
+        return "notify_job_lock_key_" + this.uuid;
     }
 
 }

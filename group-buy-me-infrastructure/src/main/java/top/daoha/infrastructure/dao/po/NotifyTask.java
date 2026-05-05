@@ -18,9 +18,11 @@ public class NotifyTask {
     private Long activityId;
     /** 拼单组队ID */
     private String teamId;
+    /** 回调种类 */
+    private String notifyCategory;
     /** 回调类型 */
     private String notifyType;
-    /** 回调MQ */
+    /** 回调消息 */
     private String notifyMQ;
     /** 回调接口 */
     private String notifyUrl;
@@ -30,9 +32,10 @@ public class NotifyTask {
     private Integer notifyStatus;
     /** 参数对象 */
     private String parameterJson;
+    /** 唯一标识 */
+    private String uuid;
     /** 创建时间 */
     private Date createTime;
     /** 更新时间 */
     private Date updateTime;
-
 }

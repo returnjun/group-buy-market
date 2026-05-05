@@ -41,7 +41,7 @@ public class GroupBuyOrder {
     private Integer completeCount;
     /** 锁单数量 */
     private Integer lockCount;
-    /** 状态（0-拼单中、1-完成、2-失败） */
+    /** 状态（0-拼单中、1-完成、2-失败、3-完成含失败） */
     private Integer status;
     /** 拼团开始时间 - 参与拼团时间 */
     private Date validStartTime;

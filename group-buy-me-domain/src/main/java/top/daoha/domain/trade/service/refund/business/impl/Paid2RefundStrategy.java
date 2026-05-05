@@ -23,9 +23,6 @@ public class Paid2RefundStrategy implements IRefundOrderStrategy {
     private ITradeRepository tradeRepository;
 
     @Resource
-    private ITradePort tradePort;
-
-    @Resource
     private ITradeTaskService tradeTaskService;
 
     @Resource
@@ -37,7 +34,7 @@ public class Paid2RefundStrategy implements IRefundOrderStrategy {
 
         //先更更新订单状态
         GroupBuyRefundAggregate groupBuyRefundAggregate =
-                GroupBuyRefundAggregate.buildUnpaid2RefundAggregate(tradeRefundOrderEntity,-1,-1);
+                GroupBuyRefundAggregate.buildPaid2RefundAggregate(tradeRefundOrderEntity,-1,-1);
         NotifyTaskEntity notifyTaskEntity = tradeRepository.paid2Refund(groupBuyRefundAggregate);
 
         //然后发送MQ消息

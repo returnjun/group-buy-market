@@ -44,7 +44,7 @@ public class MarketTradeControllerTest {
     public void test_lockMarketPayOrder(){
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
         lockMarketPayOrderRequestDTO.setUserId("gdk02");
-        lockMarketPayOrderRequestDTO.setTeamId("24207657");
+        lockMarketPayOrderRequestDTO.setTeamId("16226697");
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setActivityId(100123L);
         lockMarketPayOrderRequestDTO.setSource("s01");
