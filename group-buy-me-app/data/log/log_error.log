@@ -1,6 +1,2 @@
-26-05-05.10:11:31.580 [main            ] ERROR OutTradeNoRuleFilter   - 预购订单不存在或者用户已经退单，不需要做支付订单结算:441842218120 outTradeNo
-26-05-05.10:20:03.784 [pool-2-thread-1 ] ERROR PaidTeam2RefundStrategy - 已支付已拼团-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.10:29:48.842 [pool-2-thread-1 ] ERROR PaidTeam2RefundStrategy - 已支付已拼团-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.17:24:54.466 [pool-2-thread-1 ] ERROR Unpaid2RefundStrategy  - 拼团交易-退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}
-26-05-05.17:26:27.398 [pool-2-thread-1 ] ERROR Paid2RefundStrategy    - 拼团交易-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.17:32:10.185 [pool-2-thread-1 ] ERROR Unpaid2RefundStrategy  - 拼团交易-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
+26-05-10.21:23:31.005 [pool-2-thread-1 ] ERROR AbstractRefundOrderStrategy - 拼团交易 - 退单类型:未支付未成团 - 退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}
+26-05-10.21:24:31.885 [pool-2-thread-1 ] ERROR AbstractRefundOrderStrategy - 拼团交易 - 退单类型:未支付未成团 - 退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}

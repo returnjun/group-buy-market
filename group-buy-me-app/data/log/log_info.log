@@ -1,833 +1,261 @@
-26-05-05.10:09:53.264 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 5184 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:09:53.268 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.10:09:54.608 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:09:54.611 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:09:54.663 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
-26-05-05.10:09:55.583 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$10429ce1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:09:55.623 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:09:55.628 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$aec32cd1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:09:55.634 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:09:55.940 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:09:56.277 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:09:56.293 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:09:56.334 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:09:56.356 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:09:58.988 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:09:59.036 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:09:59.062 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:09:59.062 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:10:00.152 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:10:00.268 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:10:00.333 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2b06f498:0/SimpleConnection@50e32998 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60601]
-26-05-05.10:10:00.491 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.897 seconds (JVM running for 8.822)
-26-05-05.10:10:01.070 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"139764334248","source":"s01","userId":"gdk01"}
-26-05-05.10:10:01.099 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:10:01.230 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:10:01.262 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk01 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"}
-26-05-05.10:10:01.320 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.10:10:01.323 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk01 activityId: 100123
-26-05-05.10:10:01.326 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk01 activityId: 100123
-26-05-05.10:10:01.329 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk01 activityId: 100123 teamId: null
-26-05-05.10:10:01.330 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.10:10:01.360 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk01 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"834547197836","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"16226697"}
-26-05-05.10:10:01.362 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=834547197836, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0))
-26-05-05.10:10:01.376 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:10:01.378 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:10:01.469 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:10:01.487 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:10:01.491 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:10:01.493 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:10:01.525 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:10:01.533 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:10:34.201 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 20984 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:10:34.204 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.10:10:35.225 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:10:35.230 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:10:35.285 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
-26-05-05.10:10:36.123 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:10:36.153 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:10:36.161 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:10:36.170 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:10:36.465 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:10:36.807 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:10:36.824 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:10:36.863 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:10:36.886 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:10:39.293 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:10:39.356 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:10:39.383 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:10:39.383 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:10:40.404 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:10:40.523 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:10:40.579 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#55cc4c61:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 6179]
-26-05-05.10:10:40.675 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.091 seconds (JVM running for 7.879)
-26-05-05.10:10:41.239 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk02 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"121912683648","source":"s01","teamId":"16226697","userId":"gdk02"}
-26-05-05.10:10:41.268 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:10:41.394 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:10:41.427 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk02 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk02"}
-26-05-05.10:10:41.482 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.10:10:41.486 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk02 activityId: 100123
-26-05-05.10:10:41.489 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk02 activityId: 100123
-26-05-05.10:10:41.491 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk02 activityId: 100123 teamId: 16226697
-26-05-05.10:10:41.502 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.10:10:41.578 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk02 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"277557095346","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"16226697"}
-26-05-05.10:10:41.579 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=277557095346, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0))
-26-05-05.10:10:41.592 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:10:41.595 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:10:41.650 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:10:41.663 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:10:41.665 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:10:41.665 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:10:41.699 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:10:41.710 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:11:24.339 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 17168 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:11:24.341 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:11:25.359 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:11:25.365 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:11:25.424 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
-26-05-05.10:11:26.241 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:11:26.268 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:11:26.273 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:11:26.281 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:11:26.674 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:11:27.009 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:11:27.027 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:11:27.075 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:11:27.096 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:11:29.475 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:11:29.547 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:11:29.575 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:11:29.575 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:11:30.647 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:11:30.774 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:11:30.846 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 31409]
-26-05-05.10:11:30.957 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 7.263 seconds (JVM running for 8.048)
-26-05-05.10:11:31.397 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk01 outTradeNo:441842218120
-26-05-05.10:11:31.422 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:11:31.552 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:11:31.580 [main            ] ERROR OutTradeNoRuleFilter   - 预购订单不存在或者用户已经退单，不需要做支付订单结算:441842218120 outTradeNo
-26-05-05.10:11:31.601 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:11:31.603 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:11:31.934 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:11:31.947 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:11:31.949 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:11:31.950 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:11:31.981 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:11:31.986 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:12:04.052 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 3228 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:12:04.054 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:12:05.115 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:12:05.121 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:12:05.195 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 0 Redis repository interfaces.
-26-05-05.10:12:06.049 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:06.079 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:06.084 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:06.092 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:06.421 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:12:06.780 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:06.799 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:06.851 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:06.882 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:09.223 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:12:09.277 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:09.299 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:09.300 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:12:10.334 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:12:10.474 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:12:10.526 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 41934]
-26-05-05.10:12:10.604 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 7.164 seconds (JVM running for 7.933)
-26-05-05.10:12:11.008 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk01 outTradeNo:139764334248
-26-05-05.10:12:11.037 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:12:11.155 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:12:11.303 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":0,"lockCount":2,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":2,"teamId":"16226697","validEndTime":"2026-05-05 10:25:01","validStartTime":"2026-05-05 10:10:01"}
-26-05-05.10:12:11.360 [main            ] INFO  TradeSettlementOrderServiceTest - 请求参数:{"channel":"c01","outTradeNo":"139764334248","outTradeTime":"2026-05-05 10:12:11.007","source":"s01","userId":"gdk01"}
-26-05-05.10:12:11.362 [main            ] INFO  TradeSettlementOrderServiceTest - 测试结果:{"activityId":100123,"channel":"c01","outTradeNo":"139764334248","source":"s01","teamId":"16226697","userId":"gdk01"}
-26-05-05.10:12:11.375 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:12:11.377 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:12:11.589 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:12:11.602 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:12:11.604 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:12:11.605 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:12:11.639 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:12:11.644 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:12:35.442 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 15388 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:12:35.445 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:12:36.461 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:12:36.465 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:12:36.516 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
-26-05-05.10:12:37.390 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:37.415 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:37.419 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:37.423 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:37.736 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:12:38.045 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:38.061 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:38.101 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:38.126 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:12:41.369 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:12:41.418 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:41.439 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:12:41.439 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:12:42.463 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:12:42.577 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:12:42.649 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#6f740044:0/SimpleConnection@21b75073 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 37630]
-26-05-05.10:12:42.762 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 7.932 seconds (JVM running for 8.764)
-26-05-05.10:12:43.191 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:121912683648
-26-05-05.10:12:43.213 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:12:43.339 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:12:43.480 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":1,"lockCount":2,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":2,"teamId":"16226697","validEndTime":"2026-05-05 10:25:01","validStartTime":"2026-05-05 10:10:01"}
-26-05-05.10:12:43.580 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:12:43.581 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:12:43.748 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:12:43.748 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:12:43.751 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:12:43.751 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:12:43.776 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:12:43.783 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:19:08.682 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 3232 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:19:08.683 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:19:09.909 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:19:09.914 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:19:09.970 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
-26-05-05.10:19:10.902 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:10.925 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:10.930 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:10.935 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:11.226 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:19:11.556 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:19:11.574 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:19:11.617 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:11.641 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:14.145 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:19:14.217 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:19:14.242 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:19:14.242 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:19:15.449 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:19:15.566 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:19:15.645 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 22489]
-26-05-05.10:19:15.759 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 7.803 seconds (JVM running for 8.799)
-26-05-05.10:19:16.271 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:121912683648
-26-05-05.10:19:16.300 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:19:16.439 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:19:16.607 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":1,"lockCount":2,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":2,"teamId":"16226697","validEndTime":"2026-05-05 10:25:01","validStartTime":"2026-05-05 10:10:01"}
-26-05-05.10:19:16.674 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:16226697 notifyTaskEntity:NotifyTaskEntity(teamId=16226697, notifyType=MQ, notifyMQ=topic.team_success, notifyUrl=null, notifyUrlCount=0, parameterJson={"teamId":"16226697","outTradeNoList":["139764334248","121912683648"]})
-26-05-05.10:19:16.676 [main            ] INFO  TradeSettlementOrderServiceTest - 请求参数:{"channel":"c01","outTradeNo":"121912683648","outTradeTime":"2026-05-05 10:19:16.27","source":"s01","userId":"gdk02"}
-26-05-05.10:19:16.678 [main            ] INFO  TradeSettlementOrderServiceTest - 测试结果:{"activityId":100123,"channel":"c01","outTradeNo":"121912683648","source":"s01","teamId":"16226697","userId":"gdk02"}
-26-05-05.10:19:16.692 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:19:16.693 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:19:16.718 [pool-2-thread-1 ] INFO  TradeSettlementOrderService - 回调通知拼团完结 result:{"retrycount":0,"successCount":1,"errorcount":0,"waitCount":1}
-26-05-05.10:19:16.733 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:19:16.746 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:19:16.748 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:19:16.748 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:19:16.779 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:19:16.786 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:19:55.897 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 30112 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:19:55.899 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:19:57.122 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:19:57.125 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:19:57.194 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 0 Redis repository interfaces.
-26-05-05.10:19:58.089 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:58.121 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:58.126 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:58.133 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:58.439 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:19:58.760 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:19:58.780 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:19:58.824 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:19:58.851 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:01.452 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:20:01.521 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:20:01.545 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:20:01.545 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:20:02.634 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:20:02.760 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:20:02.833 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 38136]
-26-05-05.10:20:02.951 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  TeamSuccessTopicListener - 接收消息:{"teamId":"16226697","outTradeNoList":["139764334248","121912683648"]}
-26-05-05.10:20:02.962 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.686 seconds (JVM running for 8.658)
-26-05-05.10:20:03.409 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk01 outTrade:139764334248
-26-05-05.10:20:03.433 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:20:03.553 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:20:03.589 [main            ] INFO  PaidTeam2RefundStrategy - 退单，已支付，已成团。订单信息:TradeRefundOrderEntity(userId=gdk01, teamId=16226697, activityId=100123, orderId=834547197836)
-26-05-05.10:20:03.739 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:16226697 notifyTaskEntity:NotifyTaskEntity(teamId=16226697, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyUrlCount=0, parameterJson={"activityId":100123,"orderId":"834547197836","teamId":"16226697","type":"paid_unfromed","userId":"gdk01"})
-26-05-05.10:20:03.758 [main            ] INFO  ITradeRefundOrderServiceTest - 退单测试结果(New):{"orderId":"834547197836","teamId":"16226697","tradeRefundBehaviorEnum":"SUCCESS","userId":"gdk01"}
-26-05-05.10:20:03.764 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）:{"activityId":100123,"orderId":"834547197836","teamId":"16226697","type":"paid_unfromed","userId":"gdk01"}
-26-05-05.10:20:03.784 [pool-2-thread-1 ] ERROR PaidTeam2RefundStrategy - 已支付已拼团-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.10:20:35.669 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:20:35.670 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:20:36.097 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:20:36.283 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:20:36.286 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:20:36.286 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:20:36.310 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:20:36.321 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:20:54.085 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 13368 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:20:54.086 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:20:55.175 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:20:55.181 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:20:55.232 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
-26-05-05.10:20:56.001 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:56.022 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:56.026 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:56.032 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:56.312 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:20:56.618 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:20:56.634 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:20:56.672 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:56.695 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:20:59.090 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:20:59.159 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:20:59.181 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:20:59.181 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:21:00.183 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:21:00.311 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:21:00.383 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 44175]
-26-05-05.10:21:00.483 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.021 seconds (JVM running for 7.826)
-26-05-05.10:21:00.894 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk02 outTrade:121912683648
-26-05-05.10:21:00.921 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:21:01.036 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:21:01.089 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:21:01.091 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:21:01.464 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:21:01.477 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:21:01.480 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:21:01.480 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:21:01.511 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:21:01.517 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:23:20.996 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 18420 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:23:20.997 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:23:22.008 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:23:22.012 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:23:22.065 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
-26-05-05.10:23:22.932 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:23:22.964 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:23:22.969 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:23:22.976 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:23:23.276 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:23:23.591 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:23:23.609 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:23:23.646 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:23:23.668 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:23:26.031 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:23:26.101 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:23:26.127 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:23:26.128 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:23:27.159 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:23:27.302 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:23:27.380 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 29862]
-26-05-05.10:23:27.474 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.115 seconds (JVM running for 7.914)
-26-05-05.10:23:27.940 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk02 outTrade:121912683648
-26-05-05.10:23:27.966 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:23:28.086 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:23:28.140 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:23:28.141 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:23:28.456 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:23:28.469 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:23:28.471 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:23:28.471 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:23:28.506 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:23:28.514 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.10:29:41.534 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 32392 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.10:29:41.535 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.10:29:42.637 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.10:29:42.641 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.10:29:42.696 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
-26-05-05.10:29:43.531 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:29:43.556 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:29:43.559 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:29:43.566 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:29:43.853 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:29:44.171 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:29:44.189 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:29:44.231 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:29:44.254 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.10:29:46.514 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.10:29:46.578 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:29:46.601 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.10:29:46.601 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.10:29:47.669 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.10:29:47.790 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.10:29:47.981 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ddb9a8:0/SimpleConnection@5fc76532 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 54433]
-26-05-05.10:29:48.068 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.16 seconds (JVM running for 8.004)
-26-05-05.10:29:48.496 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk02 outTrade:121912683648
-26-05-05.10:29:48.520 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.10:29:48.639 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.10:29:48.672 [main            ] INFO  PaidTeam2RefundStrategy - 退单，已支付，已成团。订单信息:TradeRefundOrderEntity(userId=gdk02, teamId=16226697, activityId=100123, orderId=277557095346)
-26-05-05.10:29:48.797 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:16226697 notifyTaskEntity:NotifyTaskEntity(teamId=16226697, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyUrlCount=0, parameterJson={"activityId":100123,"orderId":"277557095346","teamId":"16226697","type":"paid_unfromed","userId":"gdk02"})
-26-05-05.10:29:48.815 [main            ] INFO  ITradeRefundOrderServiceTest - 退单测试结果(New):{"orderId":"277557095346","teamId":"16226697","tradeRefundBehaviorEnum":"SUCCESS","userId":"gdk02"}
-26-05-05.10:29:48.822 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）:{"activityId":100123,"orderId":"277557095346","teamId":"16226697","type":"paid_unfromed","userId":"gdk02"}
-26-05-05.10:29:48.842 [pool-2-thread-1 ] ERROR PaidTeam2RefundStrategy - 已支付已拼团-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.10:30:00.007 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.10:30:00.010 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.10:30:02.584 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:30:02.585 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.10:30:02.938 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:30:03.158 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.10:30:03.160 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:30:03.160 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.10:30:03.187 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.10:30:03.193 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:20:29.086 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 32648 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:20:29.088 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:20:30.251 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:20:30.256 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:20:30.310 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
-26-05-05.17:20:31.244 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:20:31.284 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:20:31.290 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:20:31.298 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:20:31.629 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:20:31.967 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:20:31.987 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:20:32.034 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:20:32.058 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:20:34.549 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:20:34.633 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:20:34.664 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:20:34.664 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:20:35.787 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:20:35.915 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:20:36.005 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#c02a1be:0/SimpleConnection@21b75073 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 10523]
-26-05-05.17:20:36.140 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.795 seconds (JVM running for 8.74)
-26-05-05.17:20:36.778 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk01 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"241042455265","source":"s01","userId":"gdk01"}
-26-05-05.17:20:36.814 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:20:36.958 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:20:36.991 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk01 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk01"}
-26-05-05.17:20:37.058 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.17:20:37.062 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk01 activityId: 100123
-26-05-05.17:20:37.065 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk01 activityId: 100123
-26-05-05.17:20:37.069 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk01 activityId: 100123 teamId: null
-26-05-05.17:20:37.069 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.17:20:37.150 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk01 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"470105237235","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"73517874"}
-26-05-05.17:20:37.151 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=470105237235, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0, teamId=73517874))
-26-05-05.17:20:37.168 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:20:37.170 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:20:38.130 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:20:38.131 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:20:38.133 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:20:38.133 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:20:38.160 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:20:38.166 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:21:26.412 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 22608 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:21:26.413 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:21:27.440 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:21:27.445 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:21:27.495 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
-26-05-05.17:21:28.323 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:21:28.352 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:21:28.357 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:21:28.364 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:21:28.659 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:21:28.971 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:21:28.990 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:21:29.028 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:21:29.049 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:21:31.417 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:21:31.510 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:21:31.554 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:21:31.554 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:21:32.584 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:21:32.713 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:21:32.791 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7b24d5e4:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 51201]
-26-05-05.17:21:32.921 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.124 seconds (JVM running for 7.924)
-26-05-05.17:21:33.495 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk02 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"995856585997","source":"s01","teamId":"73517874","userId":"gdk02"}
-26-05-05.17:21:33.526 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:21:33.673 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:21:33.707 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk02 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk02"}
-26-05-05.17:21:33.762 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.17:21:33.765 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk02 activityId: 100123
-26-05-05.17:21:33.769 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk02 activityId: 100123
-26-05-05.17:21:33.772 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk02 activityId: 100123 teamId: 73517874
-26-05-05.17:21:33.781 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.17:21:33.847 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk02 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"389174921122","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"73517874"}
-26-05-05.17:21:33.849 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=389174921122, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0, teamId=73517874))
-26-05-05.17:21:33.862 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:21:33.863 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:21:33.889 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:21:33.902 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:21:33.904 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:21:33.904 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:21:33.933 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:21:33.941 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:22:09.298 [main            ] INFO  TradeSettlementOrderServiceTest - Starting TradeSettlementOrderServiceTest using Java 17 on jjnice with PID 4172 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:22:09.300 [main            ] INFO  TradeSettlementOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.17:22:10.398 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:22:10.403 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:22:10.457 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
-26-05-05.17:22:11.296 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:22:11.320 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:22:11.325 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:22:11.330 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:22:11.642 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:22:11.957 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:22:11.974 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:22:12.017 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:22:12.041 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:22:14.458 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:22:14.520 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:22:14.544 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:22:14.544 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:22:15.559 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:22:15.678 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:22:15.746 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5002be8e:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 51276]
-26-05-05.17:22:15.866 [main            ] INFO  TradeSettlementOrderServiceTest - Started TradeSettlementOrderServiceTest in 7.243 seconds (JVM running for 8.174)
-26-05-05.17:22:16.378 [main            ] INFO  SCRuleFilter           - 结算规则过滤-渠道黑名单校验gdk02 outTradeNo:995856585997
-26-05-05.17:22:16.407 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:22:16.539 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:22:16.685 [main            ] INFO  TradeSettlementOrderService - 查看根据teamId查到的订单信息:{"activityId":100123,"completeCount":0,"lockCount":2,"notifyConfigVO":{"notifyMQ":"topic.team_success","notifyType":"MQ"},"status":"PROGRESS","targetCount":3,"teamId":"73517874","validEndTime":"2026-05-05 17:35:37","validStartTime":"2026-05-05 17:20:37"}
-26-05-05.17:22:16.725 [main            ] INFO  TradeSettlementOrderServiceTest - 请求参数:{"channel":"c01","outTradeNo":"995856585997","outTradeTime":"2026-05-05 17:22:16.377","source":"s01","userId":"gdk02"}
-26-05-05.17:22:16.726 [main            ] INFO  TradeSettlementOrderServiceTest - 测试结果:{"activityId":100123,"channel":"c01","outTradeNo":"995856585997","source":"s01","teamId":"73517874","userId":"gdk02"}
-26-05-05.17:22:16.740 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:22:16.741 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:22:16.844 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:22:16.859 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:22:16.861 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:22:16.862 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:22:16.890 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:22:16.897 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:24:46.862 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 18952 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:24:46.865 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.17:24:47.932 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:24:47.937 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:24:47.995 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 Redis repository interfaces.
-26-05-05.17:24:48.810 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:24:48.831 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:24:48.835 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:24:48.842 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:24:49.118 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:24:49.425 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:24:49.443 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:24:49.481 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:24:49.502 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:24:52.158 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:24:52.227 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:24:52.253 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:24:52.253 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:24:53.353 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:24:53.475 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:24:53.531 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5002be8e:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 43278]
-26-05-05.17:24:53.626 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.431 seconds (JVM running for 8.25)
-26-05-05.17:24:54.105 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk01 outTrade:241042455265
-26-05-05.17:24:54.133 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:24:54.247 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:24:54.286 [main            ] INFO  Unpaid2RefundStrategy  - 退单，未支付，未成团。订单信息:TradeRefundOrderEntity(userId=gdk01, teamId=73517874, activityId=100123, orderId=470105237235)
-26-05-05.17:24:54.420 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:73517874 notifyTaskEntity:NotifyTaskEntity(teamId=73517874, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyCount=0, parameterJson={"activityId":100123,"orderId":"470105237235","teamId":"73517874","type":"unpaid_unlock","userId":"gdk01"}, uuid=73517874_trade_unpaid2refund_470105237235)
-26-05-05.17:24:54.437 [main            ] INFO  ITradeRefundOrderServiceTest - 退单测试结果(New):{"orderId":"470105237235","teamId":"73517874","tradeRefundBehaviorEnum":"SUCCESS","userId":"gdk01"}
-26-05-05.17:24:54.454 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）- 现在尝试恢复拼团队伍锁单量:{"activityId":100123,"orderId":"470105237235","teamId":"73517874","type":"unpaid_unlock","userId":"gdk01"}
-26-05-05.17:24:54.466 [pool-2-thread-1 ] ERROR Unpaid2RefundStrategy  - 拼团交易-退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}
-26-05-05.17:24:54.470 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRefundOrderService - 逆向流程，恢复锁单量 useId:gdk01 activity:100123 teamId:73517874
-26-05-05.17:24:54.470 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  Unpaid2RefundStrategy  - 退单恢复锁单量--已支付未成团的情况，但是有锁单记录:gdk01 :TeamRefundSuccess(type=unpaid_unlock, userId=gdk01, teamId=73517874, activityId=100123, orderId=470105237235)
-26-05-05.17:24:54.480 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRepository        - 订单470105237235库存恢复成功，回复库存keygroup_buy_market_team_stock_key_100123_73517874_recovery
-26-05-05.17:25:00.011 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:25:00.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:25:45.009 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:25:45.011 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:26:00.011 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:26:00.013 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:26:14.934 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:26:14.935 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:26:15.314 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:26:15.435 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:26:15.437 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:26:15.438 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:26:15.461 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:26:15.466 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:26:20.142 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 1736 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:26:20.145 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.17:26:21.125 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:26:21.130 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:26:21.182 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
-26-05-05.17:26:22.061 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:26:22.090 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:26:22.095 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:26:22.103 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:26:22.451 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:26:22.763 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:26:22.781 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:26:22.820 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:26:22.845 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:26:25.228 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:26:25.291 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:26:25.316 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:26:25.317 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:26:26.339 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:26:26.457 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:26:26.526 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5002be8e:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 8228]
-26-05-05.17:26:26.637 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.16 seconds (JVM running for 7.968)
-26-05-05.17:26:27.045 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk02 outTrade:995856585997
-26-05-05.17:26:27.074 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:26:27.198 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:26:27.230 [main            ] INFO  Paid2RefundStrategy    - 退单，已支付，未成团。订单信息:TradeRefundOrderEntity(userId=gdk02, teamId=73517874, activityId=100123, orderId=389174921122)
-26-05-05.17:26:27.354 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:73517874 notifyTaskEntity:NotifyTaskEntity(teamId=73517874, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyCount=0, parameterJson={"activityId":100123,"orderId":"389174921122","teamId":"73517874","type":"paid_unfromed","userId":"gdk02"}, uuid=73517874_trade_paid2refund_389174921122)
-26-05-05.17:26:27.371 [main            ] INFO  ITradeRefundOrderServiceTest - 退单测试结果(New):{"orderId":"389174921122","teamId":"73517874","tradeRefundBehaviorEnum":"SUCCESS","userId":"gdk02"}
-26-05-05.17:26:27.380 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）- 现在尝试恢复拼团队伍锁单量:{"activityId":100123,"orderId":"389174921122","teamId":"73517874","type":"paid_unfromed","userId":"gdk02"}
-26-05-05.17:26:27.396 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRefundOrderService - 逆向流程，恢复锁单量 useId:gdk02 activity:100123 teamId:73517874
-26-05-05.17:26:27.397 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  Paid2RefundStrategy    - 退单恢复锁单量--未支付未成团的情况，但是有锁单记录:gdk02 :TeamRefundSuccess(type=paid_unfromed, userId=gdk02, teamId=73517874, activityId=100123, orderId=389174921122)
-26-05-05.17:26:27.398 [pool-2-thread-1 ] ERROR Paid2RefundStrategy    - 拼团交易-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.17:26:27.405 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRepository        - 订单389174921122库存恢复成功，回复库存keygroup_buy_market_team_stock_key_100123_73517874_recovery
-26-05-05.17:26:45.009 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:26:45.012 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:27:00.007 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:27:00.009 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:27:45.011 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:27:45.012 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:28:00.011 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:28:00.012 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:28:45.009 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:28:45.011 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:29:00.004 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:29:00.006 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:29:45.007 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:29:45.008 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:30:00.008 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:30:00.010 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:30:01.904 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:30:01.905 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:30:02.322 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:30:02.687 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:30:02.694 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:30:02.695 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:30:02.731 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:30:02.737 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:30:20.096 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 4512 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:30:20.098 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:30:21.177 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:30:21.182 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:30:21.235 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
-26-05-05.17:30:22.082 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:22.112 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:22.117 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:22.124 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:22.436 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:30:22.775 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:22.797 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:22.840 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:22.863 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:25.261 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:30:25.328 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:25.346 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:25.346 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:30:26.417 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:30:26.536 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:30:26.595 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3e170abe:0/SimpleConnection@69d6fe75 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 23783]
-26-05-05.17:30:26.675 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.227 seconds (JVM running for 8.026)
-26-05-05.17:30:27.212 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk03 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"433203969811","source":"s01","teamId":"73517874","userId":"gdk03"}
-26-05-05.17:30:27.245 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:30:27.373 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:30:27.407 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk03 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk03"}
-26-05-05.17:30:27.466 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.17:30:27.469 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk03 activityId: 100123
-26-05-05.17:30:27.473 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk03 activityId: 100123
-26-05-05.17:30:27.476 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk03 activityId: 100123 teamId: 73517874
-26-05-05.17:30:27.485 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.17:30:27.573 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk03 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"736032311605","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"73517874"}
-26-05-05.17:30:27.576 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=736032311605, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0, teamId=73517874))
-26-05-05.17:30:27.593 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:30:27.595 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:30:27.660 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:30:27.674 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:30:27.677 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:30:27.677 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:30:27.713 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:30:27.721 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:30:40.426 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 32880 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:30:40.428 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:30:41.467 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:30:41.471 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:30:41.527 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
-26-05-05.17:30:42.458 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:42.493 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:42.500 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:42.507 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:42.862 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:30:43.249 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:43.267 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:43.307 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:43.330 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:30:45.743 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:30:45.813 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:45.836 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:30:45.836 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:30:46.899 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:30:47.021 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:30:47.080 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7b24d5e4:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 12641]
-26-05-05.17:30:47.182 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.444 seconds (JVM running for 8.333)
-26-05-05.17:30:47.701 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk04 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"300183184410","source":"s01","teamId":"73517874","userId":"gdk04"}
-26-05-05.17:30:47.729 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:30:47.848 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:30:47.881 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk04 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk04"}
-26-05-05.17:30:47.935 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.17:30:47.938 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk04 activityId: 100123
-26-05-05.17:30:47.941 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk04 activityId: 100123
-26-05-05.17:30:47.944 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk04 activityId: 100123 teamId: 73517874
-26-05-05.17:30:47.951 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.17:30:48.069 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk04 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"686931240371","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"73517874"}
-26-05-05.17:30:48.071 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=686931240371, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0, teamId=73517874))
-26-05-05.17:30:48.083 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:30:48.085 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:30:48.172 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:30:48.172 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:30:48.174 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:30:48.175 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:30:48.199 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:30:48.205 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:31:01.685 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 32644 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:31:01.687 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:31:02.792 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:31:02.796 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:31:02.853 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
-26-05-05.17:31:03.675 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:03.721 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:03.728 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:03.733 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:04.040 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:31:04.351 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:04.368 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:04.406 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:04.430 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:06.838 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:31:06.917 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:06.948 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:06.948 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:31:08.043 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:31:08.199 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:31:08.264 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7b24d5e4:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 12714]
-26-05-05.17:31:08.357 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.298 seconds (JVM running for 8.094)
-26-05-05.17:31:08.892 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk05 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"806064826260","source":"s01","teamId":"73517874","userId":"gdk05"}
-26-05-05.17:31:08.924 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:31:09.038 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:31:09.071 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk05 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk05"}
-26-05-05.17:31:09.123 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.17:31:09.126 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk05 activityId: 100123
-26-05-05.17:31:09.130 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk05 activityId: 100123
-26-05-05.17:31:09.133 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk05 activityId: 100123 teamId: 73517874
-26-05-05.17:31:09.140 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.17:31:09.178 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk05 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"394508727329","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"73517874"}
-26-05-05.17:31:09.181 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=394508727329, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0, teamId=73517874))
-26-05-05.17:31:09.195 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:31:09.197 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:31:09.342 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:31:09.356 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:31:09.359 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:31:09.359 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:31:09.383 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:31:09.390 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:31:24.297 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 28792 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:31:24.299 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:31:25.311 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:31:25.316 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:31:25.374 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
-26-05-05.17:31:26.196 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:26.223 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:26.228 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:26.234 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:26.497 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:31:26.806 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:26.823 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:26.859 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:26.885 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:31:29.125 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:31:29.185 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:29.209 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:31:29.209 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:31:30.231 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:31:30.357 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:31:30.428 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3e170abe:0/SimpleConnection@69d6fe75 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 12783]
-26-05-05.17:31:30.544 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 6.897 seconds (JVM running for 7.69)
-26-05-05.17:31:31.112 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk06 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"995889428154","source":"s01","teamId":"73517874","userId":"gdk06"}
-26-05-05.17:31:31.144 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:31:31.270 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:31:31.301 [main            ] INFO  MarketTradeController  - 交易锁单拦截，拼团已经完成:gdk06 :73517874
-26-05-05.17:31:31.301 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=E0006, info=拼团组队结束，锁单量已完成, data=null)
-26-05-05.17:31:31.315 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:31:31.317 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:31:31.530 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:31:31.530 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:31:31.532 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:31:31.533 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:31:31.557 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:31:31.564 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:32:02.844 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 32364 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:32:02.847 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
-26-05-05.17:32:03.910 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:32:03.914 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:32:03.974 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
-26-05-05.17:32:04.919 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:04.959 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:04.974 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:04.982 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:05.302 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:32:05.632 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:05.648 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:05.686 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:05.707 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:07.935 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:32:08.007 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:08.031 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:08.031 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:32:09.093 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:32:09.202 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:32:09.275 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5002be8e:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 12483]
-26-05-05.17:32:09.383 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.178 seconds (JVM running for 8.019)
-26-05-05.17:32:09.831 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:gdk03 outTrade:433203969811
-26-05-05.17:32:09.856 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:32:09.970 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:32:10.006 [main            ] INFO  Unpaid2RefundStrategy  - 退单，未支付，未成团。订单信息:TradeRefundOrderEntity(userId=gdk03, teamId=73517874, activityId=100123, orderId=736032311605)
-26-05-05.17:32:10.139 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:73517874 notifyTaskEntity:NotifyTaskEntity(teamId=73517874, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyCount=0, parameterJson={"activityId":100123,"orderId":"736032311605","teamId":"73517874","type":"unpaid_unlock","userId":"gdk03"}, uuid=73517874_trade_unpaid2refund_736032311605)
-26-05-05.17:32:10.156 [main            ] INFO  ITradeRefundOrderServiceTest - 退单测试结果(New):{"orderId":"736032311605","teamId":"73517874","tradeRefundBehaviorEnum":"SUCCESS","userId":"gdk03"}
-26-05-05.17:32:10.165 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）- 现在尝试恢复拼团队伍锁单量:{"activityId":100123,"orderId":"736032311605","teamId":"73517874","type":"unpaid_unlock","userId":"gdk03"}
-26-05-05.17:32:10.182 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRefundOrderService - 逆向流程，恢复锁单量 useId:gdk03 activity:100123 teamId:73517874
-26-05-05.17:32:10.182 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  Unpaid2RefundStrategy  - 退单恢复锁单量--已支付未成团的情况，但是有锁单记录:gdk03 :TeamRefundSuccess(type=unpaid_unlock, userId=gdk03, teamId=73517874, activityId=100123, orderId=736032311605)
-26-05-05.17:32:10.185 [pool-2-thread-1 ] ERROR Unpaid2RefundStrategy  - 拼团交易-退单成功 result:{retrycount=0, successCount=0, errorcount=0, waitCount=1}
-26-05-05.17:32:10.191 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRepository        - 订单736032311605库存恢复成功，回复库存keygroup_buy_market_team_stock_key_100123_73517874_recovery
-26-05-05.17:32:28.613 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:32:28.615 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:32:29.351 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:32:29.521 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:32:29.523 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:32:29.524 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:32:29.549 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:32:29.555 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
-26-05-05.17:32:37.314 [main            ] INFO  MarketTradeControllerTest - Starting MarketTradeControllerTest using Java 17 on jjnice with PID 6228 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
-26-05-05.17:32:37.315 [main            ] INFO  MarketTradeControllerTest - The following 1 profile is active: "dev"
-26-05-05.17:32:38.328 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-26-05-05.17:32:38.333 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-26-05-05.17:32:38.390 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
-26-05-05.17:32:39.228 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$ad460412] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:39.260 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:39.266 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$4bc69402] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:39.273 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:39.639 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:32:39.971 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:39.987 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:40.030 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:40.053 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-26-05-05.17:32:42.650 [main            ] INFO  Version                - Redisson 3.26.0
-26-05-05.17:32:42.730 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:42.756 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
-26-05-05.17:32:42.756 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
-26-05-05.17:32:43.819 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
-26-05-05.17:32:43.947 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
-26-05-05.17:32:44.018 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7b24d5e4:0/SimpleConnection@4bfaff23 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 1822]
-26-05-05.17:32:44.166 [main            ] INFO  MarketTradeControllerTest - Started MarketTradeControllerTest in 7.464 seconds (JVM running for 8.262)
-26-05-05.17:32:44.721 [main            ] INFO  MarketTradeController  - 营销交易锁单:gdk06 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"HTTP","notifyUrl":"http://127.0.0.1:8091/api/tewst/group_buy_notify"},"outTradeNo":"440294907066","source":"s01","teamId":"73517874","userId":"gdk06"}
-26-05-05.17:32:44.748 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
-26-05-05.17:32:44.872 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
-26-05-05.17:32:44.907 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:gdk06 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"gdk06"}
-26-05-05.17:32:44.958 [main            ] INFO  MarketTradeController  - 优惠试算结束
-26-05-05.17:32:44.961 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:gdk06 activityId: 100123
-26-05-05.17:32:44.965 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:gdk06 activityId: 100123
-26-05-05.17:32:44.968 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:gdk06 activityId: 100123 teamId: 73517874
-26-05-05.17:32:44.975 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
-26-05-05.17:32:45.022 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
-26-05-05.17:32:45.028 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
-26-05-05.17:32:45.047 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):gdk06 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"293755347070","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"73517874"}
-26-05-05.17:32:45.049 [main            ] INFO  MarketTradeControllerTest - 测试结果 response:Response(code=0000, info=成功, data=LockMarketPayOrderResponseDTO(orderId=293755347070, originalPrice=100.00, deductionPrice=20.00, payPrice=80.00, status=0, teamId=73517874))
-26-05-05.17:32:45.061 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:32:45.063 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
-26-05-05.17:32:45.135 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:32:45.148 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
-26-05-05.17:32:45.150 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:32:45.151 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
-26-05-05.17:32:45.177 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
-26-05-05.17:32:45.184 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-05-10.21:16:53.930 [main            ] INFO  ITradeReverseStockServiceTest - Starting ITradeReverseStockServiceTest using Java 17 on jjnice with PID 32332 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-05-10.21:16:53.933 [main            ] INFO  ITradeReverseStockServiceTest - The following 1 profile is active: "dev"
+26-05-10.21:16:55.144 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-10.21:16:55.150 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-10.21:16:55.206 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
+26-05-10.21:16:56.156 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$82dbd463] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:16:56.177 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:16:56.181 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$215c6453] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:16:56.185 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:16:56.402 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:16:56.744 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:16:56.763 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:16:56.804 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:16:56.823 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:16:59.482 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:16:59.556 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:16:59.583 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:16:59.583 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
+26-05-10.21:17:00.757 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
+26-05-10.21:17:00.896 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-05-10.21:17:00.976 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#478fe415:0/SimpleConnection@480fb706 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 57492]
+26-05-10.21:17:01.081 [main            ] INFO  ITradeReverseStockServiceTest - Started ITradeReverseStockServiceTest in 7.807 seconds (JVM running for 8.875)
+26-05-10.21:17:01.629 [main            ] INFO  MarketTradeController  - 营销交易锁单:xfg101 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"244532007269","source":"s01","userId":"xfg101"}
+26-05-10.21:17:01.661 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-05-10.21:17:01.806 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-05-10.21:17:01.842 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:xfg101 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"xfg101"}
+26-05-10.21:17:01.902 [main            ] INFO  MarketTradeController  - 优惠试算结束
+26-05-10.21:17:01.905 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:xfg101 activityId: 100123
+26-05-10.21:17:01.909 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:xfg101 activityId: 100123
+26-05-10.21:17:01.912 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:xfg101 activityId: 100123 teamId: null
+26-05-10.21:17:01.913 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
+26-05-10.21:17:01.964 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):xfg101 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"824014175770","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"91613426"}
+26-05-10.21:17:01.969 [main            ] INFO  ITradeReverseStockServiceTest - 第1笔，测试结果 req:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"244532007269","source":"s01","userId":"xfg101"} res:{"code":"0000","data":{"deductionPrice":20.00,"orderId":"824014175770","originalPrice":100.00,"payPrice":80.00,"status":0,"teamId":"91613426"},"info":"成功"}
+26-05-10.21:17:01.969 [main            ] INFO  MarketTradeController  - 营销交易锁单:xfg102 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"487289523679","source":"s01","teamId":"91613426","userId":"xfg102"}
+26-05-10.21:17:01.972 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:xfg102 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"xfg102"}
+26-05-10.21:17:01.998 [main            ] INFO  MarketTradeController  - 优惠试算结束
+26-05-10.21:17:01.998 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:xfg102 activityId: 100123
+26-05-10.21:17:02.000 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:xfg102 activityId: 100123
+26-05-10.21:17:02.002 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:xfg102 activityId: 100123 teamId: 91613426
+26-05-10.21:17:02.007 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
+26-05-10.21:17:02.020 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):xfg102 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"562476422405","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"91613426"}
+26-05-10.21:17:02.021 [main            ] INFO  ITradeReverseStockServiceTest - 第2笔，测试结果 req:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"487289523679","source":"s01","teamId":"91613426","userId":"xfg102"} res:{"code":"0000","data":{"deductionPrice":20.00,"orderId":"562476422405","originalPrice":100.00,"payPrice":80.00,"status":0,"teamId":"91613426"},"info":"成功"}
+26-05-10.21:17:02.021 [main            ] INFO  MarketTradeController  - 营销交易锁单:xfg103 LockMarketPayOrderRequestDTO:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"879049110327","source":"s01","teamId":"91613426","userId":"xfg103"}
+26-05-10.21:17:02.023 [main            ] INFO  RootNode               - 拼团商品查询试算服务-RootNode userId:xfg103 requestParameter:{"activityId":100123,"channel":"c01","goodsId":"9890001","source":"s01","userId":"xfg103"}
+26-05-10.21:17:02.036 [main            ] INFO  MarketTradeController  - 优惠试算结束
+26-05-10.21:17:02.037 [main            ] INFO  ActivityUsabilityRuleFilter - 交易规则过滤-活动的可用性校验:xfg103 activityId: 100123
+26-05-10.21:17:02.038 [main            ] INFO  UserTakeLimitRuleFilter - 交易规则过滤-用户参与次数过滤:xfg103 activityId: 100123
+26-05-10.21:17:02.039 [main            ] INFO  TeamStockOccupyRuleFilter - 交易规则过滤-redis锁单处理:xfg103 activityId: 100123 teamId: 91613426
+26-05-10.21:17:02.043 [main            ] INFO  TradeLockOrderService  - 锁单规则链结束
+26-05-10.21:17:02.051 [main            ] INFO  MarketTradeController  - 交易锁单记录(新):xfg103 marketPayOrderEntity:{"deductionPrice":20.00,"orderId":"671011829538","originalPrice":100.00,"payPrice":80.00,"status":"CREATE","teamId":"91613426"}
+26-05-10.21:17:02.052 [main            ] INFO  ITradeReverseStockServiceTest - 第3笔，测试结果 req:{"activityId":100123,"channel":"c01","goodsId":"9890001","notifyConfigVO":{"notifyType":"MQ"},"outTradeNo":"879049110327","source":"s01","teamId":"91613426","userId":"xfg103"} res:{"code":"0000","data":{"deductionPrice":20.00,"orderId":"671011829538","originalPrice":100.00,"payPrice":80.00,"status":0,"teamId":"91613426"},"info":"成功"}
+26-05-10.21:17:02.067 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:17:02.070 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:17:02.070 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:17:02.081 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:17:02.083 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:17:02.084 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:17:02.140 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-05-10.21:17:02.149 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-05-10.21:18:22.339 [main            ] INFO  ITradeReverseStockServiceTest - Starting ITradeReverseStockServiceTest using Java 17 on jjnice with PID 21968 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-05-10.21:18:22.340 [main            ] INFO  ITradeReverseStockServiceTest - The following 1 profile is active: "dev"
+26-05-10.21:18:23.489 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-10.21:18:23.494 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-10.21:18:23.556 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
+26-05-10.21:18:24.378 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$19dc35bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:18:24.403 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:18:24.408 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$b85cc5ac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:18:24.414 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:18:24.693 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:18:25.004 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:18:25.023 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:18:25.065 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:18:25.089 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:18:27.544 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:18:27.616 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:18:27.642 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:18:27.642 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
+26-05-10.21:18:28.639 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
+26-05-10.21:18:28.760 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-05-10.21:18:28.831 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3e170abe:0/SimpleConnection@5b476930 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 12726]
+26-05-10.21:18:28.922 [main            ] INFO  ITradeReverseStockServiceTest - Started ITradeReverseStockServiceTest in 7.22 seconds (JVM running for 8.092)
+26-05-10.21:18:29.354 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:xfg103 outTrade:879049110327
+26-05-10.21:18:29.384 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-05-10.21:18:29.513 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-05-10.21:18:29.663 [main            ] INFO  ITradeReverseStockServiceTest - 请求参数:{"channel":"c01","outTradeNo":"879049110327","source":"s01","userId":"xfg103"}
+26-05-10.21:18:29.663 [main            ] INFO  ITradeReverseStockServiceTest - 测试结果:null
+26-05-10.21:18:45.034 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:18:45.042 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:18:49.785 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:18:49.786 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:18:50.091 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:18:50.092 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:18:50.094 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:18:50.094 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:18:50.118 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-05-10.21:18:50.125 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-05-10.21:20:11.462 [main            ] INFO  ITradeRefundOrderServiceTest - Starting ITradeRefundOrderServiceTest using Java 17 on jjnice with PID 32872 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-05-10.21:20:11.464 [main            ] INFO  ITradeRefundOrderServiceTest - The following 1 profile is active: "dev"
+26-05-10.21:20:12.629 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-10.21:20:12.634 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-10.21:20:12.692 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
+26-05-10.21:20:13.585 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$2b528eec] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:20:13.613 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:20:13.618 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$c9d31edc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:20:13.624 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:20:13.961 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:20:14.284 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:20:14.301 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:20:14.346 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:20:14.376 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:20:17.198 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:20:17.268 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:20:17.295 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:20:17.295 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
+26-05-10.21:20:18.419 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
+26-05-10.21:20:18.553 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-05-10.21:20:18.618 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#278150a1:0/SimpleConnection@59d6a4d1 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 56296]
+26-05-10.21:20:18.721 [main            ] INFO  ITradeRefundOrderServiceTest - Started ITradeRefundOrderServiceTest in 7.929 seconds (JVM running for 8.758)
+26-05-10.21:20:19.144 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:xfg103 outTrade:879049110327
+26-05-10.21:20:19.169 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-05-10.21:20:19.298 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-05-10.21:20:19.428 [main            ] INFO  ITradeRefundOrderServiceTest - 退单测试结果(New):null
+26-05-10.21:20:31.117 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:20:31.119 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:20:31.816 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:20:31.816 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:20:31.818 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:20:31.818 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:20:31.845 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-05-10.21:20:31.853 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-05-10.21:22:30.103 [main            ] INFO  ITradeReverseStockServiceTest - Starting ITradeReverseStockServiceTest using Java 17 on jjnice with PID 33900 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-05-10.21:22:30.106 [main            ] INFO  ITradeReverseStockServiceTest - The following 1 profile is active: "dev"
+26-05-10.21:22:31.281 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-10.21:22:31.284 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-10.21:22:31.346 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
+26-05-10.21:22:32.171 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$7c89fdbe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:22:32.195 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:22:32.201 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$1b0a8dae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:22:32.207 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:22:32.493 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:22:32.821 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:22:32.841 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:22:32.880 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:22:32.903 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:22:35.460 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:22:35.547 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:22:35.573 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:22:35.573 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
+26-05-10.21:22:36.650 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
+26-05-10.21:22:36.770 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-05-10.21:22:36.819 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#712e4b18:0/SimpleConnection@1aee0f49 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 50596]
+26-05-10.21:22:36.911 [main            ] INFO  ITradeReverseStockServiceTest - Started ITradeReverseStockServiceTest in 7.423 seconds (JVM running for 8.242)
+26-05-10.21:22:37.345 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:xfg103 outTrade:879049110327
+26-05-10.21:22:37.374 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-05-10.21:22:37.517 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-05-10.21:22:37.675 [main            ] INFO  ITradeReverseStockServiceTest - 请求参数:{"channel":"c01","outTradeNo":"879049110327","source":"s01","userId":"xfg103"}
+26-05-10.21:22:37.676 [main            ] INFO  ITradeReverseStockServiceTest - 测试结果:null
+26-05-10.21:22:45.019 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:22:45.026 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:22:46.303 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:22:46.304 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:22:46.989 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:22:47.002 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:22:47.005 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:22:47.005 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:22:47.033 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-05-10.21:22:47.041 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-05-10.21:23:23.490 [main            ] INFO  ITradeReverseStockServiceTest - Starting ITradeReverseStockServiceTest using Java 17 on jjnice with PID 28124 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-05-10.21:23:23.493 [main            ] INFO  ITradeReverseStockServiceTest - The following 1 profile is active: "dev"
+26-05-10.21:23:24.600 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-10.21:23:24.604 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-10.21:23:24.657 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
+26-05-10.21:23:25.493 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$7c89fdbe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:23:25.530 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:23:25.535 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$1b0a8dae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:23:25.541 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:23:25.856 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:23:26.160 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:23:26.176 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:23:26.213 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:23:26.238 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:23:28.716 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:23:28.787 [redisson-netty-5-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:23:28.823 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:23:28.823 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
+26-05-10.21:23:29.907 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
+26-05-10.21:23:30.029 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-05-10.21:23:30.082 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#712e4b18:0/SimpleConnection@1aee0f49 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 43355]
+26-05-10.21:23:30.176 [main            ] INFO  ITradeReverseStockServiceTest - Started ITradeReverseStockServiceTest in 7.331 seconds (JVM running for 8.149)
+26-05-10.21:23:30.619 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:xfg103 outTrade:879049110327
+26-05-10.21:23:30.649 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-05-10.21:23:30.777 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-05-10.21:23:30.816 [main            ] INFO  Unpaid2RefundStrategy  - 退单，未支付，未成团。订单信息:TradeRefundOrderEntity(userId=xfg103, teamId=91613426, activityId=100123, orderId=671011829538)
+26-05-10.21:23:30.961 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:91613426 notifyTaskEntity:NotifyTaskEntity(teamId=91613426, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyCount=0, parameterJson={"activityId":100123,"orderId":"671011829538","teamId":"91613426","type":"unpaid_unlock","userId":"xfg103"}, uuid=91613426_trade_unpaid2refund_671011829538)
+26-05-10.21:23:30.978 [main            ] INFO  ITradeReverseStockServiceTest - 请求参数:{"channel":"c01","outTradeNo":"879049110327","source":"s01","userId":"xfg103"}
+26-05-10.21:23:30.982 [main            ] INFO  ITradeReverseStockServiceTest - 测试结果:{"orderId":"671011829538","teamId":"91613426","tradeRefundBehaviorEnum":"SUCCESS","userId":"xfg103"}
+26-05-10.21:23:30.987 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）- 现在尝试恢复拼团队伍锁单量:{"activityId":100123,"orderId":"671011829538","teamId":"91613426","type":"unpaid_unlock","userId":"xfg103"}
+26-05-10.21:23:31.003 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRefundOrderService - 逆向流程，恢复锁单量 useId:xfg103 activity:100123 teamId:91613426
+26-05-10.21:23:31.003 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  AbstractRefundOrderStrategy - 退单恢复锁单量--:未支付，未成团，但有锁单记录，要恢复锁单库存的情况，但是有锁单记录 :TeamRefundSuccess(type=unpaid_unlock, userId=xfg103, teamId=91613426, activityId=100123, orderId=671011829538)
+26-05-10.21:23:31.005 [pool-2-thread-1 ] ERROR AbstractRefundOrderStrategy - 拼团交易 - 退单类型:未支付未成团 - 退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}
+26-05-10.21:23:31.013 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRepository        - 订单671011829538库存恢复成功，回复库存keygroup_buy_market_team_stock_key_100123_91613426_recovery
+26-05-10.21:23:45.014 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:23:45.016 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:24:00.014 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:24:00.016 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:24:17.021 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:24:17.022 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:24:17.517 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:24:17.656 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:24:17.658 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:24:17.658 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:24:17.683 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-05-10.21:24:17.689 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.
+26-05-10.21:24:24.408 [main            ] INFO  ITradeReverseStockServiceTest - Starting ITradeReverseStockServiceTest using Java 17 on jjnice with PID 8280 (started by 24209 in D:\自学\java学习\拼团交易平台\group-buy-me\group-buy-me-app)
+26-05-10.21:24:24.409 [main            ] INFO  ITradeReverseStockServiceTest - The following 1 profile is active: "dev"
+26-05-10.21:24:25.446 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+26-05-10.21:24:25.451 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+26-05-10.21:24:25.506 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
+26-05-10.21:24:26.328 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterRegisterAutoConfig$$EnhancerBySpringCGLIB$$7c89fdbe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:24:26.357 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'xfg.wrench.config-cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties' of type [cn.bugstack.wrench.dynamic.config.center.config.DynamicConfigCenterAutoProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:24:26.364 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClientConfig' of type [top.daoha.config.RedisClientConfig$$EnhancerBySpringCGLIB$$1b0a8dae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:24:26.371 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redis.sdk.config-top.daoha.config.RedisClientConfigProperties' of type [top.daoha.config.RedisClientConfigProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:24:26.704 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:24:27.016 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:24:27.032 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:24:27.071 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redissonClient' of type [org.redisson.Redisson] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:24:27.094 [main            ] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicConfigCenterService' of type [cn.bugstack.wrench.dynamic.config.center.domain.service.DynamicConfigCenterService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26-05-10.21:24:29.612 [main            ] INFO  Version                - Redisson 3.26.0
+26-05-10.21:24:29.678 [redisson-netty-5-5] INFO  ConnectionsHolder      - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:24:29.702 [redisson-netty-5-23] INFO  ConnectionsHolder      - 10 connections initialized for 127.0.0.1/127.0.0.1:6379
+26-05-10.21:24:29.702 [main            ] INFO  DynamicConfigCenterRegisterAutoConfig - xfg-wrench，注册器（redis）链接初始化完成。127.0.0.1 64 true
+26-05-10.21:24:30.712 [main            ] INFO  EndpointLinksResolver  - Exposing 14 endpoint(s) beneath base path '/actuator'
+26-05-10.21:24:30.829 [main            ] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+26-05-10.21:24:30.900 [main            ] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#712e4b18:0/SimpleConnection@1aee0f49 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 63781]
+26-05-10.21:24:30.986 [main            ] INFO  ITradeReverseStockServiceTest - Started ITradeReverseStockServiceTest in 7.206 seconds (JVM running for 8.027)
+26-05-10.21:24:31.506 [main            ] INFO  TradeRefundOrderService - 逆向流程，退单操作 userId:xfg102 outTrade:487289523679
+26-05-10.21:24:31.538 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+26-05-10.21:24:31.673 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+26-05-10.21:24:31.710 [main            ] INFO  Unpaid2RefundStrategy  - 退单，未支付，未成团。订单信息:TradeRefundOrderEntity(userId=xfg102, teamId=91613426, activityId=100123, orderId=562476422405)
+26-05-10.21:24:31.840 [pool-2-thread-1 ] INFO  TradeTaskService       - 拼团交易-主动通过teamId:91613426 notifyTaskEntity:NotifyTaskEntity(teamId=91613426, notifyType=MQ, notifyMQ=topic.team_refund, notifyUrl=null, notifyCount=0, parameterJson={"activityId":100123,"orderId":"562476422405","teamId":"91613426","type":"unpaid_unlock","userId":"xfg102"}, uuid=91613426_trade_unpaid2refund_562476422405)
+26-05-10.21:24:31.859 [main            ] INFO  ITradeReverseStockServiceTest - 请求参数:{"channel":"c01","outTradeNo":"487289523679","source":"s01","userId":"xfg102"}
+26-05-10.21:24:31.862 [main            ] INFO  ITradeReverseStockServiceTest - 测试结果:{"orderId":"562476422405","teamId":"91613426","tradeRefundBehaviorEnum":"SUCCESS","userId":"xfg102"}
+26-05-10.21:24:31.869 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  RefundSuccessTopicListener - 退单成功（接收消息）- 现在尝试恢复拼团队伍锁单量:{"activityId":100123,"orderId":"562476422405","teamId":"91613426","type":"unpaid_unlock","userId":"xfg102"}
+26-05-10.21:24:31.885 [pool-2-thread-1 ] ERROR AbstractRefundOrderStrategy - 拼团交易 - 退单类型:未支付未成团 - 退单成功 result:{retrycount=0, successCount=1, errorcount=0, waitCount=1}
+26-05-10.21:24:31.888 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRefundOrderService - 逆向流程，恢复锁单量 useId:xfg102 activity:100123 teamId:91613426
+26-05-10.21:24:31.888 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  AbstractRefundOrderStrategy - 退单恢复锁单量--:未支付，未成团，但有锁单记录，要恢复锁单库存的情况，但是有锁单记录 :TeamRefundSuccess(type=unpaid_unlock, userId=xfg102, teamId=91613426, activityId=100123, orderId=562476422405)
+26-05-10.21:24:31.896 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  TradeRepository        - 订单562476422405库存恢复成功，回复库存keygroup_buy_market_team_stock_key_100123_91613426_recovery
+26-05-10.21:24:45.008 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:24:45.010 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:25:00.013 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:25:00.014 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:25:45.004 [scheduling-1    ] INFO  TradeTaskService       - 拼团交易-定时任务执行结算通知任务
+26-05-10.21:25:45.005 [scheduling-1    ] INFO  GroupBuyNotifyJob      - 定时任务，回调通知拼团完结任务 result:{"retrycount":0,"successCount":0,"errorcount":0,"waitCount":0}
+26-05-10.21:25:47.991 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:25:47.992 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+26-05-10.21:25:48.711 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:25:48.771 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+26-05-10.21:25:48.774 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:25:48.775 [SpringApplicationShutdownHook] INFO  SimpleMessageListenerContainer - Shutdown ignored - container is already stopped
+26-05-10.21:25:48.811 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+26-05-10.21:25:48.820 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.

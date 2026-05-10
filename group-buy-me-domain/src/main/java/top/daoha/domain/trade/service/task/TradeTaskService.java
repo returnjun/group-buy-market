@@ -58,18 +58,18 @@ public class TradeTaskService implements ITradeTaskService {
             String response = tradePort.groupBuyNotify(notifyTaskEntity);
 
             if(NotifyTaskHTTPEnumVO.SUCCESS.getCode().equals(response)){
-                int update = tradeRepository.updateNotifyTaskStatusSuccess(notifyTaskEntity.getTeamId());
+                int update = tradeRepository.updateNotifyTaskStatusSuccess(notifyTaskEntity);
                 if(1==update){
                     successCount+=1;
                 }
             }else if(NotifyTaskHTTPEnumVO.ERROR.getCode().equals(response)){
                 if(notifyTaskEntity.getNotifyCount()< 5){
-                    int update = tradeRepository.updateNotifyTaskStatusRetry(notifyTaskEntity.getTeamId());
+                    int update = tradeRepository.updateNotifyTaskStatusRetry(notifyTaskEntity);
                     if(1==update){
                         retryCount+=1;
                     }
                 }else {
-                    int update = tradeRepository.updateNotifyTaskStatusError(notifyTaskEntity.getTeamId());
+                    int update = tradeRepository.updateNotifyTaskStatusError(notifyTaskEntity);
                     if(1==update){
                         errorcount+=1;
                     }

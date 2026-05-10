@@ -12,6 +12,7 @@ import top.daoha.domain.trade.model.valobj.GroupBuyProgressVO;
 import top.daoha.domain.trade.model.valobj.TeamRefundSuccess;
 import top.daoha.domain.trade.service.ITradeTaskService;
 import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
+import top.daoha.domain.trade.service.refund.business.AbstractRefundOrderStrategy;
 import top.daoha.domain.trade.service.refund.business.IRefundOrderStrategy;
 import top.daoha.types.enums.GroupBuyOrderEnumVO;
 import top.daoha.types.exception.AppException;
@@ -22,16 +23,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Slf4j
 @Service("paidTeam2RefundStrategy")
-public class PaidTeam2RefundStrategy implements IRefundOrderStrategy {
+public class PaidTeam2RefundStrategy extends AbstractRefundOrderStrategy {
 
     @Resource
     private ITradeRepository tradeRepository;
-
-    @Resource
-    private ITradeTaskService tradeTaskService;
-
-    @Resource
-    private ThreadPoolExecutor threadPoolExecutor;
 
     @Override
     public void refundOrder(TradeRefundOrderEntity tradeRefundOrderEntity) {
@@ -54,18 +49,7 @@ public class PaidTeam2RefundStrategy implements IRefundOrderStrategy {
         NotifyTaskEntity notifyTaskEntity = tradeRepository.paidTeam2Refund(groupBuyRefundAggregate);
 
         //然后发送MQ消息
-        if(null!=notifyTaskEntity){
-            threadPoolExecutor.execute(()->{
-                Map<String, Integer> notifyResult = null;
-                try {
-                    notifyResult = tradeTaskService.execNotifyJob(notifyTaskEntity);
-                    log.error("已支付已拼团-退单成功 result:{}",notifyResult);
-                } catch (Exception e) {
-                    log.error("已支付已拼团-退单失败 result:{},报错信息：{}",notifyResult,e);
-                    throw new AppException(e.getMessage());
-                }
-            });
-        }
+        sendRefundNotifyMessage(notifyTaskEntity,"已支付已成团");
     }
 
     @Override

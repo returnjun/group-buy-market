@@ -7,7 +7,7 @@ import top.daoha.domain.trade.model.valobj.TeamRefundSuccess;
 
 public interface ITradeRefundOrderService {
        //用户退单
-       TradeRefundBehaviorEntity refundOrder(TradeRefundCommandEntity tradeRefundCommandEntity);
+       TradeRefundBehaviorEntity refundOrder(TradeRefundCommandEntity tradeRefundCommandEntity) throws Exception;
 
        //退单恢复锁单库存
        void restoreTeamLockStock(TeamRefundSuccess teamRefundSuccess);

@@ -5,10 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import top.daoha.api.IMarketTradeService;
-import top.daoha.api.dto.LockMarketPayOrderRequestDTO;
-import top.daoha.api.dto.LockMarketPayOrderResponseDTO;
-import top.daoha.api.dto.SettlementMarketPayOrderRequestDTO;
-import top.daoha.api.dto.SettlementMarketPayOrderResponseDTO;
+import top.daoha.api.dto.*;
 import top.daoha.api.response.Response;
 import top.daoha.domain.activity.model.entity.MarketProductEntity;
 import top.daoha.domain.activity.model.entity.TrialBalanceEntity;
@@ -102,6 +99,7 @@ public class MarketTradeController implements IMarketTradeService {
                     .build();
         }
     }
+
 
 
     @RequestMapping(value = "lock_market_pay_order",method = RequestMethod.POST)
@@ -232,6 +230,25 @@ public class MarketTradeController implements IMarketTradeService {
                     .build();
         } catch (Exception e) {
             return Response.<LockMarketPayOrderResponseDTO>builder()
+                    .code(ResponseCode.UN_ERROR.getCode())
+                    .info(ResponseCode.UN_ERROR.getInfo())
+                    .build();
+        }
+    }
+
+    @Override
+    @RequestMapping(value = "refund_market_pay_order",method = RequestMethod.POST)
+    public Response<RefundMarketPayOrderResponseDTO> refundMarketPayOrder(RefundMarketPayOrderRequestDTO requestDTO) {
+        try{
+            log.info("营销接口调用退单服务开始:{}");
+            return Response.<RefundMarketPayOrderResponseDTO>builder()
+                    .code(ResponseCode.UN_ERROR.getCode())
+                    .info(ResponseCode.UN_ERROR.getInfo())
+                    .build();
+
+
+        }catch (Exception e){
+            return Response.<RefundMarketPayOrderResponseDTO>builder()
                     .code(ResponseCode.UN_ERROR.getCode())
                     .info(ResponseCode.UN_ERROR.getInfo())
                     .build();

@@ -9,6 +9,7 @@ import top.daoha.domain.trade.model.entity.TradeRefundOrderEntity;
 import top.daoha.domain.trade.model.valobj.TeamRefundSuccess;
 import top.daoha.domain.trade.service.ITradeTaskService;
 import top.daoha.domain.trade.service.lock.factory.TradeLockRuleFilterFactory;
+import top.daoha.domain.trade.service.refund.business.AbstractRefundOrderStrategy;
 import top.daoha.domain.trade.service.refund.business.IRefundOrderStrategy;
 import top.daoha.types.exception.AppException;
 
@@ -18,7 +19,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Slf4j
 @Service("unpaid2RefundStrategy")
-public class Unpaid2RefundStrategy implements IRefundOrderStrategy {
+public class Unpaid2RefundStrategy extends AbstractRefundOrderStrategy {
 
     @Resource
     private ITradeRepository tradeRepository;
@@ -38,27 +39,11 @@ public class Unpaid2RefundStrategy implements IRefundOrderStrategy {
         NotifyTaskEntity notifyTaskEntity = tradeRepository.unpaid2Refund(groupBuyRefundAggregate);
 
         //然后发送MQ消息
-        if(null!=notifyTaskEntity){
-            threadPoolExecutor.execute(()->{
-                Map<String, Integer> notifyResult = null;
-                try {
-                    notifyResult = tradeTaskService.execNotifyJob(notifyTaskEntity);
-                    log.error("拼团交易-退单成功 result:{}",notifyResult);
-                } catch (Exception e) {
-                    log.error("拼团交易-退单任务失败 result:{},报错信息：{}",notifyResult,e);
-                    throw new AppException(e.getMessage());
-                }
-
-            });
-        }
+        sendRefundNotifyMessage(notifyTaskEntity,"未支付未成团");
     }
 
     @Override
     public void reverseStock(TeamRefundSuccess teamRefundSuccess) {
-        log.info("退单恢复锁单量--已支付未成团的情况，但是有锁单记录:{} :{}",teamRefundSuccess.getUserId(),teamRefundSuccess);
-        //1 恢复库存key
-        String recoveryTeamStockKey = TradeLockRuleFilterFactory.generateRecoveryTeamStockKey(teamRefundSuccess.getActivityId(), teamRefundSuccess.getTeamId());
-        //2 退单恢复：未支付未成团，但是又锁单记录，恢复锁单库存
-        tradeRepository.refund2AddRecovery(recoveryTeamStockKey,teamRefundSuccess.getOrderId());
+        doReverseStock(teamRefundSuccess, "未支付，未成团，但有锁单记录，要恢复锁单库存");
     }
 }
