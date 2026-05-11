@@ -18,4 +18,6 @@ public class TradeRefundOrderEntity {
     private Long activityId;
 
     private String orderId;
+
+    private String outTradeNo;
 }

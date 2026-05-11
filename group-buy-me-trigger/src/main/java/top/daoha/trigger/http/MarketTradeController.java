@@ -17,6 +17,7 @@ import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
 import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
 import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
 import top.daoha.domain.trade.service.ITradeLockOrderService;
+import top.daoha.domain.trade.service.ITradeRefundOrderService;
 import top.daoha.domain.trade.service.settlement.TradeSettlementOrderService;
 import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
@@ -39,6 +40,9 @@ public class MarketTradeController implements IMarketTradeService {
 
     @Resource
     private TradeSettlementOrderService tradeSettlementOrderService;
+
+    @Resource
+    private ITradeRefundOrderService  tradeRefundOrderService;
 
 
     @RequestMapping(value = "settlement_market_pay_order", method = RequestMethod.POST)
@@ -99,8 +103,6 @@ public class MarketTradeController implements IMarketTradeService {
                     .build();
         }
     }
-
-
 
     @RequestMapping(value = "lock_market_pay_order",method = RequestMethod.POST)
     @Override
@@ -238,14 +240,41 @@ public class MarketTradeController implements IMarketTradeService {
 
     @Override
     @RequestMapping(value = "refund_market_pay_order",method = RequestMethod.POST)
-    public Response<RefundMarketPayOrderResponseDTO> refundMarketPayOrder(RefundMarketPayOrderRequestDTO requestDTO) {
+    public Response<RefundMarketPayOrderResponseDTO> refundMarketPayOrder(@RequestBody RefundMarketPayOrderRequestDTO requestDTO) {
         try{
-            log.info("营销接口调用退单服务开始:{}");
-            return Response.<RefundMarketPayOrderResponseDTO>builder()
-                    .code(ResponseCode.UN_ERROR.getCode())
-                    .info(ResponseCode.UN_ERROR.getInfo())
+            log.info("营销接口调用退单服务开始:{}",JSON.toJSONString(requestDTO));
+
+            if(StringUtils.isBlank(requestDTO.getUserId())||StringUtils.isBlank(requestDTO.getOutTradeNo())||
+            StringUtils.isBlank(requestDTO.getSource())||StringUtils.isBlank(requestDTO.getChannel())){
+                return Response.<RefundMarketPayOrderResponseDTO>builder()
+                        .code(ResponseCode.ILLEGAL_PARAMETER.getCode())
+                        .info(ResponseCode.ILLEGAL_PARAMETER.getInfo())
+                        .build();
+            }
+
+            TradeRefundCommandEntity refundCommandEntity = TradeRefundCommandEntity.builder()
+                    .userId(requestDTO.getUserId())
+                    .outTradeNo(requestDTO.getOutTradeNo())
+                    .channel(requestDTO.getChannel())
+                    .source(requestDTO.getSource())
                     .build();
 
+            TradeRefundBehaviorEntity tradeRefundBehaviorEntity = tradeRefundOrderService.refundOrder(refundCommandEntity);
+
+            RefundMarketPayOrderResponseDTO refundMarketPayOrderResponseDTO = RefundMarketPayOrderResponseDTO.builder()
+                    .orderId(tradeRefundBehaviorEntity.getOrderId())
+                    .teamId(tradeRefundBehaviorEntity.getTeamId())
+                    .userId(tradeRefundBehaviorEntity.getUserId())
+                    .code(tradeRefundBehaviorEntity.getTradeRefundBehaviorEnum().getCode())
+                    .info(tradeRefundBehaviorEntity.getTradeRefundBehaviorEnum().getInfo())
+                    .build();
+
+            log.info("营销拼团退单完成:{} response:{}",requestDTO.getUserId(),JSON.toJSONString(refundMarketPayOrderResponseDTO));
+            return Response.<RefundMarketPayOrderResponseDTO>builder()
+                    .code(ResponseCode.SUCCESS.getCode())
+                    .info(ResponseCode.SUCCESS.getInfo())
+                    .data(refundMarketPayOrderResponseDTO)
+                    .build();
 
         }catch (Exception e){
             return Response.<RefundMarketPayOrderResponseDTO>builder()

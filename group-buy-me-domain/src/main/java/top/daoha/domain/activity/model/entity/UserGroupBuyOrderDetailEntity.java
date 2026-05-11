@@ -31,4 +31,9 @@ public class UserGroupBuyOrderDetailEntity {
     private Date validEndTime;
     /** 外部订单号 */
     private String outTradeNo;
+    /** 渠道 */
+    private String source;
+    /** 来源 */
+    private String channel;
+
 }

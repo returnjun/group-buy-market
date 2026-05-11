@@ -1,5 +1,6 @@
 package top.daoha.domain.trade.adapter.repository;
 
+import top.daoha.domain.activity.model.entity.UserGroupBuyOrderDetailEntity;
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyRefundAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
@@ -47,4 +48,6 @@ public interface ITradeRepository {
     NotifyTaskEntity paidTeam2Refund(GroupBuyRefundAggregate groupBuyRefundAggregate);
 
     void refund2AddRecovery(String recoveryTeamStockKey, String orderId);
+
+    List<UserGroupBuyOrderDetailEntity> queryTimeoutUnpaidOrderList();
 }

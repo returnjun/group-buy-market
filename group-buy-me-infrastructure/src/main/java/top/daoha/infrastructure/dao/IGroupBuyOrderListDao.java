@@ -2,6 +2,7 @@ package top.daoha.infrastructure.dao;
 
 
 import org.apache.ibatis.annotations.Mapper;
+import top.daoha.domain.activity.model.entity.UserGroupBuyOrderDetailEntity;
 import top.daoha.infrastructure.dao.po.GroupBuyOrder;
 import top.daoha.infrastructure.dao.po.GroupBuyOrderList;
 
@@ -14,6 +15,8 @@ import java.util.List;
  */
 @Mapper
 public interface IGroupBuyOrderListDao {
+
+    List<GroupBuyOrderList> queryTimeoutUnpaidOrderList();
 
     void insert(GroupBuyOrderList groupBuyOrderListReq);
 

@@ -43,4 +43,6 @@ public interface IGroupBuyOrderDao {
     int paid2Refund(GroupBuyOrder groupBuyOrder);
 
     int paidTeam2Refund(GroupBuyOrder groupBuyOrder);
+
+    List<GroupBuyOrder> queryGroupBuyTeamByTeamIds(@Param("teamIds")Set<String> teamIds);
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import top.daoha.domain.activity.model.entity.UserGroupBuyOrderDetailEntity;
 import top.daoha.domain.trade.adapter.repository.ITradeRepository;
 import top.daoha.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import top.daoha.domain.trade.model.aggregate.GroupBuyRefundAggregate;
@@ -34,6 +35,7 @@ import top.daoha.types.exception.AppException;
 import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Repository
@@ -134,7 +136,7 @@ public class TradeRepository implements ITradeRepository {
             Date currentTime = new Date();
             Calendar calender = Calendar.getInstance();
             calender.setTime(currentTime);
-            calender.add(Calendar.MINUTE, payActivityEntity.getValidTime());
+            calender.add(Calendar.HOUR, payActivityEntity.getValidTime());
 
             groupBuyOrder.setValidStartTime(currentTime);
             groupBuyOrder.setValidEndTime(calender.getTime());
@@ -155,8 +157,14 @@ public class TradeRepository implements ITradeRepository {
         groupBuyOrderList.setUserId(userId);
         groupBuyOrderList.setTeamId(teamId);
         groupBuyOrderList.setActivityId(payActivityEntity.getActivityId());
-        groupBuyOrderList.setStartTime(payActivityEntity.getStartTime());
-        groupBuyOrderList.setEndTime(payActivityEntity.getEndTime());
+
+        Date currentTime = new Date();
+        Calendar calender = Calendar.getInstance();
+        calender.setTime(currentTime);
+        calender.add(Calendar.MINUTE, payActivityEntity.getValidTime());
+
+        groupBuyOrderList.setStartTime(currentTime);
+        groupBuyOrderList.setEndTime(calender.getTime());
         groupBuyOrderList.setGoodsId(payDiscountEntity.getGoodsId());
         groupBuyOrderList.setSource(payDiscountEntity.getSource());
         groupBuyOrderList.setChannel(payDiscountEntity.getChannel());
@@ -442,6 +450,7 @@ public class TradeRepository implements ITradeRepository {
             put("userId", tradeRefundOrderEntity.getUserId());
             put("teamId", tradeRefundOrderEntity.getTeamId());
             put("orderId", tradeRefundOrderEntity.getOrderId());
+            put("outTradeNo",tradeRefundOrderEntity.getOutTradeNo());
             put("activityId", tradeRefundOrderEntity.getActivityId());
         }}));
 
@@ -505,6 +514,7 @@ public class TradeRepository implements ITradeRepository {
                     put("userId", tradeRefundOrderEntity.getUserId());
                     put("teamId", tradeRefundOrderEntity.getTeamId());
                     put("orderId", tradeRefundOrderEntity.getOrderId());
+                    put("outTradeNo",tradeRefundOrderEntity.getOutTradeNo());
                     put("activityId", tradeRefundOrderEntity.getActivityId());
                 }}
         ));
@@ -576,6 +586,7 @@ public class TradeRepository implements ITradeRepository {
                     put("userId", tradeRefundOrderEntity.getUserId());
                     put("teamId", tradeRefundOrderEntity.getTeamId());
                     put("orderId", tradeRefundOrderEntity.getOrderId());
+                    put("outTradeNo",tradeRefundOrderEntity.getOutTradeNo());
                     put("activityId", tradeRefundOrderEntity.getActivityId());
                 }}
         ));
@@ -619,6 +630,54 @@ public class TradeRepository implements ITradeRepository {
             log.error("订单{}库存恢复成功，回复库存key{} 错误信息:{}",orderId,recoveryTeamStockKey,e);
         }
 
+    }
+
+    @Override
+    public List<UserGroupBuyOrderDetailEntity> queryTimeoutUnpaidOrderList() {
+        List<GroupBuyOrderList> groupBuyOrderLists = groupBuyOrderListDao.queryTimeoutUnpaidOrderList();
+        if (null == groupBuyOrderLists || groupBuyOrderLists.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        // 获取所有teamId
+        Set<String> teamIds = groupBuyOrderLists.stream()
+                .map(GroupBuyOrderList::getTeamId)
+                .collect(Collectors.toSet());
+
+        // 查询团队信息
+        List<GroupBuyOrder> groupBuyOrders = groupBuyOrderDao.queryGroupBuyTeamByTeamIds(teamIds);
+        if (null == groupBuyOrders || groupBuyOrders.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        Map<String, GroupBuyOrder> groupBuyOrderMap = groupBuyOrders.stream()
+                .collect(Collectors.toMap(GroupBuyOrder::getTeamId, order -> order));
+
+        // 转换数据
+        List<UserGroupBuyOrderDetailEntity> userGroupBuyOrderDetailEntities = new ArrayList<>();
+        for (GroupBuyOrderList groupBuyOrderList : groupBuyOrderLists) {
+            String teamId = groupBuyOrderList.getTeamId();
+            GroupBuyOrder groupBuyOrder = groupBuyOrderMap.get(teamId);
+            if (null == groupBuyOrder) continue;
+
+            UserGroupBuyOrderDetailEntity userGroupBuyOrderDetailEntity = UserGroupBuyOrderDetailEntity.builder()
+                    .userId(groupBuyOrderList.getUserId())
+                    .teamId(groupBuyOrder.getTeamId())
+                    .activityId(groupBuyOrder.getActivityId())
+                    .targetCount(groupBuyOrder.getTargetCount())
+                    .completeCount(groupBuyOrder.getCompleteCount())
+                    .lockCount(groupBuyOrder.getLockCount())
+                    .validStartTime(groupBuyOrder.getValidStartTime())
+                    .validEndTime(groupBuyOrder.getValidEndTime())
+                    .outTradeNo(groupBuyOrderList.getOutTradeNo())
+                    .source(groupBuyOrderList.getSource())
+                    .channel(groupBuyOrderList.getChannel())
+                    .build();
+
+            userGroupBuyOrderDetailEntities.add(userGroupBuyOrderDetailEntity);
+        }
+
+        return userGroupBuyOrderDetailEntities;
     }
 
 }
