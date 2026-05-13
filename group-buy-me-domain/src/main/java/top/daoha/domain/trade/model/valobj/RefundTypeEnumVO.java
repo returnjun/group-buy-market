@@ -18,7 +18,7 @@ public enum RefundTypeEnumVO {
             return GroupBuyOrderEnumVO.PROGRESS.equals(groupBuyOrderEnumVO) && TradeOrderStatusEnumVO.CREATE.equals(tradeOrderStatusEnumVO);
         }
     },
-    PAID_UNFORMED("paid_unfromed", "paid2RefundStrategy", "，已支付，未成团") {
+    PAID_UNFORMED("paid_unformed", "paid2RefundStrategy", "，已支付，未成团") {
         @Override
         public boolean matches(GroupBuyOrderEnumVO groupBuyOrderEnumVO, TradeOrderStatusEnumVO tradeOrderStatusEnumVO){
             return GroupBuyOrderEnumVO.PROGRESS.equals(groupBuyOrderEnumVO)&& TradeOrderStatusEnumVO.COMPLETED.equals(tradeOrderStatusEnumVO);
