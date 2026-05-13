@@ -44,7 +44,7 @@ public enum RefundTypeEnumVO {
         switch (type) {
             case "unpaid_unlock":
                 return UNPAID_UNLOCK;
-            case "paid_unfromed":
+            case "paid_unformed":
                 return PAID_UNFORMED;
             case "paid_formed":
                 return PAID_FORMED;

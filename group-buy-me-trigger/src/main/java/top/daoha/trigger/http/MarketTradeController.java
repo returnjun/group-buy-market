@@ -17,6 +17,7 @@ import top.daoha.domain.trade.model.valobj.NotifyConfigVO;
 import top.daoha.domain.trade.model.valobj.NotifyTypeEnumVO;
 import top.daoha.domain.trade.model.valobj.TradeOrderStatusEnumVO;
 import top.daoha.domain.trade.service.ITradeLockOrderService;
+import top.daoha.domain.trade.service.refund.TradeRefundOrderService;
 import top.daoha.domain.trade.service.settlement.TradeSettlementOrderService;
 import top.daoha.types.enums.ResponseCode;
 import top.daoha.types.exception.AppException;
@@ -39,6 +40,9 @@ public class MarketTradeController implements IMarketTradeService {
 
     @Resource
     private TradeSettlementOrderService tradeSettlementOrderService;
+
+    @Resource
+    private TradeRefundOrderService tradeRefundOrderService;
 
 
     @RequestMapping(value = "settlement_market_pay_order", method = RequestMethod.POST)
@@ -238,16 +242,48 @@ public class MarketTradeController implements IMarketTradeService {
 
     @Override
     @RequestMapping(value = "refund_market_pay_order",method = RequestMethod.POST)
-    public Response<RefundMarketPayOrderResponseDTO> refundMarketPayOrder(RefundMarketPayOrderRequestDTO requestDTO) {
+    public Response<RefundMarketPayOrderResponseDTO> refundMarketPayOrder(@RequestBody RefundMarketPayOrderRequestDTO requestDTO) {
         try{
-            log.info("营销接口调用退单服务开始:{}");
-            return Response.<RefundMarketPayOrderResponseDTO>builder()
-                    .code(ResponseCode.UN_ERROR.getCode())
-                    .info(ResponseCode.UN_ERROR.getInfo())
+            log.info("营销拼团退单开始:{} outTradeNo:{}", requestDTO.getUserId(), requestDTO.getOutTradeNo());
+
+            if (StringUtils.isBlank(requestDTO.getUserId()) || StringUtils.isBlank(requestDTO.getOutTradeNo()) || StringUtils.isBlank(requestDTO.getSource()) || StringUtils.isBlank(requestDTO.getChannel())) {
+                return Response.<RefundMarketPayOrderResponseDTO>builder()
+                        .code(ResponseCode.ILLEGAL_PARAMETER.getCode())
+                        .info(ResponseCode.ILLEGAL_PARAMETER.getInfo())
+                        .build();
+            }
+            // 1. 退单服务
+            TradeRefundBehaviorEntity tradeRefundBehaviorEntity = tradeRefundOrderService.refundOrder(TradeRefundCommandEntity.builder()
+                    .userId(requestDTO.getUserId())
+                    .outTradeNo(requestDTO.getOutTradeNo())
+                    .source(requestDTO.getSource())
+                    .channel(requestDTO.getChannel())
+                    .build());
+
+            RefundMarketPayOrderResponseDTO responseDTO = RefundMarketPayOrderResponseDTO.builder()
+                    .userId(tradeRefundBehaviorEntity.getUserId())
+                    .orderId(tradeRefundBehaviorEntity.getOrderId())
+                    .teamId(tradeRefundBehaviorEntity.getTeamId())
+                    .code(tradeRefundBehaviorEntity.getTradeRefundBehaviorEnum().getCode())
+                    .info(tradeRefundBehaviorEntity.getTradeRefundBehaviorEnum().getInfo())
                     .build();
 
+            // 返回结果
+            Response<RefundMarketPayOrderResponseDTO> response = Response.<RefundMarketPayOrderResponseDTO>builder()
+                    .code(ResponseCode.SUCCESS.getCode())
+                    .info(ResponseCode.SUCCESS.getInfo())
+                    .data(responseDTO)
+                    .build();
+            return response;
 
-        }catch (Exception e){
+        }catch (AppException e) {
+            log.error("营销拼团退单异常:{} RefundMarketPayOrderRequestDTO:{}", requestDTO.getUserId(), JSON.toJSONString(requestDTO), e);
+            return Response.<RefundMarketPayOrderResponseDTO>builder()
+                    .code(e.getCode())
+                    .info(e.getInfo())
+                    .build();
+        } catch (Exception e) {
+            log.error("营销拼团退单失败:{} RefundMarketPayOrderRequestDTO:{}", requestDTO.getUserId(), JSON.toJSONString(requestDTO), e);
             return Response.<RefundMarketPayOrderResponseDTO>builder()
                     .code(ResponseCode.UN_ERROR.getCode())
                     .info(ResponseCode.UN_ERROR.getInfo())

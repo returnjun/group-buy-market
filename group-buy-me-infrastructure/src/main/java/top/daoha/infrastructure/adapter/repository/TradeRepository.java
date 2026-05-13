@@ -442,6 +442,7 @@ public class TradeRepository implements ITradeRepository {
             put("userId", tradeRefundOrderEntity.getUserId());
             put("teamId", tradeRefundOrderEntity.getTeamId());
             put("orderId", tradeRefundOrderEntity.getOrderId());
+            put("outTradeNo", tradeRefundOrderEntity.getOutTradeNo());
             put("activityId", tradeRefundOrderEntity.getActivityId());
         }}));
 
@@ -505,6 +506,7 @@ public class TradeRepository implements ITradeRepository {
                     put("userId", tradeRefundOrderEntity.getUserId());
                     put("teamId", tradeRefundOrderEntity.getTeamId());
                     put("orderId", tradeRefundOrderEntity.getOrderId());
+                    put("outTradeNo", tradeRefundOrderEntity.getOutTradeNo());
                     put("activityId", tradeRefundOrderEntity.getActivityId());
                 }}
         ));
@@ -576,6 +578,7 @@ public class TradeRepository implements ITradeRepository {
                     put("userId", tradeRefundOrderEntity.getUserId());
                     put("teamId", tradeRefundOrderEntity.getTeamId());
                     put("orderId", tradeRefundOrderEntity.getOrderId());
+                    put("outTradeNo", tradeRefundOrderEntity.getOutTradeNo());
                     put("activityId", tradeRefundOrderEntity.getActivityId());
                 }}
         ));

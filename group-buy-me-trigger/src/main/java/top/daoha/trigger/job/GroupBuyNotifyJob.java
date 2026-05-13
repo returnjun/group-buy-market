@@ -25,7 +25,7 @@ public class GroupBuyNotifyJob {
     private RedissonClient redissonClient;
 
 
-    @Scheduled(cron = "0/45 * * * * ?")
+    @Scheduled(cron = "* 0/5 * * * ?")
     public void exec(){
         //加锁，分布式应用，任务调度可能N个机子同时执行，这里增加抢占机制，谁抢到谁执行
         RLock lock = redissonClient.getLock("group_buy_market_notify_job_exec");
